@@ -33,7 +33,7 @@
   "scripts": {
     "start": "npm run tsc && node build/server.js",
     "client": "react-scripts start",
-    "server": "nodemon server/server.ts localhost 5000",
+    "server": "nodemon server/server.ts",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
