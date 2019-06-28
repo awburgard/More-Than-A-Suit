@@ -21,7 +21,7 @@ if (process.env.DATABASE_URL) {
   config = {
     host: 'localhost',
     port: 5432,
-    database: 'UPDATE_ME',
+    database: 'suitup',
     max: 10,
     idleTimeoutMillis: 30000,
   };
