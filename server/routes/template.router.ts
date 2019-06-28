@@ -18,4 +18,4 @@ router.post('/', (req: Request, res: Response, next: express.NextFunction): void
     res.sendStatus(201);
 });
 
-module.exports = router;
+export default router;
