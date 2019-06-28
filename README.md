@@ -40,7 +40,7 @@ CREATE TABLE "user" (
 );
 
 CREATE TABLE "resources" (
-    "id" SERIAL primary key,
+    "id" SERIAL PRIMARY KEY,
     "title" VARCHAR (80),
     "description" VARCHAR (1000),
     "link" VARCHAR (1000)
