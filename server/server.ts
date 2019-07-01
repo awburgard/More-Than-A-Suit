@@ -54,7 +54,7 @@ app.listen(PORT, (): void => {
 app.get('/test/scott', (req: any, res: any) => {
   textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
   res.send(200);
-  textSFH('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
+  textSFH('+DAVIDS_NUMBER_HERE', 'SOME_MESSAGE');
   res.send(200);
 })
 
