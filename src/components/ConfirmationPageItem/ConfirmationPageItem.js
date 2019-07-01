@@ -6,7 +6,6 @@ class ConfirmationPageItem extends Component {
     render() {
         return (
             <div>
-
                 First Name: {this.props.info.first_name}
                 Last Name: {this.props.info.last_name}
                 Zip Code: {this.props.info.zip}

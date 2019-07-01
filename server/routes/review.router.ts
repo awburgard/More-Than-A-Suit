@@ -14,7 +14,7 @@ router.get('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.send(response.rows)
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error positing to user: ${err}`);
+            console.log(`Error getting user: ${err}`);
             res.sendStatus(500);
         })
 });

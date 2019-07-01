@@ -6,22 +6,26 @@ import ConfirmationPageItem from '../ConfirmationPageItem/ConfirmationPageItem';
 
 class ConfirmationPageList extends Component {
     componentDidMount() {
-        this.props.dispatch({
-            type: 'GET_REVIEW',
-            payload: 1
-        })
+        // this.props.dispatch({
+        //     type: 'GET_REVIEW',
+        //     payload: {id: 1}
+        // })
+
+        // // SET USER INFO MANUALLY HERE:
+        // /*
+        // const userInfo = {
+        //     name:
+        //     ...
+        // }
+
+        // send this to the reducer
+        // */
     }
     render() {
-        const reviewInfo = this.props.reduxState.setReview.map((info, index) => {
-            return (
-                <div key={index}>
-                    <ConfirmationPageItem key={index} info={info} index={index} />
-                </div>
-            )
-        })
         return (
             <div>
-                {reviewInfo}
+                <ConfirmationPageItem info={this.props.store.setReview} />
+
             </div>
         );
     }
