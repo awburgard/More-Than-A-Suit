@@ -17,7 +17,7 @@ router.get('/:id', (req: Request, res: Response, next: express.NextFunction): vo
         })
 });
 
-router.put('/review/:id', (req: Request, res: Response, next: express.NextFunction): void => {
+router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
     const queryString: string = `UPDATE "user"
                                 SET "first_name" = $1,
                                 "last_name" = $2,

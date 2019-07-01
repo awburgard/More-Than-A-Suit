@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response, response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
 import { request } from "https";
@@ -14,7 +14,19 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: Object): void => {
-            console.log(`Error positing to user: ${err}`);
+            console.log(`Error posting to user: ${err}`);
+            res.sendStatus(500);
+        })
+});
+
+router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryString: string = `SELECT * FROM "categories";`;
+    pool.query(queryString)
+        .then((response: Object): void => {
+            res.sendStatus(201);
+        })
+        .catch((err: Object): void => {
+            console.log(`Error getting resources: ${err}`);
             res.sendStatus(500);
         })
 });

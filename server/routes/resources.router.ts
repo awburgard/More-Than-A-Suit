@@ -5,7 +5,7 @@ import { request } from "https";
 
 const router: express.Router = express.Router();
 
-router.get('/resources', (req: Request, res: Response, next: express.NextFunction): void => {
+router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
     const queryString: string = `SELECT * FROM "resources"
                                 JOIN "resources_categories"."resources_id"
                                 ON "resources"."id"
@@ -22,7 +22,7 @@ router.get('/resources', (req: Request, res: Response, next: express.NextFunctio
 });
 
 //Filter for Resources Page based on User's Need
-router.get('/resources/:need', (req: Request, res: Response, next: express.NextFunction): void => {
+router.get('/:need', (req: Request, res: Response, next: express.NextFunction): void => {
     const queryString: string = `SELECT * FROM "resources"
                                 JOIN "resources_categories"."resources_id"
                                 ON "resources"."id"
