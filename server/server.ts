@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import sessionMiddleware from './modules/session-middleware';
 import passport from './strategies/user.strategy';
 import userRouter from './routes/user.router';
+import adminRouter from './routes/admin.router';
 import reviewRouter from './routes/review.router';
 import appointmentRouter from './routes/appointment.router';
 import measurementsRouter from './routes/measurements.router';
@@ -30,6 +31,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/admin', adminRouter);
 app.use('/api/review', reviewRouter);
 app.use('/api/appointment', appointmentRouter);
 app.use('/api/measurements', measurementsRouter);
