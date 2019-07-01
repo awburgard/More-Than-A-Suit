@@ -4,6 +4,8 @@ import sessionMiddleware from './modules/session-middleware';
 import passport from './strategies/user.strategy';
 import userRouter from './routes/user.router';
 
+import { textGentleman } from './modules/textGentleman';
+
 require('dotenv').config();
 
 const app: any = express();
@@ -32,5 +34,13 @@ const PORT: number | string = process.env.PORT || 5000;
 app.listen(PORT, (): void => {
   console.log(`So awesome. Much wow. Listening on port: ${PORT}`);
 });
+
+// Twilio
+app.get('/test/scott', (req: any, res: any) => {
+  textGentleman('+17632287828', 'Hi Scott');
+  res.send(200);
+})
+
+
 
 export default app;
