@@ -7,10 +7,11 @@ import { QueryResult } from "pg";
 const router: express.Router = express.Router();
 
 router.get('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT * FROM "user";`;
-    pool.query(queryString, [req.body.need, req.params.id])
+    const queryString: string = `SELECT * FROM "user"
+                                WHERE "id" =$1;`;
+    pool.query(queryString, [req.params.id])
         .then((response: QueryResult): void => {
-            res.sendStatus(201);
+            res.send(response.rows)
         })
         .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
@@ -28,7 +29,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
                                 "height_feet" = $6,
                                 "height_inches" = $7,
                                 "waist" = $8,
-                                "weight" = $9
+                                "weight" = $9,
                                 "need" = $10
                                 WHERE "id" = $11;`;
     pool.query(queryString, [req.body.first_name, req.body.last_name, req.body.zip,

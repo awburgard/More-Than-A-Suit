@@ -24,7 +24,6 @@ router.get('/', (req: Request, res: Response, next: express.NextFunction): void 
     pool.query(queryString)
         .then((response: QueryResult): void => {
             res.send(response.rows)
-            res.sendStatus(201);
         })
         .catch((err: Object): void => {
             console.log(`Error getting resources: ${err}`);
