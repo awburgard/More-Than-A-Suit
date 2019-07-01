@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
-import { request } from "https";
+import { QueryResult } from "pg";
 
 const router: express.Router = express.Router();
 
@@ -12,10 +12,10 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
                                 "time" = $3
                                 WHERE "id" = $4;`;
     pool.query(queryString, [req.body.appointment_type, req.body.appointment_date, req.body.time, req.params.id])
-        .then((response: Object): void => {
+        .then((response: QueryResult): void => {
             res.sendStatus(201);
         })
-        .catch((err: Object): void => {
+        .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })

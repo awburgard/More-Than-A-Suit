@@ -2,17 +2,15 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "allowJs": true,
     "outDir": "./build",
     "strict": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
     "esModuleInterop": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
+    "allowJs": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -22,6 +20,9 @@
     "noEmit": true,
     "jsx": "preserve"
   },
+  "exclude": [
+    "src/"
+  ],
   "include": [
     "src"
   ]

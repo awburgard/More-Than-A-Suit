@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
-import { request } from "https";
+import { QueryResult } from "pg";
 
 const router: express.Router = express.Router();
 
@@ -12,10 +12,11 @@ router.get('/', (req: Request, res: Response, next: express.NextFunction): void 
                                 JOIN "resources_categories"."categories_id"
                                 ON "categories"."id";`;
     pool.query(queryString)
-        .then((response: Object): void => {
+        .then((response: QueryResult): void => {
+            res.send(response.rows)
             res.sendStatus(201);
         })
-        .catch((err: Object): void => {
+        .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })
@@ -30,10 +31,11 @@ router.get('/:need', (req: Request, res: Response, next: express.NextFunction): 
                                 ON "categories"."id"
                                 WHERE "categories"."category_name" = $1;`;
     pool.query(queryString, [req.params.need])
-        .then((response: Object): void => {
+        .then((response: QueryResult): void => {
+            res.send(response.rows)
             res.sendStatus(201);
         })
-        .catch((err: Object): void => {
+        .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })

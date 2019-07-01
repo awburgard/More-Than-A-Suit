@@ -1,17 +1,18 @@
 import { Request, Response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
-import { request } from "https";
+import { QueryResult } from "pg";
+
 
 const router: express.Router = express.Router();
 
 router.get('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
     const queryString: string = `SELECT * FROM "user";`;
     pool.query(queryString, [req.body.need, req.params.id])
-        .then((response: Object): void => {
+        .then((response: QueryResult): void => {
             res.sendStatus(201);
         })
-        .catch((err: Object): void => {
+        .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })
@@ -33,10 +34,10 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
     pool.query(queryString, [req.body.first_name, req.body.last_name, req.body.zip,
     req.body.phone, req.body.email, req.body.height_feet, req.body.height_inches,
     req.body.waist, req.body.weight, req.body.need, req.params.id])
-        .then((response: Object): void => {
+        .then((response: QueryResult): void => {
             res.sendStatus(201);
         })
-        .catch((err: Object): void => {
+        .catch((err: QueryResult): void => {
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })
