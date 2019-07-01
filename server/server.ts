@@ -51,7 +51,7 @@ app.listen(PORT, (): void => {
 
 // Twilio
 app.get('/test/scott', (req: any, res: any) => {
-  textGentleman('+17632287828', 'Hi Scott');
+  textGentleman('+SOME_NUMBER_HERE', 'MESSAGE');
   res.send(200);
 })
 
