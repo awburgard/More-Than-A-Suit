@@ -11,6 +11,7 @@ import needRouter from './routes/need.router';
 import infoRouter from './routes/info.router';
 
 import { textGentleman } from './modules/textGentleman';
+import { textSFH } from './modules/textSFH';
 
 require('dotenv').config();
 
@@ -51,7 +52,9 @@ app.listen(PORT, (): void => {
 
 // Twilio
 app.get('/test/scott', (req: any, res: any) => {
-  textGentleman('+SOME_NUMBER_HERE', 'MESSAGE');
+  textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
+  res.send(200);
+  textSFH('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
   res.send(200);
 })
 
