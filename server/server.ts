@@ -52,13 +52,13 @@ app.listen(PORT, (): void => {
   console.log(`So awesome. Much wow. Listening on port: ${PORT}`);
 });
 
-// Twilio
-app.get('/test/scott', (req: any, res: any) => {
-  textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
-  res.send(200);
-  textSFH('+DAVIDS_NUMBER_HERE', 'SOME_MESSAGE');
-  res.send(200);
-})
+// // Twilio
+// app.get('/test/scott', (req: any, res: any) => {
+//   textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
+//   res.send(200);
+//   textSFH('+DAVIDS_NUMBER_HERE', 'SOME_MESSAGE');
+//   res.send(200);
+// })
 
 
 

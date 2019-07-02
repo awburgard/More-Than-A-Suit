@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
 import { QueryResult } from "pg";
+import { textGentleman } from "../modules/textGentleman";
+import { textSFH } from "../modules/textSFH";
 
 
 const router: express.Router = express.Router();
@@ -17,6 +19,17 @@ router.get('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             console.log(`Error positing to user: ${err}`);
             res.sendStatus(500);
         })
+});
+
+router.post('/twilio/', (req: Request, res: Response, next: express.NextFunction): void => {
+// the specifics are subject to change based on Google Calendar documentation and how that
+// information is coming down
+    textGentleman(req.user.phoneNumber, `Thank you ${req.user.first_name}
+                                        for confirming your appointment @ ${req.user.time}
+                                        on ${req.user.date}`);
+// if David wants to get a text as well (in addition to the email)
+    textSFH(`${req.user.first_name} ${req.user.last_name} has a(n) ${req.user.appointment_type}
+                                        on ${req.user.date} @ ${req.user.time}`)
 });
 
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
