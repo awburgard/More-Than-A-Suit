@@ -46,6 +46,7 @@ class ContactInfo extends Component {
                     <input type="text"
                         value={this.state.userInfo.first_name}
                         onChange={this.onFormChange('first_name')}
+                        required="required"
                         placeholder="First Name"
                     /> <br/>
                     <input type="text"
