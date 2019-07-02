@@ -1,6 +1,5 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
-import { response } from 'express';
 
 // worker Saga: will be fired on 'GET_TEMPLATE' actions
 function* getReview(action) {
@@ -18,14 +17,14 @@ function* getReview(action) {
 }
 
 // worker Saga: will be fired on 'POST_TEMPLATE' actions
-function* postTemplate(action) {
+function* putReview(action) {
   try {
     // post will send whatever is on the action.payload to the server route
-    yield axios.post('api/user/logout', action.payload);
+    yield axios.put(`api/review/${action.payload}`, action.payload);
     // on successful post the 'GET_TEMPLATES' saga is dispateched (put)
     yield put({
-        type: 'GET_TEMPLATES',
-        payload: {...action.payload, id: response.data.id}
+        type: 'SET_REVIEW',
+        payload: {...action.payload}
     });
 
   } catch (error) {
@@ -35,7 +34,7 @@ function* postTemplate(action) {
 
 function* confirmationSaga() {
   yield takeEvery('GET_REVIEW', getReview);
-  yield takeEvery('POST_TEMPLATE', postTemplate);
+  yield takeEvery('PUT_REVIEW', putReview);
 }
 
 export default confirmationSaga;

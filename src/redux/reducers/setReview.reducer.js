@@ -12,12 +12,15 @@ const testUser = {
   need: 'Job',
   appointment_type: 'phone',
   appointment_date: 'July 1',
+  time: '3:00pm'
 }
 
-const setReview = (state = {}, action) => {
+// should return {...state, ...action.payload}
+// state should be an empty object
+const setReview = (state = testUser, action) => {
     switch (action.type) {
       case 'SET_REVIEW':
-        return action.payload;
+        return state;
       default:
         return state;
     }

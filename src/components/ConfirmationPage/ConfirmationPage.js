@@ -7,6 +7,7 @@ class ConfirmationPage extends Component {
   render() {
     return (
       <div>
+        <h2>Confirmation Page</h2>
           <ConfirmationPageList/>
       </div>
     );
