@@ -3,18 +3,26 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 class EditButton extends Component {
-    // editInfo = () => {
-    //     this.props.dispatch({
-    //         type: 'PUT_REVIEW',
-    //         payload: {id: this.props.store.setReview.id}
-    //     })
+    saveInfo = (action) => {
+        this.props.dispatch({
+            type: 'PUT_REVIEW',
+            payload: action.payload
+        })
+        this.props.toggleEdit();
 
-    // }
+    }
 
     render() {
+        let conditionalButton;
+        if (this.props.editing) {
+            conditionalButton = <button onClick={this.saveInfo}>Save</button>
+        } else {
+            conditionalButton = <button onClick={this.props.toggleEdit}>Edit</button>
+
+        }
         return (
             <div>
-                <button onClick={this.props.toggleEdit}>Edit</button>
+                {conditionalButton}
             </div>
         );
     }
