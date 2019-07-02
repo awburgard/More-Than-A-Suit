@@ -16,6 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SplashPage from '../SplashPage/SplashPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
+import ContactInfo from '../ContactInfo/ContactInfo';
 import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
@@ -56,6 +57,11 @@ class App extends Component {
                 path="/login"
                 redirect="/admin"
                 component={LoginPage}
+              />
+              <Route
+                exact
+                path="/info"
+                component={ContactInfo}
               />
               {/* Visiting localhost:3000/about will show the about page.
               This is a route anyone can see, no login necessary */}
