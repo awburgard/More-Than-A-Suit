@@ -20,11 +20,11 @@ function* getReview(action) {
 function* putReview(action) {
   try {
     // post will send whatever is on the action.payload to the server route
-    yield axios.put(`api/review/${action.payload}`, action.payload);
+    const response = yield axios.put(`api/review/${action.payload}`, action.payload);
     // on successful post the 'GET_TEMPLATES' saga is dispateched (put)
     yield put({
         type: 'SET_REVIEW',
-        payload: {...action.payload}
+        payload: {...response.data}
     });
 
   } catch (error) {

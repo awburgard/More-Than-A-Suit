@@ -3,14 +3,18 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 class EditButton extends Component {
-    editInfo = () => {
+    // editInfo = () => {
+    //     this.props.dispatch({
+    //         type: 'PUT_REVIEW',
+    //         payload: {id: this.props.store.setReview.id}
+    //     })
 
-    }
+    // }
 
     render() {
         return (
             <div>
-                <button onClick={this.editInfo}>Edit</button>
+                <button onClick={this.props.toggleEdit}>Edit</button>
             </div>
         );
     }
