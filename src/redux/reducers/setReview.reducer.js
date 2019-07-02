@@ -14,7 +14,7 @@ const testUser = {
   appointment_date: 'July 1',
 }
 
-const setReview = (state = testUser, action) => {
+const setReview = (state = {}, action) => {
     switch (action.type) {
       case 'SET_REVIEW':
         return action.payload;

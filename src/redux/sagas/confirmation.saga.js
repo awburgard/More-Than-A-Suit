@@ -1,5 +1,6 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
+import { response } from 'express';
 
 // worker Saga: will be fired on 'GET_TEMPLATE' actions
 function* getReview(action) {
@@ -24,6 +25,7 @@ function* postTemplate(action) {
     // on successful post the 'GET_TEMPLATES' saga is dispateched (put)
     yield put({
         type: 'GET_TEMPLATES',
+        payload: {...action.payload, id: response.data.id}
     });
 
   } catch (error) {

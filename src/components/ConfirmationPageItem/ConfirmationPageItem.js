@@ -18,7 +18,6 @@ class ConfirmationPageItem extends Component {
                 Appointment Type: {this.props.info.appointment_type}
                 Appointment Date: {this.props.info.appointment_date}
                 Appointment Time: {this.props.info.time}
-
             </div>
         );
     }
