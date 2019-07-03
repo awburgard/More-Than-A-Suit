@@ -18,9 +18,11 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
+import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 import './App.css';
+import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 
 class App extends Component {
   componentDidMount () {
@@ -46,6 +48,11 @@ class App extends Component {
                 path="/"
                 component={SplashPage}
               />
+              <Route
+                exact
+                path="/appointment"
+                component={AppointmentPage}
+              />
 
 
               {/* For protected routes, in the case that you provide a
@@ -63,6 +70,11 @@ class App extends Component {
                 exact
                 path="/about"
                 component={AboutPage}
+              />
+               <Route
+                exact
+                path="/confirmation"
+                component={ConfirmationPage}
               />
               {/* For protected routes, the view could show one of several things on the same route.
               Visiting localhost:3000/admin will show the UserPage if the user is logged in.
