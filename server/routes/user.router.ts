@@ -15,7 +15,7 @@ router.post('/register', (req: Request, res: Response, next: express.NextFunctio
   const username: string | null = <string>req.body.username;
   const password: string | null = encryptPassword(req.body.password);
 
-  const queryText: string = `INSERT INTO "user" (username, password) VALUES ($1, $2) RETURNING id`;
+  const queryText: string = `INSERT INTO "userAdmin" (username, password) VALUES ($1, $2) RETURNING id`;
   pool.query(queryText, [username, password])
     .then(() => res.sendStatus(201))
     .catch((err) => {

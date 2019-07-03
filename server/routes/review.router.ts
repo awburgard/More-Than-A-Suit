@@ -39,7 +39,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error positing to user: ${err}`);
+            console.log(`Error posting to user: ${err}`);
             res.sendStatus(500);
         })
 });

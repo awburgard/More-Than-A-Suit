@@ -20,14 +20,15 @@ class ConfirmationPageItem extends Component {
     render() {
         let conditionalElement;
         if (this.state.editing) {
-            conditionalElement = <InputField info={this.props.info} />
+            conditionalElement = <InputField info={this.props.info} toggleEdit={this.toggleEdit} />
         } else {
             conditionalElement = <ConfirmationPageInfo info={this.props.info} />
         }
         return (
             <div>
                 {conditionalElement}
-                <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} />
+                <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} />
+                <button>Continue</button>
             </div>
         );
     }
