@@ -23,6 +23,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 import './App.css';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
+import ResourcesPage from '../ResourcesPage/ResourcesPage';
 
 class App extends Component {
   componentDidMount () {
@@ -52,6 +53,11 @@ class App extends Component {
                 exact
                 path="/appointment"
                 component={AppointmentPage}
+              />
+              <Route
+                exact
+                path="/resources"
+                component={ResourcesPage}
               />
 
 
