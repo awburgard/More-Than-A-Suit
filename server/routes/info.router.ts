@@ -6,7 +6,7 @@ import { QueryResult } from "pg";
 const router: express.Router = express.Router();
 
 router.post('/', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `INSERT INTO "gentlemen"
+    const queryString: string = `INSERT INTO "gentleman"
                         ("first_name", "last_name", "zip", "phone", "email")
                         VALUES ($1, $2, $3, $4, $5)
                         RETURNING id;`;
@@ -19,5 +19,6 @@ router.post('/', (req: Request, res: Response, next: express.NextFunction): void
             res.sendStatus(500);
         })
 });
+
 
 export default router;

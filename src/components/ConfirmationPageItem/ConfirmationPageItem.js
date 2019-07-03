@@ -4,6 +4,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import EditButton from '../EditButton/EditButton'
 import ConfirmationPageInfo from '../ConfirmationPageInfo/ConfirmationPageInfo';
 import InputField from '../InputField/InputField';
+import TwilioButton from '../TwilioButton/TwilioButton';
 
 class ConfirmationPageItem extends Component {
     state = {
@@ -28,7 +29,7 @@ class ConfirmationPageItem extends Component {
             <div>
                 {conditionalElement}
                 <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} />
-                <button>Continue</button>
+                <TwilioButton />
             </div>
         );
     }

@@ -20,7 +20,7 @@ router.get('/:id', (req: Request, res: Response, next: express.NextFunction): vo
 });
 
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `UPDATE "gentlemen"
+    const queryString: string = `UPDATE "gentleman"
                                 SET "first_name" = $1,
                                 "last_name" = $2,
                                 "zip" = $3,
