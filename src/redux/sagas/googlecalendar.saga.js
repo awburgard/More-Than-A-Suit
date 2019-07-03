@@ -20,14 +20,14 @@ function* getCalendarEvents(action) {
 function* postCalendarEvents(action) {
   try {
     // post will send whatever is on the action.payload to the server route
-    yield axios.post('https://www.googleapis.com/calendar/v3/calendars/primary/events?
+    yield axios.post(`https://www.googleapis.com/calendar/v3/calendars/primary/events?
                         conferenceDataVersion=0&
                         maxAttendees=1&
                         sendNotifications=true&
                         sendUpdates=all&
                         supportsAttachments=false&
                         fields=end%2FdateTime%2Cstart%2FdateTime%2Csummary&
-                        key={YOUR_API_KEY}', 
+                        key={YOUR_API_KEY}`,
                     action.payload);
     // on successful post the 'GET_TEMPLATES' saga is dispateched (put)
     yield put({
