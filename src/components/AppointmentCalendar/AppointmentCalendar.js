@@ -19,11 +19,11 @@ class AppointmentCalendar extends Component {
     render() {
         return (
             <div>
-                <FullCalendar 
-                    defaultView="dayGridMonth" 
-                    plugins={[ dayGridPlugin, interactionPlugin ]}
-                    events={[]} 
-                    dateClick={this.handleDateClick}/>
+                <FullCalendar
+                    defaultView="dayGridMonth"
+                    plugins={[dayGridPlugin, interactionPlugin]}
+                    events={[]}
+                    dateClick={this.handleDateClick} />
             </div>
         )
     }

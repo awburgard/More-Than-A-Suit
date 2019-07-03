@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
 import moment from 'moment'
+import AppointmentPage from '../AppointmentPage/AppointmentPage';
 
 class InputField extends Component {
 
@@ -67,6 +68,8 @@ class InputField extends Component {
                 Waist: <input type="number" value={this.state.waist} onChange={this.handleInputChangeFor('waist')}></input> <br />
                 <RadioButtons handleChange={this.handleInputChangeFor} need={this.state.need} />
                 <br />
+                {/* <AppointmentPage /> */}
+                {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
                 Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
                 Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
                 Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br />
