@@ -10,8 +10,11 @@ class TwilioButton extends Component {
             payload: {
                 phoneNumber: this.props.info.phone,
                 appointmentDate: this.props.info.appointment_date,
+                appointmentTime: this.props.info.appointment_time
             }
         })
+
+        this.props.history.push('/resources');
     }
 
     render (){

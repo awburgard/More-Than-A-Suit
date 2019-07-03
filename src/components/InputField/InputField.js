@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
+import moment from 'moment'
 
 class InputField extends Component {
 
@@ -18,7 +19,7 @@ class InputField extends Component {
         need: this.props.info.need,
         appointment_date: this.props.info.appointment_date,
         appointment_type: this.props.info.appointment_type,
-        time: this.props.info.time,
+        appointment_time: this.props.info.appointment_time,
     }
 
     saveInfo = () => {
@@ -38,7 +39,7 @@ class InputField extends Component {
                 need: this.state.need,
                 appointment_date: this.state.appointment_date,
                 appointment_type: this.state.appointment_type,
-                time: this.state.time
+                appointment_time: this.state.appointment_time
             }
         })
         this.props.toggleEdit();
@@ -64,12 +65,12 @@ class InputField extends Component {
                 Inches <input type="number" value={this.state.height_inches} onChange={this.handleInputChangeFor('height_inches')}></input><br />
                 Weight: <input type="number" value={this.state.weight} onChange={this.handleInputChangeFor('weight')}></input> <br />
                 Waist: <input type="number" value={this.state.waist} onChange={this.handleInputChangeFor('waist')}></input> <br />
-                <RadioButtons handleChange={this.handleInputChangeFor} need={this.state.need}/>
+                <RadioButtons handleChange={this.handleInputChangeFor} need={this.state.need} />
                 <br />
                 Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
-                Appointment Date: <input value={this.state.appointment_date} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
-                Appointment Time: <input value={this.state.time} onChange={this.handleInputChangeFor('time')}></input> <br />
-            <button onClick={this.saveInfo}>Save</button>
+                Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
+                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br />
+                <button onClick={this.saveInfo}>Save</button>
             </div >
         )
     }
