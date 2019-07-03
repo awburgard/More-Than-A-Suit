@@ -15,7 +15,6 @@ import infoRouter from './routes/info.router';
 import googlecal from './routes/googlecalendar.router';
 
 import { textGentleman } from './modules/textGentleman';
-import { textSFH } from './modules/textSFH';
 
 require('dotenv').config();
 
@@ -55,11 +54,9 @@ app.listen(PORT, (): void => {
   console.log(`So awesome. Much wow. Listening on port: ${PORT}`);
 });
 
-// // Twilio
+// Twilio
 // app.get('/test/scott', (req: any, res: any) => {
 //   textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
-//   res.send(200);
-//   textSFH('+DAVIDS_NUMBER_HERE', 'SOME_MESSAGE');
 //   res.send(200);
 // })
 

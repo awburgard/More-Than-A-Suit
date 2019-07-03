@@ -2,38 +2,24 @@ import { Request, Response } from "express";
 import express from 'express';
 import pool from '../modules/pool';
 import { QueryResult } from "pg";
-import { textGentleman } from "../modules/textGentleman";
-import { textSFH } from "../modules/textSFH";
-
 
 const router: express.Router = express.Router();
 
 router.get('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT * FROM "gentlemen"
+    const queryString: string = `SELECT * FROM "gentleman"
                                 WHERE "id" =$1;`;
     pool.query(queryString, [req.params.id])
         .then((response: QueryResult): void => {
             res.send(response.rows)
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error getting gentlemen info: ${err}`);
+            console.log(`Error getting gentleman info: ${err}`);
             res.sendStatus(500);
         })
 });
 
-router.post('/twilio/', (req: Request, res: Response, next: express.NextFunction): void => {
-// the specifics are subject to change based on Google Calendar documentation and how that
-// information is coming down
-    textGentleman(req.user.phoneNumber, `Thank you ${req.user.first_name}
-                                        for confirming your appointment @ ${req.user.time}
-                                        on ${req.user.date}`);
-// if David wants to get a text as well (in addition to the email)
-    textSFH(`${req.user.first_name} ${req.user.last_name} has a(n) ${req.user.appointment_type}
-                                        on ${req.user.date} @ ${req.user.time}`)
-});
-
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `UPDATE "gentlemen"
+    const queryString: string = `UPDATE "gentleman"
                                 SET "first_name" = $1,
                                 "last_name" = $2,
                                 "zip" = $3,
@@ -52,11 +38,9 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error updating gentlemen: ${err}`);
+            console.log(`Error updating gentleman: ${err}`);
             res.sendStatus(500);
         })
 });
-
-
 
 export default router;
