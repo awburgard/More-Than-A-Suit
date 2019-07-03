@@ -1,7 +1,18 @@
+function googleCalendarEventConverter(googleEvents) {
+    const calendarEvents = googleEvents.map((gEvent) => {
+        return {
+            title: 'BUSY',
+            start: gEvent.start.dateTime,
+            end: gEvent.end.dateTime
+        }
+    })
+    return calendarEvents
+}
+
 const appointment = (state = {}, action) => {
     switch (action.type) {
         case 'SET_APPOINTMENT':
-            return action.payload;
+            return googleCalendarEventConverter(action.payload);
         default:
             return state;
     }

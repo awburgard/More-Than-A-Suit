@@ -41,7 +41,7 @@ app.use('/api/info', infoRouter);
 app.use('/api/resources', resourcesRouter);
 app.use('/api/need', needRouter);
 
-app.use('/googlecal/event', googlecal);
+app.use('/googlecal', googlecal);
 
 // Serve static files
 app.use(express.static('build'));

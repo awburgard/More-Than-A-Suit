@@ -23,6 +23,7 @@ function authorize(credentials: any, callback: any, response: any) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
+      console.log('Authorized', credentials);
 
   fs.readFile(TOKEN_PATH, (err: any, token: any) => {
     if (err) {
