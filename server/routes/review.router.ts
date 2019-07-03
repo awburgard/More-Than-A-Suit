@@ -7,14 +7,14 @@ import { QueryResult } from "pg";
 const router: express.Router = express.Router();
 
 router.get('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT * FROM "gentlemen"
+    const queryString: string = `SELECT * FROM "gentleman"
                                 WHERE "id" =$1;`;
     pool.query(queryString, [req.params.id])
         .then((response: QueryResult): void => {
             res.send(response.rows)
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error getting gentlemen info: ${err}`);
+            console.log(`Error getting gentleman info: ${err}`);
             res.sendStatus(500);
         })
 });
@@ -39,7 +39,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error updating gentlemen: ${err}`);
+            console.log(`Error updating gentleman: ${err}`);
             res.sendStatus(500);
         })
 });

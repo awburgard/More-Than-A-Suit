@@ -16,7 +16,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error updating gentlemen: ${err}`);
+            console.log(`Error updating gentleman: ${err}`);
             res.sendStatus(500);
         })
 });

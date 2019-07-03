@@ -15,7 +15,7 @@ router.post('/', (req: Request, res: Response, next: express.NextFunction): void
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error posting to gentlemen: ${err}`);
+            console.log(`Error posting to gentleman: ${err}`);
             res.sendStatus(500);
         })
 });
