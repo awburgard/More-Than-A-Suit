@@ -24,6 +24,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 import './App.css';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
+import Measurements from '../Measurements/Measurements';
 
 class App extends Component {
   componentDidMount () {
@@ -93,11 +94,17 @@ class App extends Component {
               />
               {/* This works the same as the other protected route, except that if the user is logged in,
               they will see the info page instead. */}
-              <ProtectedRoute
+              <Route
                 exact
                 path="/info"
                 component={InfoPage}
               />
+              <Route
+                exact
+                path="/measurements"
+                component={Measurements}
+              />
+
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
             </Switch>
