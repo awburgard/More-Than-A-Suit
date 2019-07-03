@@ -1,7 +1,7 @@
 function googleCalendarEventConverter(googleEvents) {
     const calendarEvents = googleEvents.map((gEvent) => {
         return {
-            title: 'BUSY',
+            title: 'Unavailable',
             start: gEvent.start.dateTime,
             end: gEvent.end.dateTime
         }

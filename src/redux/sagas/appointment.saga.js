@@ -28,6 +28,30 @@ function* postAppointment(action) {
     }
 }
 
+function* updateAppointmentType(action) {
+    try {
+        const googleEvent = {
+            summary: '',
+            description: '',
+            start: '',
+            end: '',
+        };
+        const gentlemanUpdate = {
+            appointment_type: action.payload.appointment_type,
+            appointment_date: action.payload.appointment_date,
+            time: action.payload.time
+        };
+        // google calendar API calendar use - googleEvent
+        yield axios.post('/googlecal/event', googleEvent);
+        yield axios.put('api/appointment', gentlemanUpdate);
+        yield put({
+            type: 'GET_APPOINTMENT',
+        })
+    } catch (error) {
+        console.log('Error posting and updating appointment information:', error);
+    }
+}
+
 function* rootSaga() {
     yield takeEvery('GET_APPOINTMENT', getAppointment);
     yield takeEvery('POST_APPOINTMENT', postAppointment);
