@@ -35,20 +35,7 @@ CREATE TABLE "categories" (
     "category_name" VARCHAR (80)
 );
 
-CREATE TABLE "resources" (
-    "id" SERIAL PRIMARY KEY,
-    "title" VARCHAR (80),
-    "description" VARCHAR (1000),
-    "link" VARCHAR (1000)
-);
-
-CREATE TABLE "resources_categories" (
-    "id" SERIAL PRIMARY KEY,
-    "resources_id" INT REFERENCES "resources",   
-    "categories_id" INT REFERENCES "categories"
-);
-
-CREATE TABLE "user" (
+CREATE TABLE "gentleman" (
     "id" SERIAL PRIMARY KEY,
     "first_name" VARCHAR (80) NOT NULL,
     "last_name" VARCHAR (80) NOT NULL,
@@ -62,7 +49,20 @@ CREATE TABLE "user" (
     "need" VARCHAR (40),
     "appointment_type" VARCHAR (20),
     "appointment_date" VARCHAR (20),
-    "time" DOUBLE PRECISION
+    "appointment_time" DOUBLE PRECISION
+);
+
+CREATE TABLE "resources" (
+    "id" SERIAL PRIMARY KEY,
+    "title" VARCHAR (80),
+    "description" VARCHAR (1000),
+    "link" VARCHAR (1000)
+);
+
+CREATE TABLE "resources_categories" (
+    "id" SERIAL PRIMARY KEY,
+    "resources_id" INT REFERENCES "resources",   
+    "categories_id" INT REFERENCES "categories"
 );
 ```
 
