@@ -6,7 +6,7 @@ import { QueryResult } from "pg";
 const router: express.Router = express.Router();
 
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `UPDATE "user"
+    const queryString: string = `UPDATE "gentlemen"
                                 SET "need" = $1
                                 WHERE "id" = $2;`;
     pool.query(queryString, [req.body.need, req.params.id])
@@ -14,7 +14,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: Object): void => {
-            console.log(`Error posting to user: ${err}`);
+            console.log(`Error updating gentlemen: ${err}`);
             res.sendStatus(500);
         })
 });
