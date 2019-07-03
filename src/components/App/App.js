@@ -18,6 +18,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
+import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 import './App.css';
@@ -45,6 +46,11 @@ class App extends Component {
                 exact
                 path="/"
                 component={SplashPage}
+              />
+              <Route
+                exact
+                path="/appointment"
+                component={AppointmentPage}
               />
 
 
