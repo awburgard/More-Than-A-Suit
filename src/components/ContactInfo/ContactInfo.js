@@ -10,7 +10,6 @@ const initialState = {
         zip: '',
         phone: '',
         email: '',
-        
     },
     first_name_err: false,
     last_name_err: false,
@@ -68,29 +67,19 @@ class ContactInfo extends Component {
         }, async () => {
             await this.validate();
             if (this.state.formValid) {
-                console.log('We win');
-            } else {
-                console.log('We dont win');
-            }
-            
+                this.props.dispatch({ type: 'POST_CONTACT_INFO', payload: this.state.gentInfo })
+                    this.setState({
+                        gentInfo: {
+                            first_name: '',
+                            last_name: '',
+                            zip: '',
+                            phone: '',
+                            email: ''
+                        }
+                    });
+                this.props.history.push('/measurements');
+           }
         })
-
-        // if (this.state.formValid) {
-        //     console.log(this.state);
-        //     // clear form
-        //     this.setState(initialState);
-        // }
-        // this.props.dispatch({ type: 'POST_CONTACT_INFO', payload: this.state.gentInfo })
-        // this.setState({
-        //     gentInfo: {
-        //         first_name: '',
-        //         last_name: '',
-        //         zip: '',
-        //         phone: '',
-        //         email: ''
-        //     }
-        // });
-        //        this.props.history.push('/measurements');
     }
 
     onFormChange = (dataname) => event => {
@@ -105,7 +94,6 @@ class ContactInfo extends Component {
     }
 
     render() {
-        console.log('meow: ', this.state.gentInfo.first_name_err);
         const infoInputs = (
             <form onSubmit={this.handleClick}>
                 <span>Contact Info:</span><br />
@@ -115,7 +103,7 @@ class ContactInfo extends Component {
                     placeholder="First Name"
                 /> <br />
 
-                {this.state.first_name_err && <div style={{ fontSize: 12, color: "red" }}><p>Hi, this is erroring</p></div>}
+                {this.state.first_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
 
                 <input type="text"
                     value={this.state.gentInfo.last_name}
@@ -123,7 +111,7 @@ class ContactInfo extends Component {
                     placeholder="Last Name"
                 /> <br />
 
-                {this.state.last_name_err && <div style={{ fontSize: 12, color: "red" }}><p>Hi, this is erroring</p></div>}
+                {this.state.last_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
 
                 <input type="text"
                     value={this.state.gentInfo.zip}
@@ -131,7 +119,7 @@ class ContactInfo extends Component {
                     placeholder="Zip Code"
                 /> <br />
 
-                {this.state.zip_err && <div style={{ fontSize: 12, color: "red" }}><p>Hi, this is erroring</p></div>}
+                {this.state.zip_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
 
                 <NumberFormat
                     format="(###) ###-####"
@@ -141,7 +129,7 @@ class ContactInfo extends Component {
                     placeholder="Cell Phone Number"
                 /> <br />
 
-                {this.state.phone_err && <div style={{ fontSize: 12, color: "red" }}><p>Hi, this is erroring</p></div>}
+                {this.state.phone_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
 
                 <input type="text"
                     value={this.state.gentInfo.email}
