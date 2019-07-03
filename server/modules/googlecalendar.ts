@@ -77,7 +77,7 @@ function listEvents(auth: any, response: any) {
   calendar.events.list({
     calendarId: 'primary',
     timeMin: (new Date()).toISOString(),
-    maxResults: 10,
+    maxResults: 100,
     singleEvents: true,
     orderBy: 'startTime',
   }, (err: any, res: any) => {
