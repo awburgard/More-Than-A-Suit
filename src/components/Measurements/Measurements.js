@@ -39,7 +39,7 @@ class Measurements extends Component {
                 waist: ''
             }
         });
-        this.props.history.push('/confirmation');
+        this.props.history.push('/needs');
     }
 
     render() {
