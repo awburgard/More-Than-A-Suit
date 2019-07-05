@@ -4,16 +4,18 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 class Measurements extends Component {
     state = {
-        height_feet: '',
-        height_inches: '',
-        weight: '',
-        waist: ''
+        stats: {
+            height_feet: '',
+            height_inches: '',
+            weight: '',
+            waist: ''
+        }
     }
 
     onFormChange = (dataname) => event => {
         this.setState({
-            newApproved: {
-                ...this.state.newApproved,
+            stats: {
+                ...this.state.stats,
                 [dataname] : event.target.value
             }
         });
@@ -22,37 +24,51 @@ class Measurements extends Component {
     handleClick = event => {
         event.preventDefault();
         this.props.dispatch({
-            type: 'ADD_APPROVED',
-            payload: this.state.newApproved
+            type: 'SET_MEASUREMENTS',
+            payload: this.state.stats
         })
         this.setState({
-            newApproved: {
-                ...this.state.newApproved,
-                name: '',
-                number: '',
+            stats: {
+                ...this.state.stats,
+                height_feet: '',
+                height_inches: '',
+                weight: '',
+                waist: ''
             }
         });
     }
 
     render() {
         const measurementInfo = (
-            <form className="addField" onSubmit={this.addNewApproved}>
-                <span className="formHeader">Add New Approved:</span>
-                <input type="text"
-                    value={this.state.newApproved.name}
-                    onChange={this.onFormChange('name')}
-                    placeholder="Name"
+            <form onSubmit={this.handleClick}>
+                <h1>Measurements</h1><br />
+                <h3>Knowing these measurements is an important part of getting the right fit</h3>
+                <h5>Height</h5>
+                <input type="number"
+                    value={this.state.stats.height_feet}
+                    onChange={this.onFormChange('height_feet')}
+                    placeholder="Feet"
                 />
-                <NumberFormat
-                    format="(###) ###-####"
-                    value={this.state.newApproved.number}
-                    onChange={this.onFormChange('number')}
-                    mask="_"
-                    placeholder="Number"
+                <input type="number"
+                    value={this.state.stats.height_inches}
+                    onChange={this.onFormChange('height_inches')}
+                    placeholder="Inches"
                 />
-                <input type="submit" value="Add"/>
+                <h5>Weight</h5>
+                <input type="number"
+                    value={this.state.stats.weight}
+                    onChange={this.onFormChange('weight')}
+                    placeholder="Pounds"
+                />
+                <h5>Waist</h5>
+                <input type="number"
+                    value={this.state.stats.waist}
+                    onChange={this.onFormChange('waist')}
+                    placeholder="Inches"
+                />
+                <button type="submit">Next</button>
             </form>
-    )
+        )
 
         return(
             <div>

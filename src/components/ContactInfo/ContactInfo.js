@@ -67,7 +67,7 @@ class ContactInfo extends Component {
         }, async () => {
             await this.validate();
             if (this.state.formValid) {
-                this.props.dispatch({ type: 'POST_CONTACT_INFO', payload: this.state.gentInfo })
+                this.props.dispatch({ type: 'SET_CONTACT_INFO', payload: this.state.gentInfo })
                     this.setState({
                         gentInfo: {
                             first_name: '',

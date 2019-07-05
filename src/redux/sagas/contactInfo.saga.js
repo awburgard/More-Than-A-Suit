@@ -19,7 +19,7 @@ function* addContactInfo(action) {
 }
 
 function* contactInfoSaga() {
-    yield takeLatest('POST_CONTACT_INFO', addContactInfo);
+    yield takeLatest('SET_CONTACT_INFO', addContactInfo);
 }
 
 export default contactInfoSaga;
