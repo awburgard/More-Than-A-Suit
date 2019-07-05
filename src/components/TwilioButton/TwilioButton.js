@@ -1,8 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import swal from 'sweetalert2';
+import { withSwalInstance } from 'sweetalert2-react';
+
+const SweetAlert = withSwalInstance(swal);
 
 class TwilioButton extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            show: false
+        }
+    }
+
+    confirmAlert() {
+        console.log('YAAS');
+    }
 
     sendText = () => {
         this.props.dispatch({
@@ -13,6 +29,13 @@ class TwilioButton extends Component {
                 appointmentTime: this.props.info.appointment_time
             }
         })
+
+        this.setState({
+            show: true
+        })
+
+        // alert();
+        // Swal.alert();
         // TO DO: UNCOMMENT THIS LINE FOR FINISHED PROJECT
         // this.props.history.push('/resources');
     }
@@ -21,6 +44,13 @@ class TwilioButton extends Component {
         return (
             <div>
                 <button onClick={this.sendText}>Confirm</button>
+                <SweetAlert
+                    show={this.state.show}
+                    title="Success!"
+                    type="success"
+                    text="Your text was sent!"
+                    confirmButtonText= "Yaaas!"
+                />
             </div>
         )
     }
