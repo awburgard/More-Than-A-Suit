@@ -10,6 +10,7 @@ import measurementsRouter from './routes/measurements.router';
 import resourcesRouter from './routes/resources.router';
 import needRouter from './routes/need.router';
 import infoRouter from './routes/info.router';
+import twilioRouter from './routes/twilio.router';
 
 // TEST
 import googlecal from './routes/googlecalendar.router';
@@ -40,6 +41,7 @@ app.use('/api/measurements', measurementsRouter);
 app.use('/api/info', infoRouter);
 app.use('/api/resources', resourcesRouter);
 app.use('/api/need', needRouter);
+app.use('/api/twilio', twilioRouter);
 
 app.use('/googlecal/event', googlecal);
 
@@ -55,10 +57,10 @@ app.listen(PORT, (): void => {
 });
 
 // Twilio
-app.get('/test/scott', (req: any, res: any) => {
-  textGentleman('+SOME_NUMBER_HERE', 'MESSAGE');
-  res.send(200);
-})
+// app.get('/test/scott', (req: any, res: any) => {
+//   textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
+//   res.send(200);
+// })
 
 
 
