@@ -4,6 +4,7 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import contactInfoSaga from './contactInfo.saga';
 import confirmationSaga from './confirmation.saga';
+import resourcesSaga from './resources.saga';
 import measurementsSaga from './measurements.saga';
 import twilioSaga from './twilio.saga';
 
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     userSaga(),
     contactInfoSaga(),
     confirmationSaga(),
+    resourcesSaga(),
     measurementsSaga(),
     twilioSaga(),
   ]);

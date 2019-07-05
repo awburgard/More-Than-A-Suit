@@ -30,17 +30,10 @@ class TwilioButton extends Component {
             }
         })
 
-        this.setState({
-            show: true
-        })
-
-        // alert();
-        // Swal.alert();
-        // TO DO: UNCOMMENT THIS LINE FOR FINISHED PROJECT
-        // this.props.history.push('/resources');
+        this.props.history.push('/resources');
     }
 
-    render (){
+    render() {
         return (
             <div>
                 <button onClick={this.sendText}>Confirm</button>
