@@ -16,6 +16,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SplashPage from '../SplashPage/SplashPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
+import ContactInfo from '../ContactInfo/ContactInfo';
 import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
@@ -24,6 +25,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import './App.css';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
+import Measurements from '../Measurements/Measurements';
 
 class App extends Component {
   componentDidMount () {
@@ -70,6 +72,11 @@ class App extends Component {
                 redirect="/admin"
                 component={LoginPage}
               />
+              <Route
+                exact
+                path="/info"
+                component={ContactInfo}
+              />
               {/* Visiting localhost:3000/about will show the about page.
               This is a route anyone can see, no login necessary */}
               <Route
@@ -93,11 +100,17 @@ class App extends Component {
               />
               {/* This works the same as the other protected route, except that if the user is logged in,
               they will see the info page instead. */}
-              <ProtectedRoute
+              <Route
                 exact
                 path="/info"
                 component={InfoPage}
               />
+              <Route
+                exact
+                path="/measurements"
+                component={Measurements}
+              />
+
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
             </Switch>

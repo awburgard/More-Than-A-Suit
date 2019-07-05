@@ -6,7 +6,7 @@ import { QueryResult } from "pg";
 const router: express.Router = express.Router();
 
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `UPDATE "gentlemen"
+    const queryString: string = `UPDATE "gentleman"
                                 SET "height_feet" = $1,
                                 "height_inches" = $2,
                                 "waist" = $3,
@@ -17,7 +17,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(201);
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error updating gentlemen: ${err}`);
+            console.log(`Error updating gentleman: ${err}`);
             res.sendStatus(500);
         })
 });
