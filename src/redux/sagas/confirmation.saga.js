@@ -6,7 +6,6 @@ function* getReview(action) {
   try {
     // call to get API route and store the response
     const getResponse = yield axios.get(`/api/review/${action.payload.id}`);
-    console.log(getResponse)
     // after successful get API call use put to set the data
     yield put({
         type: 'SET_REVIEW',
