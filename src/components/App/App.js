@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
@@ -6,30 +6,26 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
 import SplashPage from '../SplashPage/SplashPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import ContactInfo from '../ContactInfo/ContactInfo';
-import InfoPage from '../InfoPage/InfoPage';
 import LoginPage from '../LoginPage/LoginPage';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-
 import './App.css';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 
 class App extends Component {
-  componentDidMount () {
-    this.props.dispatch({type: 'FETCH_USER'})
+  componentDidMount() {
+    this.props.dispatch({ type: 'FETCH_USER' })
   }
 
   render() {
@@ -84,7 +80,7 @@ class App extends Component {
                 path="/about"
                 component={AboutPage}
               />
-               <Route
+              <Route
                 exact
                 path="/confirmation"
                 component={ConfirmationPage}
@@ -102,11 +98,6 @@ class App extends Component {
               they will see the info page instead. */}
               <Route
                 exact
-                path="/info"
-                component={InfoPage}
-              />
-              <Route
-                exact
                 path="/measurements"
                 component={Measurements}
               />
@@ -122,7 +113,8 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
-  )}
+    )
+  }
 }
 
 export default connect(mapStateToProps)(App);

@@ -26,10 +26,15 @@ class AppointmentPage extends Component {
 
         alert(`You chose the ${this.state.appointmentType} appointment.`);
     }
+    //TO DO: DELETE LATER
+    goToConfirmation = (event) => {
+        this.props.history.push('/confirmation');
+    }
 
     render() {
         return (
             <div>
+                <button onClick={this.goToConfirmation}>Go to Confirmation</button>
                 <h2>Set Up Your Appointment</h2>
                 <form onSubmit={this.handleSubmit}>
                     <p>Select an appointment type:</p>
