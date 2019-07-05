@@ -6,14 +6,14 @@ import ResourcesButtonItem from '../ResourcesButtonItem/ResourcesButtonItem';
 const buttons = [
     { name: 'Job', value: 'job' },
     { name: 'Funeral', value: 'funeral' },
-    { name: 'Wedding', value: 'wedding' }
+    { name: 'Wedding', value: 'wedding' },
 ]
 
 
 class ResourcesButtonList extends Component {
     render() {
         const buttonList = buttons.map((button, index) => {
-            return <ResourcesButtonItem name={button.name} value={button.value} />
+            return <ResourcesButtonItem key={index} name={button.name} value={button.value} />
         })
 
         return (
