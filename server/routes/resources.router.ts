@@ -24,7 +24,7 @@ router.get('/:need', (req: Request, res: Response, next: express.NextFunction): 
     const queryString: string = `SELECT * FROM "resources"
                                 JOIN "resources_categories" ON "resources"."id"="resources_categories"."resources_id"
                                 JOIN "categories" ON "resources_categories"."categories_id" = "categories"."id"
-                                WHERE ""categories"."category_name"" = $1;`;
+                                WHERE "categories"."category_name" = $1;`;
     pool.query(queryString, [req.params.need])
         .then((response: QueryResult): void => {
             res.send(response.rows)

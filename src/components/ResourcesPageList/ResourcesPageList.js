@@ -5,7 +5,7 @@ import ResourcesPageItem from '../ResourcesPageItem/ResourcesPageItem';
 
 class ResourcesPageList extends Component {
   render() {
-    let resources = this.props.store.resources.map((resource, index) => {
+    let resources = this.props.store.needs.map((resource, index) => {
       return (
         <div key={index}>
           <ResourcesPageItem resource={resource} index={index}/>

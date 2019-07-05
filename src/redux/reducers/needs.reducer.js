@@ -1,6 +1,7 @@
 const needs = (state = [], action) => {
     switch (action.type) {
         case 'SET_NEED_RESOURCES':
+            console.log(action.payload);
             return action.payload;
         default:
             return state;

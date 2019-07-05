@@ -3,7 +3,6 @@ import errors from './errors.reducer';
 import loginMode from './loginMode.reducer';
 import user from './user.reducer';
 import setReview from './setReview.reducer';
-import resources from './resources.reducer';
 import needs from './needs.reducer'
 
 // rootReducer is the primary reducer for our entire project
@@ -17,7 +16,6 @@ const rootReducer = combineReducers({
   loginMode, // will have a value of 'login' or 'registration' to control which screen is shown
   user, // will have an id and username if someone is logged in
   setReview,
-  resources,
   needs,
 });
 
