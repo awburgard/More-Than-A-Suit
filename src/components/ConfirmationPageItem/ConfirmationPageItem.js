@@ -29,7 +29,7 @@ class ConfirmationPageItem extends Component {
             <div>
                 {conditionalElement}
                 <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} />
-                <TwilioButton info={this.props.info}/>
+                <TwilioButton info={this.props.info} history={this.props.history}/>
             </div>
         );
     }

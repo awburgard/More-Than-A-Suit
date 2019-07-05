@@ -8,7 +8,7 @@ class ConfirmationPageList extends Component {
     render() {
         return (
             <div>
-                <ConfirmationPageItem info={this.props.store.setReview}/>
+                <ConfirmationPageItem info={this.props.store.setReview} history={this.props.history}/>
             </div>
         );
     }

@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
 import moment from 'moment'
-import AppointmentPage from '../AppointmentPage/AppointmentPage';
 
 class InputField extends Component {
 
@@ -44,7 +43,6 @@ class InputField extends Component {
             }
         })
         this.props.toggleEdit();
-
     }
 
 

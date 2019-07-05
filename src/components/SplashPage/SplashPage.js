@@ -9,6 +9,10 @@ class SplashPage extends Component {
         this.props.history.push('/login');
     }
 
+    goToInfo = (event) => {
+        this.props.history.push('/info');
+    }
+
     render() {
         return(
             <div className="grid">
@@ -37,6 +41,7 @@ class SplashPage extends Component {
                     >
                         Login
                     </button>
+                    <button onClick={this.goToInfo}>Go to Info</button>
                 </div>
             </div>
         )
