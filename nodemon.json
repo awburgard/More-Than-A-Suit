@@ -1,15 +1,11 @@
 {
-    "watch": [
-        "server"
-    ],
-    "ext": "ts",
+    "restartable": "rs",
+    "ext": "js,ts,html",
     "ignore": [
-        "*.test.ts",
         "src"
     ],
-    "module": "commonjs",
-    "delay": "3",
-    "execMap": {
-        "ts": "ts-node"
-    }
+    "watch": [
+        "./server",
+        "server.ts"
+    ]
 }

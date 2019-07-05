@@ -4,9 +4,13 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* addContactInfo(action) {
     console.log(action.payload);
     try {
-        yield axios.post('/api/info', action.payload);
+        const response = yield axios.post('/api/info', action.payload);
         yield put({
-            type: 'SET_REVIEW'
+            type: 'SET_REVIEW',
+            payload: {
+                ...action.payload,
+                id: response.data,
+            }
         });
         console.log(action.payload);
     } catch (err) {
