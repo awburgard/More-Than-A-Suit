@@ -13,8 +13,8 @@ class TwilioButton extends Component {
                 appointmentTime: this.props.info.appointment_time
             }
         })
-
-        this.props.history.push('/resources');
+        // TO DO: UNCOMMENT THIS LINE FOR FINISHED PROJECT
+        // this.props.history.push('/resources');
     }
 
     render (){
