@@ -3,7 +3,6 @@ import express from 'express';
 import pool from '../modules/pool';
 import { QueryResult } from "pg";
 
-
 const router: express.Router = express.Router();
 
 router.get('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
@@ -43,7 +42,5 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
             res.sendStatus(500);
         })
 });
-
-
 
 export default router;

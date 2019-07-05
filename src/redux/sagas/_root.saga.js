@@ -2,6 +2,7 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
+import contactInfoSaga from './contactInfo.saga';
 import confirmationSaga from './confirmation.saga';
 import twilioSaga from './twilio.saga';
 
@@ -17,6 +18,7 @@ export default function* rootSaga() {
     loginSaga(),
     registrationSaga(),
     userSaga(),
+    contactInfoSaga(),
     confirmationSaga(),
     twilioSaga(),
   ]);

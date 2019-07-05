@@ -12,7 +12,7 @@ router.post('/', (req: Request, res: Response, next: express.NextFunction): void
                         RETURNING id;`;
     pool.query(queryString, [req.body.first_name, req.body.last_name, req.body.zip, req.body.phone, req.body.email])
         .then((response: QueryResult): void => {
-            res.sendStatus(201);
+            res.send((response.rows[0].id).toString());
         })
         .catch((err: QueryResult): void => {
             console.log(`Error posting to gentleman: ${err}`);

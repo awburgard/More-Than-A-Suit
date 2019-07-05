@@ -11,7 +11,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
                                 "appointment_date" = $2,
                                 "appointment_time" = $3
                                 WHERE "id" = $4;`;
-    pool.query(queryString, [req.body.appointment_type, req.body.appointment_date, req.body.time, req.params.id])
+    pool.query(queryString, [req.body.appointment_type, req.body.appointment_date, req.body.appointment_time, req.params.id])
         .then((response: QueryResult): void => {
             res.sendStatus(201);
         })

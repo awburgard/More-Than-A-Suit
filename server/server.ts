@@ -57,10 +57,10 @@ app.listen(PORT, (): void => {
 });
 
 // Twilio
-app.get('/test/scott', (req: any, res: any) => {
-  textGentleman('+SOME_NUMBER_HERE', 'MESSAGE');
-  res.send(200);
-})
+// app.get('/test/scott', (req: any, res: any) => {
+//   textGentleman('+SOME_NUMBER_HERE', 'SOME_MESSAGE');
+//   res.send(200);
+// })
 
 
 

@@ -6,12 +6,12 @@ import ConfirmationPageList from '../ConfirmationPageList/ConfirmationPageList';
 class ConfirmationPage extends Component {
 
 //TO DO: This is for testing purposes ONLY
-componentDidMount(){
-  this.props.dispatch({
-    type: 'GET_REVIEW',
-    payload: {id: 1}
-  })
-}
+// componentDidMount(){
+//   this.props.dispatch({
+//     type: 'GET_REVIEW',
+//     payload: {id: 1}
+//   })
+// }
 
   render() {
     return (
