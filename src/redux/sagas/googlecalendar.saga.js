@@ -16,7 +16,7 @@ function* getCalendarEvents(action) {
   }
 }
 
-// worker Saga: will be fired on 'POST_CALENDAR' actions
+// worker Saga: will be fired on 'POST_CALENDAR' actions *** NEED to update - KONOU
 function* postCalendarEvents(action) {
   try {
     // post will send whatever is on the action.payload to the server route
