@@ -25,7 +25,10 @@ class Measurements extends Component {
         event.preventDefault();
         this.props.dispatch({
             type: 'SET_MEASUREMENTS',
-            payload: this.state.stats
+            payload: {
+                ...this.state.stats,
+            id: this.props.store.setReview.id,
+            }
         })
         this.setState({
             stats: {
@@ -36,7 +39,7 @@ class Measurements extends Component {
                 waist: ''
             }
         });
-        this.props.history.push('/needs');
+        this.props.history.push('/confirmation');
     }
 
     render() {
