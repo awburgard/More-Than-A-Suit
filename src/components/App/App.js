@@ -25,6 +25,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import './App.css';
 import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import Measurements from '../Measurements/Measurements';
+import NeedsPage from '../NeedsPage/NeedsPage';
 
 class App extends Component {
   componentDidMount () {
@@ -104,6 +105,12 @@ class App extends Component {
                 path="/measurements"
                 component={Measurements}
               />
+              <Route
+                exact
+                path="/needs"
+                component={NeedsPage}
+              />
+
 
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
