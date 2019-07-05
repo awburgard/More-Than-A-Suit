@@ -77,7 +77,7 @@ class ContactInfo extends Component {
                             email: ''
                         }
                     });
-                this.props.history.push('/measurements');
+                this.props.history.push('/confirmation');
            }
         })
     }
