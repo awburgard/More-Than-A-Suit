@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import axios from 'axios';
 
 class NeedsPage extends Component {
     constructor() {
         super();
 
         this.state = {
+            otherIsEditable: false,
             needsType: ''
         };
 
@@ -17,7 +19,7 @@ class NeedsPage extends Component {
     handleChange(event) {
         this.setState({
             needsType: event.target.value
-        });
+        });console.log(this.state.needsType);
     }
 
     handleSubmit(event) {
@@ -25,6 +27,12 @@ class NeedsPage extends Component {
 
         alert(`${this.state.needsType} selected.`);
     }
+
+    editOtherField = () => {
+        this.setState({
+          otherIsEditable: true,
+        });
+      }
 
     render() {
         return (
@@ -66,17 +74,24 @@ class NeedsPage extends Component {
                                 Funeral
                             </label>
                         </li>
+                        {this.state.otherIsEditable ?
+                            <div>
+                                <form method="post" action="/login">
+                                    <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChange} />
+                                </form>
+                            </div>:
                         <li>
                             <label>
                                 <input
                                     type="radio"
                                     value="Other"
-                                    checked={this.state.needsType === "Other"}
-                                    onChange={this.handleChange}
-                                />
-                                Other
+                                    checked={this.state.needsType === " "}
+                                    onChange={this.editOtherField}
+                                    />
+                                    Other
                             </label>
                         </li>
+            }
                     </ul>
                     <button type="submit">Select Type</button>
                 </form>
