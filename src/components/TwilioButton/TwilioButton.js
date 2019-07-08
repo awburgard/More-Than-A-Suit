@@ -18,13 +18,14 @@ class TwilioButton extends Component {
 
     testMethod = () => {
         MySwal.fire({
-            title: <p>Hello World</p>,
+            title: <h1>Thank you!</h1>,
+            html: <p>A text is on its way to you</p>,
             footer: 'Copyright 2018',
             onOpen: () => {
-              
+                MySwal.clickConfirm()
             }
           }).then(() => {
-            return MySwal.fire(<p>Shorthand works too</p>)
+            this.props.history.push('/resources')
           })
     }
 
@@ -37,21 +38,13 @@ class TwilioButton extends Component {
                 appointmentTime: this.props.info.appointment_time
             }
         })
-
-        this.props.history.push('/resources');
+        testMethod();
     }
 
     render() {
         return (
             <div>
                 <button onClick={this.sendText}>Confirm</button>
-                <SweetAlert
-                    show={this.state.show}
-                    title="Success!"
-                    type="success"
-                    text="Your text was sent!"
-                    confirmButtonText= "Yaaas!"
-                />
             </div>
         )
     }
