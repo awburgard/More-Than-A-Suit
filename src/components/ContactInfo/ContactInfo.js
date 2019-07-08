@@ -140,6 +140,7 @@ class ContactInfo extends Component {
                     defaultCounty='us'
                     onlyCountries='us'
                     autoFormat='true'
+                    
                 /> <br />
                 <TextField
                     id="standard-required"
