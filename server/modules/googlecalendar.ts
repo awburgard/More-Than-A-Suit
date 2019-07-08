@@ -13,13 +13,18 @@ function init(googleObj: any, response:any) {
   authorize(googleObj, listEvents, response);
 }
 
+//KONOU ATTEMPT
+function initPost(googleObjPost: any, response:any, eventObject: any) {
+  authorize(googleObjPost, postEvents, response, eventObject);
+}//END OF KONOU ATTEMPT
+
 /**
  * Create an OAuth2 client with the given credentials, and then execute the
  * given callback function.
  * @param {Object} credentials The authorization client credentials.
  * @param {function} callback The callback to call with the authorized client.
  */
-function authorize(credentials: any, callback: any, response: any) {
+function authorize(credentials: any, callback: any, response: any, eventObject?: any) {
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
@@ -28,12 +33,12 @@ function authorize(credentials: any, callback: any, response: any) {
   fs.readFile(TOKEN_PATH, (err: any, token: any) => {
     if (err) {
       console.log(err);
-      return getAccessToken(oAuth2Client, callback)
+      return getAccessToken(oAuth2Client, callback, response, eventObject)
     };
 
     oAuth2Client.setCredentials(JSON.parse(token));
     console.log(2);
-    callback(oAuth2Client, response);
+    callback(oAuth2Client, response, eventObject);
   });
 }
 
@@ -43,7 +48,8 @@ function authorize(credentials: any, callback: any, response: any) {
  * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
  * @param {getEventsCallback} callback The callback for the authorized client.
  */
-function getAccessToken(oAuth2Client: any, callback: any) {
+function getAccessToken(oAuth2Client: any, callback: any, response: any, eventObject: any) {
+  console.log('get access token')
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES,
@@ -63,7 +69,7 @@ function getAccessToken(oAuth2Client: any, callback: any) {
         if (err) return console.error(err);
         console.log('Token stored to', TOKEN_PATH);
       });
-      callback(oAuth2Client);
+      callback(oAuth2Client, response, eventObject);
     });
   });
 }
@@ -92,4 +98,28 @@ function listEvents(auth: any, response: any) {
   // return calendar;
 }
 
-export default init;
+
+
+
+function postEvents(auth: any, response: any, eventObject: any) {
+  const calendar = google.calendar({version: 'v3', auth});
+
+  calendar.events.insert({
+    auth: auth,
+    calendarId: 'primary',
+    resource: eventObject,
+  }, function(err: any, event: any) {
+    if (err) {
+      console.log('There was an error contacting the Calendar service: ' + err);
+      return;
+    }
+    response.send(event)
+    console.log('Event created: %s', event.htmlLink);
+  });
+}
+//END OF KONOU ATTEMPT
+
+export {
+  init,
+  initPost
+};

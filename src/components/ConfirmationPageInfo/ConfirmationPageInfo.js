@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import moment from "moment";
 
 class ConfirmationPageInfo extends Component {
     render() {
@@ -16,8 +17,8 @@ class ConfirmationPageInfo extends Component {
                 Waist: {this.props.info.waist} <br />
                 Need: {this.props.info.need} <br />
                 Appointment Type: {this.props.info.appointment_type} <br />
-                Appointment Date: {this.props.info.appointment_date} <br />
-                Appointment Time: {this.props.info.time} <br />
+                Appointment Date: {moment(this.props.info.appointment_date).format(`MMMM Do YYYY`)} <br />
+                Appointment Time: {moment(this.props.info.appointment_time, 'HH:mm:ss').format(`h:mm a`)} <br />
             </div>
         )
     }
