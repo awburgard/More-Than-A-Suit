@@ -1,30 +1,60 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import axios from 'axios';
 
 class NeedsPage extends Component {
     constructor() {
         super();
 
         this.state = {
+            otherIsEditable: false,
             needsType: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeOtherField = this.handleChangeOtherField.bind(this);
+
     }
 
     handleChange(event) {
         this.setState({
-            needsType: event.target.value
-        });
+            needsType: event.target.value,
+            otherIsEditable: false
+        });console.log(this.state.needsType);
     }
+
+    handleChangeOtherField(event) {
+        this.setState({
+            needsType: event.target.value,
+        });console.log(this.state.needsType);
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
-
-        alert(`${this.state.needsType} selected.`);
+        alert(`You chose the ${this.state.needsType}.`);
+        this.props.dispatch({
+            type: 'SET_NEEDS',
+            payload: {
+                ...this.state.needsType,
+            id: this.props.store.setReview.id,
+            }
+        })
+        this.setState({
+            stats: {
+                ...this.state.needsType
+            }
+        });
+        this.props.history.push('/appointment');
     }
+
+    editOtherField = () => {
+        this.setState({
+          otherIsEditable: true,
+        });
+      }
 
     render() {
         return (
@@ -61,22 +91,29 @@ class NeedsPage extends Component {
                                     type="radio"
                                     value="Funeral"
                                     checked={this.state.needsType === "Funeral"}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChange || this}
                                 />
                                 Funeral
                             </label>
                         </li>
+                        {this.state.otherIsEditable ?
+                            <div>
+                                <form method="post" action="/login">
+                                    <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChangeOtherField} />
+                                </form>
+                            </div>:
                         <li>
                             <label>
                                 <input
                                     type="radio"
                                     value="Other"
-                                    checked={this.state.needsType === "Other"}
-                                    onChange={this.handleChange}
-                                />
-                                Other
+                                    checked={this.state.needsType === " "}
+                                    onChange={this.editOtherField}
+                                    />
+                                    Other
                             </label>
                         </li>
+            }
                     </ul>
                     <button type="submit">Select Type</button>
                 </form>
