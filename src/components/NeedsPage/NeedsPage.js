@@ -24,8 +24,19 @@ class NeedsPage extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-
-        alert(`${this.state.needsType} selected.`);
+        this.props.dispatch({
+            type: 'SET_NEEDS',
+            payload: {
+                ...this.state.needsType,
+            id: this.props.store.setReview.id,
+            }
+        })
+        this.setState({
+            stats: {
+                ...this.state.needsType
+            }
+        });
+        this.props.history.push('/appointment');
     }
 
     editOtherField = () => {
