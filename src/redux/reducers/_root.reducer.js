@@ -3,7 +3,9 @@ import errors from './errors.reducer';
 import loginMode from './loginMode.reducer';
 import user from './user.reducer';
 import setReview from './setReview.reducer';
-import needs from './needs.reducer'
+import needs from './needs.reducer';
+import resources from './resources.reducer';
+import categories from './categories.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +19,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   setReview,
   needs,
+  resources,
+  categories,
 });
 
 export default rootReducer;

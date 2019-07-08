@@ -23,6 +23,7 @@ import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
+import AdminDashboardPage from '../AdminDashboardPage/AdminDashboardPage';
 
 class App extends Component {
   componentDidMount() {
@@ -57,6 +58,12 @@ class App extends Component {
                 exact
                 path="/resources"
                 component={ResourcesPage}
+              />
+
+              <Route
+                exact
+                path="/admindash"
+                component={AdminDashboardPage}
               />
 
 
