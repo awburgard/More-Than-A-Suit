@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import NeedSelector from '../NeedSelector/NeedSelector';
 
 class AdminAddResource extends Component {
     state = {
@@ -8,12 +9,6 @@ class AdminAddResource extends Component {
         description: '',
         link: '',
         category: '',
-    }
-
-    componentDidMount (){
-        this.props.dispatch({
-            type: 'GET_CATEGORIES'
-        })
     }
 
     addResource = () => {
@@ -36,17 +31,13 @@ class AdminAddResource extends Component {
     };
 
     render() {
-        const categoryOptions = this.props.store.categories.map((category, index)=>{
-            return <option key={index} value={category.id}>{category.category_name}</option>
-        })
-        categoryOptions.unshift(<option value={'default'} key={-1}>Select a Need</option>)
 
         return (
             <div>
                 <input placeholder="title" type="text" value={this.state.title} onChange={this.handleInputChangeFor('title')}></input>
                 <input placeholder="description" type="text" value={this.state.description} onChange={this.handleInputChangeFor('description')}></input>
                 <input placeholder="link" type="text" value={this.state.link} onChange={this.handleInputChangeFor('link')}></input>
-                <select onChange={this.handleInputChangeFor('category')}>{categoryOptions}</select>
+                <NeedSelector onChange={this.handleInputChangeFor('category')}/>
                 <button onClick={this.addResource}>Add Resource</button>
             </div>
         );

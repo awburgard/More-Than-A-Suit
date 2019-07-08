@@ -8,8 +8,8 @@ const router: express.Router = express.Router();
 router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
     const queryString: string = `SELECT * FROM "resources"
                                 JOIN "resources_categories" ON "resources_categories"."resources_id"="resources"."id"
+                                JOIN "categories" ON "categories"."id" = "resources_categories"."categories_id"
                                 ORDER BY "resources"."id" ASC;`;
-    // JOIN "categories" ON "categories"."id" = "resources_categories"."categories_id";`;
     pool.query(queryString)
         .then((response: QueryResult): void => {
             console.log(response.rows);
@@ -38,14 +38,24 @@ router.get('/:need', (req: Request, res: Response, next: express.NextFunction): 
 });
 
 router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `UPDATE "resources"
+    let queryString: string = `UPDATE "resources"
                                 SET "title" = $1,
                                 "description" = $2,
                                 "link" = $3
                                 WHERE "id" = $4;`;
     pool.query(queryString, [req.body.title, req.body.description, req.body.link, req.params.id])
         .then((response: QueryResult): void => {
-            res.sendStatus(201);
+            queryString = `UPDATE "resources_categories" SET "categories_id" = $1
+                            WHERE "resources_id" = $2
+                            AND "categories_id" = $3;`;
+            pool.query(queryString, [req.body.categories_id, req.params.id, req.body.prevCategoriesId])
+                .then((response: QueryResult): void => {
+                    res.send(201);
+                })
+                .catch((err: QueryResult): void => {
+                    console.log(`Error deleting resource: ${err}`);
+                    res.sendStatus(500);
+                })
         })
         .catch((err: QueryResult): void => {
             console.log(`Error updating resource: ${err}`);
@@ -56,12 +66,15 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
 router.delete('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
     let queryString: string = `DELETE FROM "resources_categories" WHERE "resources_id" = $1;`;
     const id = req.params.id;
+    console.log(`DELETE RESOURCE ID: `, id);
 
     pool.query(queryString, [id])
         .then((response: QueryResult): void => {
+            console.log(`DELETE RESOURCE JOIN`)
             queryString = `DELETE FROM "resources" WHERE "id" = $1;`;
             pool.query(queryString, [id])
                 .then((response: QueryResult): void => {
+                    console.log(`DELETE RESOURCE`)
                     res.send(200);
                 })
                 .catch((err: QueryResult): void => {

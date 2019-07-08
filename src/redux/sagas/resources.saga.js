@@ -51,9 +51,7 @@ function* deleteResource(action) {
 }
 
 function* addResource(action) {
-  console.log(action.payload)
   try {
-    //TO DO: CHANGE ROUTE TO ADMIN
     yield axios.post('/api/resources', action.payload);
     yield put({
       type: 'GET_ALL_RESOURCES',

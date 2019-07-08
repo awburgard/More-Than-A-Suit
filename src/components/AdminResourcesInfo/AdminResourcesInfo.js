@@ -10,6 +10,7 @@ class AdminResourcesInfo extends Component {
                 Title: {this.props.resources.title} <br />
                 Description: {this.props.resources.description} <br />
                 Link: <a href={this.props.resources.link}>Link</a> <br />
+                Category: {this.props.resources.category_name}
             </div>
         )
     }

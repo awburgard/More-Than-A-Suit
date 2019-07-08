@@ -8,7 +8,7 @@ class AdminDeleteButton extends Component {
         this.props.dispatch({
             type: 'DELETE_RESOURCE',
             payload: {
-                id: this.props.resources.id,
+                id: this.props.resources.resources_id,
             }
         })
     }
