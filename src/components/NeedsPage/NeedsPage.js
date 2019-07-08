@@ -14,16 +14,27 @@ class NeedsPage extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChangeOtherField = this.handleChangeOtherField.bind(this);
+
     }
 
     handleChange(event) {
         this.setState({
-            needsType: event.target.value
+            needsType: event.target.value,
+            otherIsEditable: false
         });console.log(this.state.needsType);
     }
 
+    handleChangeOtherField(event) {
+        this.setState({
+            needsType: event.target.value,
+        });console.log(this.state.needsType);
+    }
+
+
     handleSubmit(event) {
         event.preventDefault();
+        alert(`You chose the ${this.state.needsType}.`);
         this.props.dispatch({
             type: 'SET_NEEDS',
             payload: {
@@ -80,7 +91,7 @@ class NeedsPage extends Component {
                                     type="radio"
                                     value="Funeral"
                                     checked={this.state.needsType === "Funeral"}
-                                    onChange={this.handleChange}
+                                    onChange={this.handleChange || this}
                                 />
                                 Funeral
                             </label>
@@ -88,7 +99,7 @@ class NeedsPage extends Component {
                         {this.state.otherIsEditable ?
                             <div>
                                 <form method="post" action="/login">
-                                    <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChange} />
+                                    <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChangeOtherField} />
                                 </form>
                             </div>:
                         <li>
