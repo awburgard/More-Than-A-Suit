@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-// import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
- import MuiPhoneInput from '@material-ui/core/TextField';
-
+import ReactPhoneInput from 'react-phone-input-mui';
 
 class ContactInfo extends Component {
     state = {
@@ -17,137 +15,85 @@ class ContactInfo extends Component {
         }
     }
 
-    // validate = () => {
-    //     if (!this.state.triedSubmit) return;
+    handleClick = event => {
+        event.preventDefault();
+        this.props.dispatch({
+            type: 'SET_CONTACT_INFO',
+            payload: this.state.gentInfo
+        });
+        this.setState({
+            gentInfo: {
+                first_name: '',
+                last_name: '',
+                zip: '',
+                phone: '',
+                email: ''
+            }
+        });
+        this.props.history.push('/measurements');
+    }
 
-    //     let isValid = false;
-    //     let first_name_err = false;
-    //     let last_name_err = false;
-    //     let zip_err = false;
-    //     let phone_err = false;
-
-    //     if (!this.state.gentInfo.first_name) {
-    //         first_name_err = true;
-    //     }
-
-    //     if (!this.state.gentInfo.last_name) {
-    //         last_name_err = true;
-    //     }
-
-    //     if (!this.state.gentInfo.zip) {
-    //         zip_err = true;
-    //     }
-
-    //     if (!this.state.gentInfo.phone) {
-    //         phone_err = true;
-    //     }
-
-    //     if (this.state.gentInfo.first_name && this.state.gentInfo.last_name && this.state.gentInfo.zip && this.state.gentInfo.phone) {
-    //         isValid = true;
-    //     }
-
-    //     this.setState({
-    //         first_name_err : first_name_err,
-    //         last_name_err : last_name_err,
-    //         zip_err : zip_err,
-    //         phone_err : phone_err,
-    //         formValid: isValid
-    //     });
-    // };
-
-    // handleClick = event => {
-    //     event.preventDefault();
-    //     // this.setState({
-    //     //     triedSubmit: true
-    //     // }, async () => {
-    //     //     await this.validate();
-    //     //     if (this.state.formValid) {
-    //             this.props.dispatch({ type: 'SET_CONTACT_INFO', payload: this.state.gentInfo });
-    //                 this.setState({
-    //                     gentInfo: {
-    //                         first_name: '',
-    //                         last_name: '',
-    //                         zip: '',
-    //                         phone: '',
-    //                         email: ''
-    //                     }
-    //                 });
-    //             this.props.history.push('/measurements');
-    // }
-    //     })
-    // }
-
-    // onFormChange = (dataname) => event => {
-    //     this.setState({
-    //         gentInfo: {
-    //             ...this.state.gentInfo,
-    //             [dataname]: event.target.value
-    //         }
-    //     }, () => {
-    //         this.validate();
-    //     });
-    // }
-
-    // onFormChange = (dataname) => event => {
-    //     this.setState({
-    //         gentInfo: {
-    //             ...this.state.gentInfo,
-    //             [dataname] : event.target.value
-    //         }
-    //     });
-    // }
-
+    onFormChange = (dataname) => event => {
+        this.setState({
+            gentInfo: {
+                ...this.state.gentInfo,
+                [dataname]: event.target.value
+            }
+        });
+    }
 
     render() {
         const infoInputs = (
             <form >
                 <span>Contact Info:</span><br />
                 <TextField
-                    required="true"
+                    required={true}
                     id="standard-required"
                     label="First Name"
+                    value={this.state.gentInfo.first_name}
+                    onChange={this.onFormChange('first_name')}
                     margin="normal"
+                    fullWidth={true}
                 /> <br />
                 <TextField
-                    required="true"
+                    required={true}
                     id="standard-required"
                     label="Last Name"
+                    value={this.state.gentInfo.last_name}
+                    onChange={this.onFormChange('last_name')}
                     margin="normal"
+                    fullWidth={true}
                 /> <br />
                 <TextField
-                    required="true"
+                    required={true}
                     id="standard-required"
                     label="Zip"
+                    value={this.state.gentInfo.zip}
+                    onChange={this.onFormChange('zip')}
                     margin="normal"
+                    fullWidth={true}
                 /> <br />
-                {/* <NumberFormat
-                    required="true"
-                    format="(###) ###-####"
-                    customInput={TextField}
+                <ReactPhoneInput
+                    onlyCountries={['us']}
                     value={this.state.gentInfo.phone}
-                    mask="_"
-                    // onChange={this.onFormChange('phone')}
-                    placeholder="Cell Phone Number"
-                /> <br /> */}
-                {/* <TextField
-                    type="tel"
-                    required="true"
-                    id="standard-required"
-                    label="Cell Phone Number"
-                    margin="normal"
-                /> <br /> */}
-                <MuiPhoneInput
-                    defaultCounty='us'
-                    onlyCountries='us'
-                    autoFormat='true'
-                    
+                    onChange={this.onFormChange('phone')}
+                    component={TextField}
+                    defaultCountry={'us'}
+                    disableDropdown={true}
+                    inputExtraProps={{
+                        label: 'Cell Phone',
+                        required: true,
+                        autoFocus: true
+                    }}
                 /> <br />
                 <TextField
                     id="standard-required"
                     label="E-mail"
+                    value={this.state.gentInfo.email}
+                    onChange={this.onFormChange('email')}
                     margin="normal"
+                    fullWidth={true}
                 /> <br />
-
                 <button type="submit">Next</button>
             </form>
         )
