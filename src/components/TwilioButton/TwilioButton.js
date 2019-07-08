@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import swal from 'sweetalert2';
-import { withSwalInstance } from 'sweetalert2-react';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-const SweetAlert = withSwalInstance(swal);
+const MySwal = withReactContent(Swal);
 
 class TwilioButton extends Component {
 
@@ -16,8 +16,16 @@ class TwilioButton extends Component {
         }
     }
 
-    confirmAlert() {
-        console.log('YAAS');
+    testMethod = () => {
+        MySwal.fire({
+            title: <p>Hello World</p>,
+            footer: 'Copyright 2018',
+            onOpen: () => {
+              
+            }
+          }).then(() => {
+            return MySwal.fire(<p>Shorthand works too</p>)
+          })
     }
 
     sendText = () => {
