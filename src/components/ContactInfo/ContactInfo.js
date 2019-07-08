@@ -33,18 +33,24 @@ class ContactInfo extends Component {
         this.props.history.push('/measurements');
     }
 
-    onFormChange = (dataname) => event => {
+    onFormChange = (dataname) => (event, something) => {
+        let finalValue = event;
+        if (event.target) {
+            finalValue = event.target.value
+        }
+        console.log('something: ', something);
+        console.log('event: ', event);
         this.setState({
             gentInfo: {
                 ...this.state.gentInfo,
-                [dataname]: event.target.value
+                [dataname]: finalValue
             }
         });
     }
 
     render() {
         const infoInputs = (
-            <form >
+            <form onSubmit={this.handleClick}>
                 <span>Contact Info:</span><br />
                 <TextField
                     required={true}
@@ -52,6 +58,7 @@ class ContactInfo extends Component {
                     label="First Name"
                     value={this.state.gentInfo.first_name}
                     onChange={this.onFormChange('first_name')}
+                    autoFocus={true}
                     margin="normal"
                     fullWidth={true}
                 /> <br />
@@ -83,7 +90,6 @@ class ContactInfo extends Component {
                     inputExtraProps={{
                         label: 'Cell Phone',
                         required: true,
-                        autoFocus: true
                     }}
                 /> <br />
                 <TextField
