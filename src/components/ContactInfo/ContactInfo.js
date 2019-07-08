@@ -4,14 +4,6 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
 
-//     // first_name_err: false,
-//     // last_name_err: false,
-//     // zip_err: false,
-//     // phone_err: false,
-//     // formValid: false,
-//     // triedSubmit: false,
-// };
-
 class ContactInfo extends Component {
     state = {
         gentInfo: {
@@ -20,8 +12,9 @@ class ContactInfo extends Component {
             zip: '',
             phone: '',
             email: '',
-        },
-    
+        }
+    }
+
     // validate = () => {
     //     if (!this.state.triedSubmit) return;
 
@@ -105,7 +98,7 @@ class ContactInfo extends Component {
 
     render() {
         const infoInputs = (
-            <form onSubmit={this.handleClick}>
+            <form >
                 <span>Contact Info:</span><br />
                 <TextField
                     required="true"
@@ -125,15 +118,23 @@ class ContactInfo extends Component {
                     label="Zip"
                     margin="normal"
                 /> <br />
-                <NumberFormat
+                {/* <NumberFormat
+                    required="true"
                     format="(###) ###-####"
+                    customInput={TextField}
                     value={this.state.gentInfo.phone}
                     mask="_"
-                    onChange={this.onFormChange('phone')}
+                    // onChange={this.onFormChange('phone')}
                     placeholder="Cell Phone Number"
+                /> <br /> */}
+                <TextField
+                    type="tel"
+                    required="true"
+                    id="standard-required"
+                    label="Cell Phone Number"
+                    margin="normal"
                 /> <br />
                 <TextField
-                    required="true"
                     id="standard-required"
                     label="E-mail"
                     margin="normal"
