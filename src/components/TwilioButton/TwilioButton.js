@@ -17,17 +17,13 @@ class TwilioButton extends Component {
     }
 
     testMethod = () => {
-        this.props.history.push('/resources')
-        .then(() => {
-            MySwal.fire({
-                title: <h1>Thank you!</h1>,
-                html: <p>A text is on its way to you</p>,
-                footer: 'Suits for Hire',
-                onOpen: () => {
-                    MySwal.clickConfirm()
-                }
-            })
-        })
+        MySwal.fire({
+            title: <h1>Thank you!</h1>,
+            html: <p>Look for a text message coming your way</p>,
+            footer: 'Suits for Hire',
+        }).then(() => {
+            this.props.history.push('/resources');
+        });
     }
 
     sendText = () => {
