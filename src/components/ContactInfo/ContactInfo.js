@@ -2,125 +2,129 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import NumberFormat from 'react-number-format';
+import TextField from '@material-ui/core/TextField';
 
-const initialState = {
-    gentInfo: {
-        first_name: '',
-        last_name: '',
-        zip: '',
-        phone: '',
-        email: '',
-    },
-    first_name_err: false,
-    last_name_err: false,
-    zip_err: false,
-    phone_err: false,
-    formValid: false,
-    triedSubmit: false,
-};
+//     // first_name_err: false,
+//     // last_name_err: false,
+//     // zip_err: false,
+//     // phone_err: false,
+//     // formValid: false,
+//     // triedSubmit: false,
+// };
 
 class ContactInfo extends Component {
-    state = initialState;
+    state = {
+        gentInfo: {
+            first_name: '',
+            last_name: '',
+            zip: '',
+            phone: '',
+            email: '',
+        },
+    
+    // validate = () => {
+    //     if (!this.state.triedSubmit) return;
 
-    validate = () => {
-        if (!this.state.triedSubmit) return;
+    //     let isValid = false;
+    //     let first_name_err = false;
+    //     let last_name_err = false;
+    //     let zip_err = false;
+    //     let phone_err = false;
 
-        let isValid = false;
-        let first_name_err = false;
-        let last_name_err = false;
-        let zip_err = false;
-        let phone_err = false;
+    //     if (!this.state.gentInfo.first_name) {
+    //         first_name_err = true;
+    //     }
 
-        if (!this.state.gentInfo.first_name) {
-            first_name_err = true;
-        }
+    //     if (!this.state.gentInfo.last_name) {
+    //         last_name_err = true;
+    //     }
 
-        if (!this.state.gentInfo.last_name) {
-            last_name_err = true;
-        }
+    //     if (!this.state.gentInfo.zip) {
+    //         zip_err = true;
+    //     }
 
-        if (!this.state.gentInfo.zip) {
-            zip_err = true;
-        }
+    //     if (!this.state.gentInfo.phone) {
+    //         phone_err = true;
+    //     }
 
-        if (!this.state.gentInfo.phone) {
-            phone_err = true;
-        }
+    //     if (this.state.gentInfo.first_name && this.state.gentInfo.last_name && this.state.gentInfo.zip && this.state.gentInfo.phone) {
+    //         isValid = true;
+    //     }
 
-        if (this.state.gentInfo.first_name && this.state.gentInfo.last_name && this.state.gentInfo.zip && this.state.gentInfo.phone) {
-            isValid = true;
-        }
+    //     this.setState({
+    //         first_name_err : first_name_err,
+    //         last_name_err : last_name_err,
+    //         zip_err : zip_err,
+    //         phone_err : phone_err,
+    //         formValid: isValid
+    //     });
+    // };
 
-        this.setState({
-            first_name_err : first_name_err,
-            last_name_err : last_name_err,
-            zip_err : zip_err,
-            phone_err : phone_err,
-            formValid: isValid
-        });
-    };
+    // handleClick = event => {
+    //     event.preventDefault();
+    //     // this.setState({
+    //     //     triedSubmit: true
+    //     // }, async () => {
+    //     //     await this.validate();
+    //     //     if (this.state.formValid) {
+    //             this.props.dispatch({ type: 'SET_CONTACT_INFO', payload: this.state.gentInfo });
+    //                 this.setState({
+    //                     gentInfo: {
+    //                         first_name: '',
+    //                         last_name: '',
+    //                         zip: '',
+    //                         phone: '',
+    //                         email: ''
+    //                     }
+    //                 });
+    //             this.props.history.push('/measurements');
+    // }
+    //     })
+    // }
 
-    handleClick = event => {
-        event.preventDefault();
-        this.setState({
-            triedSubmit: true
-        }, async () => {
-            await this.validate();
-            if (this.state.formValid) {
-                this.props.dispatch({ type: 'SET_CONTACT_INFO', payload: this.state.gentInfo })
-                    this.setState({
-                        gentInfo: {
-                            first_name: '',
-                            last_name: '',
-                            zip: '',
-                            phone: '',
-                            email: ''
-                        }
-                    });
-                this.props.history.push('/measurements');
-           }
-        })
-    }
+    // onFormChange = (dataname) => event => {
+    //     this.setState({
+    //         gentInfo: {
+    //             ...this.state.gentInfo,
+    //             [dataname]: event.target.value
+    //         }
+    //     }, () => {
+    //         this.validate();
+    //     });
+    // }
 
-    onFormChange = (dataname) => event => {
-        this.setState({
-            gentInfo: {
-                ...this.state.gentInfo,
-                [dataname]: event.target.value
-            }
-        }, () => {
-            this.validate();
-        });
-    }
+    // onFormChange = (dataname) => event => {
+    //     this.setState({
+    //         gentInfo: {
+    //             ...this.state.gentInfo,
+    //             [dataname] : event.target.value
+    //         }
+    //     });
+    // }
+
 
     render() {
         const infoInputs = (
             <form onSubmit={this.handleClick}>
                 <span>Contact Info:</span><br />
-                <input type="text"
-                    value={this.state.gentInfo.first_name}
-                    onChange={this.onFormChange('first_name')}
-                    placeholder="First Name"
+                <TextField
+                    required="true"
+                    id="standard-required"
+                    label="First Name"
+                    margin="normal"
                 /> <br />
-
-                {this.state.first_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.last_name}
-                    onChange={this.onFormChange('last_name')}
-                    placeholder="Last Name"
+                <TextField
+                    required="true"
+                    id="standard-required"
+                    label="Last Name"
+                    margin="normal"
                 /> <br />
-
-                {this.state.last_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.zip}
-                    onChange={this.onFormChange('zip')}
-                    placeholder="Zip Code"
+                <TextField
+                    required="true"
+                    id="standard-required"
+                    label="Zip"
+                    margin="normal"
                 /> <br />
-
-                {this.state.zip_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
                 <NumberFormat
                     format="(###) ###-####"
                     value={this.state.gentInfo.phone}
@@ -128,14 +132,13 @@ class ContactInfo extends Component {
                     onChange={this.onFormChange('phone')}
                     placeholder="Cell Phone Number"
                 /> <br />
+                <TextField
+                    required="true"
+                    id="standard-required"
+                    label="E-mail"
+                    margin="normal"
+                /> <br />
 
-                {this.state.phone_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.email}
-                    onChange={this.onFormChange('email')}
-                    placeholder="E-Mail"
-                /><br />
                 <button type="submit">Next</button>
             </form>
         )
