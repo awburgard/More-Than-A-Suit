@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import NumberFormat from 'react-number-format';
+// import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
+ import MuiPhoneInput from '@material-ui/core/TextField';
+
 
 class ContactInfo extends Component {
     state = {
@@ -127,12 +129,17 @@ class ContactInfo extends Component {
                     // onChange={this.onFormChange('phone')}
                     placeholder="Cell Phone Number"
                 /> <br /> */}
-                <TextField
+                {/* <TextField
                     type="tel"
                     required="true"
                     id="standard-required"
                     label="Cell Phone Number"
                     margin="normal"
+                /> <br /> */}
+                <MuiPhoneInput
+                    defaultCounty='us'
+                    onlyCountries='us'
+                    autoFormat='true'
                 /> <br />
                 <TextField
                     id="standard-required"
