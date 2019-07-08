@@ -9,54 +9,71 @@ class NeedsPage extends Component {
 
         this.state = {
             otherIsEditable: false,
-            needsType: ''
+            needsType: '',
+            otherText: ''
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChangeOtherField = this.handleChangeOtherField.bind(this);
-
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
+        let otherIsEditable = false;
+        if (event.target.value === 'Other') {
+            otherIsEditable = true;
+        }
         this.setState({
             needsType: event.target.value,
-            otherIsEditable: false
+            otherIsEditable,
         });console.log(this.state.needsType);
     }
 
-    handleChangeOtherField(event) {
+    // otherTextToNeedsType() {
+    //     let needsType = this.state.needsType;
+    //     if (needsType === 'Other') {
+    //         needsType = this.state.otherText;
+    //     }
+    //     this.setState({
+    //         needsType: this.state.otherText,
+    //     });console.log(this.state.needsType);
+
+    // }
+
+    handleChangeOtherField = (event) => {
         this.setState({
-            needsType: event.target.value,
-        });console.log(this.state.needsType);
+            otherText: event.target.value,
+            // needsType: this.state.otherText
+            // otherTextToNeedsType()
+        });
+        console.log(this.state.otherText);
+        console.log(this.state.needsType);
     }
 
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
-        alert(`You chose the ${this.state.needsType}.`);
+        let need = this.state.needsType;
+        if (this.state.needsType === 'Other') {
+            need = this.state.otherText
+        }
+
+        alert(`You chose the ${this.state.needsType} and ${this.state.otherText}.`);
         this.props.dispatch({
             type: 'SET_NEEDS',
             payload: {
-                ...this.state.needsType,
+            need: need,
             id: this.props.store.setReview.id,
             }
         })
-        this.setState({
-            stats: {
-                ...this.state.needsType
-            }
-        });
-        this.props.history.push('/appointment');
     }
 
-    editOtherField = () => {
-        this.setState({
-          otherIsEditable: true,
-        });
-      }
-
     render() {
+        let otherField = (
+            <div>
+                <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChangeOtherField} />
+            </div>
+        );
+
+        if (this.state.otherIsEditable === false) {
+            otherField = null;
+        }
         return (
             <div>
                 <h2>What occasion is this Suit for? </h2>
@@ -91,29 +108,24 @@ class NeedsPage extends Component {
                                     type="radio"
                                     value="Funeral"
                                     checked={this.state.needsType === "Funeral"}
-                                    onChange={this.handleChange || this}
+                                    onChange={this.handleChange}
                                 />
                                 Funeral
                             </label>
                         </li>
-                        {this.state.otherIsEditable ?
-                            <div>
-                                <form method="post" action="/login">
-                                    <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChangeOtherField} />
-                                </form>
-                            </div>:
                         <li>
                             <label>
                                 <input
                                     type="radio"
                                     value="Other"
-                                    checked={this.state.needsType === " "}
-                                    onChange={this.editOtherField}
-                                    />
-                                    Other
+                                    checked={this.state.needsType === "Other"}
+                                    onChange={this.handleChange}
+                                />
+                                Other
                             </label>
+
+                            {otherField}
                         </li>
-            }
                     </ul>
                     <button type="submit">Select Type</button>
                 </form>
