@@ -17,16 +17,17 @@ class TwilioButton extends Component {
     }
 
     testMethod = () => {
-        MySwal.fire({
-            title: <h1>Thank you!</h1>,
-            html: <p>A text is on its way to you</p>,
-            footer: 'Copyright 2018',
-            onOpen: () => {
-                MySwal.clickConfirm()
-            }
-          }).then(() => {
-            this.props.history.push('/resources')
-          })
+        this.props.history.push('/resources')
+        .then(() => {
+            MySwal.fire({
+                title: <h1>Thank you!</h1>,
+                html: <p>A text is on its way to you</p>,
+                footer: 'Suits for Hire',
+                onOpen: () => {
+                    MySwal.clickConfirm()
+                }
+            })
+        })
     }
 
     sendText = () => {
@@ -37,8 +38,8 @@ class TwilioButton extends Component {
                 appointmentDate: this.props.info.appointment_date,
                 appointmentTime: this.props.info.appointment_time
             }
-        })
-        testMethod();
+        });
+        this.testMethod();
     }
 
     render() {
