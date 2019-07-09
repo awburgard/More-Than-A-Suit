@@ -149,3 +149,7 @@ Vertical Rhythm
 .vr_4x {
     margin-bottom: 40px;
 }
+
+.text_alnCenter{
+    text-align: center;
+}
