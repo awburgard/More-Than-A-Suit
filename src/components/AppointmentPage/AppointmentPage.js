@@ -66,10 +66,6 @@ class AppointmentPage extends Component {
                             </label>
                         </li>
                     </ul>
-                    <button 
-                    type="submit">
-                    Select Type
-                    </button>
                 </form>
                 <h2>Choose Appointment Date/Time</h2>
                 <AppointmentCalendar />

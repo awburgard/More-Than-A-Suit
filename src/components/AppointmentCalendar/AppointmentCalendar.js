@@ -4,12 +4,14 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import FullCalendar from '@fullcalendar/react'
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid'
-// import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import moment from "moment";
+import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
-
+const MySwal = withReactContent(Swal);
 
 class AppointmentCalendar extends Component {
     componentDidMount() {
@@ -18,8 +20,16 @@ class AppointmentCalendar extends Component {
         })
     }
 
-    handleDateClick = (arg) => {
-        alert(arg.dateStr)
+    handleDateClick = () => {
+        MySwal.fire({
+           html: <CalendarTimePicker handleTimeChange={this.handleTimeChange}/>
+        })
+    }
+
+    handleTimeChange = (time) => {
+        this.setState({
+            selectedTime: this.props.selectedTime
+        })
     }
 
     render() {
@@ -29,7 +39,8 @@ class AppointmentCalendar extends Component {
                     defaultView="dayGridMonth" 
                     plugins={[ dayGridPlugin, interactionPlugin ]}
                     events={this.props.store.appointment} 
-                    dateClick={this.handleDateClick}/>
+                    dateClick={this.handleDateClick}
+                    />
             </div>
         )
     }
