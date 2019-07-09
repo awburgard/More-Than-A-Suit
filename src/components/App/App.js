@@ -47,7 +47,7 @@ class App extends Component {
               <Route
                 exact
                 path="/"
-                component={SplashPage}
+                component={LandingPage}
               />
               <Route
                 exact
