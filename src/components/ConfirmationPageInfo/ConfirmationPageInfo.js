@@ -24,7 +24,7 @@ class ConfirmationPageInfo extends Component {
                         required: true,
                     }}
                 /> <br />
-                Phone Number: {this.props.info.phone} <br />
+                {/* Phone Number: {this.props.info.phone} <br /> */}
                 Email: {this.props.info.email} <br />
                 Height: Feet {this.props.info.height_feet} &nbsp; Inches {this.props.info.height_inches} <br />
                 Weight: {this.props.info.weight} <br />
