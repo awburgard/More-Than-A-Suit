@@ -23,11 +23,8 @@ import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
-<<<<<<< HEAD
 import AdminDashboardPage from '../AdminDashboardPage/AdminDashboardPage';
-=======
 import LandingPage from '../LandingPage/LandingPage';
->>>>>>> develop
 
 class App extends Component {
   componentDidMount() {
