@@ -23,6 +23,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.16.4",
     "googleapis": "^39.2.0",
+    "material-ui": "^0.20.2",
     "material-ui-phone-number": "^2.0.0",
     "moment": "^2.24.0",
     "passport": "^0.4.0",
@@ -41,6 +42,9 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.0.2",
+    "sweetalert2": "^8.13.3",
+    "sweetalert2-react": "^0.8.2",
+    "sweetalert2-react-content": "^1.1.0",
     "twilio": "^3.33.0"
   },
   "scripts": {
