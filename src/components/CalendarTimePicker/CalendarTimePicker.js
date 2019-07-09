@@ -6,23 +6,15 @@ import {
 import MomentUtils from '@date-io/moment';
 
 class CalendarTimePicker extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            selectedTime: ''
-        };
-    }
-
-
     render() {
+        console.log(this.props.selectedTime);
         return (
             <div>
                 <MuiPickersUtilsProvider utils={MomentUtils}>
                     <TimePicker
                         variant="inline"
                         label="Inline mode"
-                        value={this.selectedTime}
+                        value={this.props.selectedTime}
                         onChange={this.props.handleTimeChange}
                     />
                 </MuiPickersUtilsProvider>

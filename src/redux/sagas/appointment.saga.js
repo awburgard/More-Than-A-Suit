@@ -30,22 +30,23 @@ function* postAppointment(action) {
 
 function* updateAppointmentType(action) {
     try {
-        const googleEvent = {
-            summary: '',
-            description: '',
-            start: '',
-            end: '',
-        };
+        // const googleEvent = {
+        //     summary: '',
+        //     description: '',
+        //     start: '',
+        //     end: '',
+        // };
         const gentlemanUpdate = {
             appointment_type: action.payload.appointment_type,
             appointment_date: action.payload.appointment_date,
-            time: action.payload.time
+            appointment_time: action.payload.time
         };
         // google calendar API calendar use - googleEvent
-        yield axios.post('/googlecal/event', googleEvent);
-        yield axios.put('api/appointment', gentlemanUpdate);
+        // yield axios.post('/googlecal/event', googleEvent);
+        yield axios.put(`api/appointment/${action.payload.id}`, action.payload);
         yield put({
-            type: 'GET_APPOINTMENT',
+            type: 'SET_REVIEW',
+            payload: action.payload,
         })
     } catch (error) {
         console.log('Error posting and updating appointment information:', error);

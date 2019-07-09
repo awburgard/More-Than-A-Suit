@@ -68,7 +68,7 @@ class AppointmentPage extends Component {
                     </ul>
                 </form>
                 <h2>Choose Appointment Date/Time</h2>
-                <AppointmentCalendar />
+                <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
             </div>
         )
     }
