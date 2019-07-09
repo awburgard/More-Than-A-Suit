@@ -1,32 +1,62 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import axios from 'axios';
 
 class NeedsPage extends Component {
     constructor() {
         super();
 
         this.state = {
-            needsType: ''
+            otherIsEditable: false,
+            needsType: '',
+            otherText: ''
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
+        let otherIsEditable = false;
+        if (event.target.value === 'Other') {
+            otherIsEditable = true;
+        }
         this.setState({
-            needsType: event.target.value
+            needsType: event.target.value,
+            otherIsEditable,
+        });console.log(this.state.needsType);
+    }
+
+    handleChangeOtherField = (event) => {
+        this.setState({
+            otherText: event.target.value,
         });
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
 
-        alert(`${this.state.needsType} selected.`);
+    handleSubmit = (event) => {
+        event.preventDefault();
+        let need = this.state.needsType;
+        if (this.state.needsType === 'Other') {
+            need = this.state.otherText
+        }
+        this.props.dispatch({
+            type: 'SET_NEEDS',
+            payload: {
+            need: need,
+            id: this.props.store.setReview.id,
+            }
+        });this.props.history.push('/appointment');
     }
 
     render() {
+        let otherField = (
+            <div>
+                <input type="text" id="other" name="other" placeholder="other need" onChange={this.handleChangeOtherField} />
+            </div>
+        );
+
+        if (this.state.otherIsEditable === false) {
+            otherField = null;
+        }
         return (
             <div>
                 <h2>What occasion is this Suit for? </h2>
@@ -76,6 +106,8 @@ class NeedsPage extends Component {
                                 />
                                 Other
                             </label>
+
+                            {otherField}
                         </li>
                     </ul>
                     <button type="submit">Select Type</button>

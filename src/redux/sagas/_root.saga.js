@@ -7,8 +7,13 @@ import confirmationSaga from './confirmation.saga';
 import resourcesSaga from './resources.saga';
 import measurementsSaga from './measurements.saga';
 import twilioSaga from './twilio.saga';
+<<<<<<< HEAD
 import categoriesSaga from './categories.saga';
 import appointmentSaga from './appointment.saga';
+=======
+import needsSaga from './needs.saga';
+
+>>>>>>> develop
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -26,7 +31,11 @@ export default function* rootSaga() {
     resourcesSaga(),
     measurementsSaga(),
     twilioSaga(),
+<<<<<<< HEAD
     categoriesSaga(),
     appointmentSaga(),
+=======
+    needsSaga()
+>>>>>>> develop
   ]);
 }
