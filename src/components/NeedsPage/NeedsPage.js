@@ -25,25 +25,10 @@ class NeedsPage extends Component {
         });console.log(this.state.needsType);
     }
 
-    // otherTextToNeedsType() {
-    //     let needsType = this.state.needsType;
-    //     if (needsType === 'Other') {
-    //         needsType = this.state.otherText;
-    //     }
-    //     this.setState({
-    //         needsType: this.state.otherText,
-    //     });console.log(this.state.needsType);
-
-    // }
-
     handleChangeOtherField = (event) => {
         this.setState({
             otherText: event.target.value,
-            // needsType: this.state.otherText
-            // otherTextToNeedsType()
         });
-        console.log(this.state.otherText);
-        console.log(this.state.needsType);
     }
 
 
@@ -53,15 +38,13 @@ class NeedsPage extends Component {
         if (this.state.needsType === 'Other') {
             need = this.state.otherText
         }
-
-        alert(`You chose the ${this.state.needsType} and ${this.state.otherText}.`);
         this.props.dispatch({
             type: 'SET_NEEDS',
             payload: {
             need: need,
             id: this.props.store.setReview.id,
             }
-        })
+        });this.props.history.push('/appointment');
     }
 
     render() {

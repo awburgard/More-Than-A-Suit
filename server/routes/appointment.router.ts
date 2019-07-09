@@ -21,17 +21,16 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
         })
 });
 
-// router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
-//     const queryString: string = `SELECT * FROM "categories";`;
-//     pool.query(queryString)
-//         .then((response: Object): void => {
-//             res.sendStatus(201);
-//         })
-//         .catch((err: Object): void => {
-//             console.log(`Error getting resources: ${err}`);
-//             res.sendStatus(500);
-//         })
-// })
-
+router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryString: string = `SELECT "first_name", "last_name", "appointment_type", "appointment_date", "appointment_time", "phone" FROM "gentleman";`;
+    pool.query(queryString)
+        .then((response: QueryResult): void => {
+            res.send(response.rows)
+        })
+        .catch((err: QueryResult): void => {
+            console.log(`Error getting gentleman info: ${err}`);
+            res.sendStatus(500);
+        })
+});
 
 export default router;

@@ -20,7 +20,6 @@ function* getReview(action) {
 function* putReview(action) {
   try {
     // post will send whatever is on the action.payload to the server route
-    console.log(action.payload)
     yield axios.put(`api/review/${action.payload.id}`, action.payload);
     // on successful post the 'GET_TEMPLATES' saga is dispateched (put)
     yield put({
