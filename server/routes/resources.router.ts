@@ -12,7 +12,6 @@ router.get('/', (req: Request, res: Response, next: express.NextFunction): void 
                                 ORDER BY "resources"."id" ASC;`;
     pool.query(queryString)
         .then((response: QueryResult): void => {
-            console.log(response.rows);
             res.send(response.rows)
         })
         .catch((err: QueryResult): void => {
@@ -53,12 +52,12 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
                     res.send(201);
                 })
                 .catch((err: QueryResult): void => {
-                    console.log(`Error deleting resource: ${err}`);
+                    console.log(`Error updating resource ${err}`);
                     res.sendStatus(500);
                 })
         })
         .catch((err: QueryResult): void => {
-            console.log(`Error updating resource: ${err}`);
+            console.log(`Error updating resource ${err}`);
             res.sendStatus(500);
         })
 });
@@ -93,8 +92,6 @@ router.post('/', (req: Request, res: Response): void => {
                                 RETURNING id;`;
     pool.query(queryString, [req.body.title, req.body.description, req.body.link])
         .then((response: QueryResult): void => {
-            console.log(`Resource ID: ${response.rows[0].id}`);
-            console.log(`Category ID: ${req.body.category}`);
             queryString = `INSERT INTO "resources_categories" (resources_id, categories_id)
                             VALUES ($1, $2);`;
             pool.query(queryString, [response.rows[0].id, req.body.category])

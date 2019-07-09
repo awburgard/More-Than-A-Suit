@@ -4,7 +4,6 @@ import { put, takeLatest } from 'redux-saga/effects';
 function* getCategories(action) {
     try {
         const getResponse = yield axios.get(`/api/need/`);
-        console.log('THIS IS THE GET RESPONSE:', getResponse)
         yield put({
             type: 'SET_CATEGORIES',
             payload: getResponse.data

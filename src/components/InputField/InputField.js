@@ -68,9 +68,10 @@ class InputField extends Component {
                 <br />
                 {/* <AppointmentPage /> */}
                 {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
-                Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
+                {/* Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
                 Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
-                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br />
+                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
+                Your appointment has already been set. To change your appointment please call...
                 <button onClick={this.saveInfo}>Save</button>
             </div >
         )

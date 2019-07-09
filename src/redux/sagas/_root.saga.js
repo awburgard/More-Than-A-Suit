@@ -8,7 +8,7 @@ import resourcesSaga from './resources.saga';
 import measurementsSaga from './measurements.saga';
 import twilioSaga from './twilio.saga';
 import categoriesSaga from './categories.saga';
-
+import appointmentSaga from './appointment.saga';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -27,5 +27,6 @@ export default function* rootSaga() {
     measurementsSaga(),
     twilioSaga(),
     categoriesSaga(),
+    appointmentSaga(),
   ]);
 }
