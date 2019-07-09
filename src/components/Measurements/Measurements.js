@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class Measurements extends Component {
     state = {
@@ -47,45 +50,58 @@ class Measurements extends Component {
     render() {
         const measurementInfo = (
             <form onSubmit={this.handleClick}>
-                <h1>Measurements</h1><br />
-                <h3>Knowing these measurements is an important part of getting the right fit</h3>
-                <TextField
-                    label="Height"
-                    value={this.state.stats.height_feet}
-                    onChange={this.onFormChange('height_feet')}
-                    margin="normal"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ft</InputAdornment>,
-                      }}
-                />
-                <TextField
-                    label=" "
-                    value={this.state.stats.height_inches}
-                    onChange={this.onFormChange('height_inches')}
-                    margin="normal"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">in</InputAdornment>,
-                      }}
-                /> <br />
-                <TextField
-                    label="Weight"
-                    value={this.state.stats.weight}
-                    onChange={this.onFormChange('weight')}
-                    margin="normal"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">lbs</InputAdornment>,
-                      }}
-                /> <br />
-                <TextField
-                    label="Waist"
-                    value={this.state.stats.waist}
-                    onChange={this.onFormChange('waist')}
-                    margin="normal"
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">in</InputAdornment>,
-                      }}
-                /> <br />
-                <button type="submit">Next</button>
+                <Typography variant="h5" component="h3">
+                    Measurements
+                </Typography>
+                <Paper
+                elevation={10}>
+                <Typography component="p">
+                    Knowing these measurements are an important part of getting the right fit
+                </Typography>
+                    <TextField
+                        label="Height"
+                        value={this.state.stats.height_feet}
+                        onChange={this.onFormChange('height_feet')}
+                        autoFocus={true}
+                        margin="normal"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">ft</InputAdornment>,
+                        }}
+                    />
+                    <TextField
+                        label=" "
+                        value={this.state.stats.height_inches}
+                        onChange={this.onFormChange('height_inches')}
+                        margin="normal"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">in</InputAdornment>,
+                        }}
+                    /> <br />
+                    <TextField
+                        label="Weight"
+                        value={this.state.stats.weight}
+                        onChange={this.onFormChange('weight')}
+                        margin="normal"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">lbs</InputAdornment>,
+                        }}
+                    /> <br />
+                    <TextField
+                        label="Waist"
+                        value={this.state.stats.waist}
+                        onChange={this.onFormChange('waist')}
+                        margin="normal"
+                        InputProps={{
+                            endAdornment: <InputAdornment position="end">in</InputAdornment>,
+                        }}
+                    /> <br />
+                    <Button
+                        variant="contained"
+                        color="primary"
+                    >
+                        Next
+                    </Button>
+                </Paper>
             </form>
         )
 
