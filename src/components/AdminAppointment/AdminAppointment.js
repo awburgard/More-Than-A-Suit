@@ -7,8 +7,8 @@ class AdminAppointment extends Component {
   render() {
     return (
       <div>
-        <h2>Appointments</h2>
-        <AdminAppointmentList />
+        <h2>{this.props.title}</h2>
+        <AdminAppointmentList appointments={this.props.appointments} archived={this.props.archived}/>
       </div>
     );
   }

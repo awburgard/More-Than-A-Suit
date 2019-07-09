@@ -22,7 +22,7 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
 });
 
 router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT "first_name", "last_name", "appointment_type", "appointment_date", "appointment_time" FROM "gentleman";`;
+    const queryString: string = `SELECT "first_name", "last_name", "appointment_type", "appointment_date", "appointment_time", "phone" FROM "gentleman";`;
     pool.query(queryString)
         .then((response: QueryResult): void => {
             res.send(response.rows)
