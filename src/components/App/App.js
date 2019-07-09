@@ -24,6 +24,8 @@ import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
+import AdminDashboardPage from '../AdminDashboardPage/AdminDashboardPage';
+import LandingPage from '../LandingPage/LandingPage';
 
 class App extends Component {
   componentDidMount() {
@@ -47,7 +49,7 @@ class App extends Component {
               <Route
                 exact
                 path="/"
-                component={SplashPage}
+                component={LandingPage}
               />
               <Route
                 exact
@@ -58,6 +60,12 @@ class App extends Component {
                 exact
                 path="/resources"
                 component={ResourcesPage}
+              />
+
+              <Route
+                exact
+                path="/admindash"
+                component={AdminDashboardPage}
               />
 
 
@@ -107,6 +115,11 @@ class App extends Component {
                 exact
                 path="/needs"
                 component={NeedsPage}
+              />
+              <Route
+                exact
+                path="/landingpage"
+                component={LandingPage}
               />
 
 

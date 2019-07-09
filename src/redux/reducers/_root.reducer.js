@@ -3,8 +3,15 @@ import errors from './errors.reducer';
 import loginMode from './loginMode.reducer';
 import user from './user.reducer';
 import setReview from './setReview.reducer';
+<<<<<<< HEAD
 import appointment from './appointment.reducer';
 import needs from './needs.reducer'
+=======
+import needs from './needs.reducer';
+import resources from './resources.reducer';
+import categories from './categories.reducer';
+import appointment from './appointment.reducer';
+>>>>>>> develop
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +26,9 @@ const rootReducer = combineReducers({
   setReview,
   appointment,
   needs,
+  resources,
+  categories,
+  appointment,
 });
 
 export default rootReducer;
