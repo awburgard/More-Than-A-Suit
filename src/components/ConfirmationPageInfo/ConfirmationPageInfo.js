@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import moment from "moment";
+import TextField from '@material-ui/core/TextField';
+import ReactPhoneInput from 'react-phone-input-mui';
 
 class ConfirmationPageInfo extends Component {
     render() {
@@ -10,6 +12,18 @@ class ConfirmationPageInfo extends Component {
                 First Name: {this.props.info.first_name} <br />
                 Last Name: {this.props.info.last_name} <br />
                 Zip Code: {this.props.info.zip} <br />
+                <ReactPhoneInput
+                    onlyCountries={['us']}
+                    value={this.props.info.phone}
+                    component={TextField}
+                    disabled={true}
+                    defaultCountry={'us'}
+                    disableDropdown={true}
+                    inputExtraProps={{
+                        label: 'Cell Phone',
+                        required: true,
+                    }}
+                /> <br />
                 Phone Number: {this.props.info.phone} <br />
                 Email: {this.props.info.email} <br />
                 Height: Feet {this.props.info.height_feet} &nbsp; Inches {this.props.info.height_inches} <br />
