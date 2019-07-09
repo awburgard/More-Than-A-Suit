@@ -51,30 +51,23 @@ class Measurements extends Component {
                 <h3>Knowing these measurements is an important part of getting the right fit</h3>
                 <TextField
                     label="Height"
-                    helperText="Feet"
                     value={this.state.stats.height_feet}
                     onChange={this.onFormChange('height_feet')}
-                    endAdornment={<InputAdornment position="end">ft</InputAdornment>}
                     margin="normal"
-                    aria-describedby="weight-helper-text"
-                    inputProps={{
-                        'aria-label': 'Weight',
-                    }}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">ft</InputAdornment>,
+                      }}
                 />
                 <TextField
                     label=" "
-                    helperText="Inches"
                     value={this.state.stats.height_inches}
                     onChange={this.onFormChange('height_inches')}
-                    endAdornment={<InputAdornment position="end">ft</InputAdornment>}
                     margin="normal"
                     InputProps={{
                         endAdornment: <InputAdornment position="end">in</InputAdornment>,
                       }}
                 /> <br />
                 <TextField
-                    required={true}
-                    id="standard-required"
                     label="Weight"
                     value={this.state.stats.weight}
                     onChange={this.onFormChange('weight')}
@@ -82,13 +75,16 @@ class Measurements extends Component {
                     InputProps={{
                         endAdornment: <InputAdornment position="end">lbs</InputAdornment>,
                       }}
-                />
-                <h5>Waist</h5>
-                <input type="number"
+                /> <br />
+                <TextField
+                    label="Waist"
                     value={this.state.stats.waist}
                     onChange={this.onFormChange('waist')}
-                    placeholder="Inches"
-                /> */}
+                    margin="normal"
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">in</InputAdornment>,
+                      }}
+                /> <br />
                 <button type="submit">Next</button>
             </form>
         )
