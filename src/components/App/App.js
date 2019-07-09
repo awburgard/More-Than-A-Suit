@@ -23,6 +23,7 @@ import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
+import LandingPage from '../LandingPage/LandingPage';
 
 class App extends Component {
   componentDidMount() {
@@ -106,6 +107,11 @@ class App extends Component {
                 exact
                 path="/needs"
                 component={NeedsPage}
+              />
+              <Route
+                exact
+                path="/landingpage"
+                component={LandingPage}
               />
 
 
