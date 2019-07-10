@@ -19,10 +19,10 @@ function* getAppointment(action) {
 function* postAppointment(action) {
     try {
         const googleEvent = {
-            summary: '',
-            description: '',
-            start: '',
-            end: '',
+            summary: this.props.info.first_name + ' ' + this.props.info.last_name,
+            description: this.props.info.appointmentType,
+            start: this.props.info.selectedTime,
+            end: this.props.info.selectedTime,
         };
 
         yield axios.post('/googlecal/event', googleEvent);
