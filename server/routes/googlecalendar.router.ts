@@ -19,7 +19,7 @@ router.get('/event', (req: any,res: any) => {
         redirect_uris : ["urn:ietf:wg:oauth:2.0:oob","http://localhost"]
       }
     }
-
+    console.log('Get Calendar')
     init(googleObj, res)
 });
 

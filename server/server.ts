@@ -43,7 +43,7 @@ app.use('/api/resources', resourcesRouter);
 app.use('/api/need', needRouter);
 app.use('/api/twilio', twilioRouter);
 
-app.use('/googlecal/event', googlecal);
+app.use('/googlecal', googlecal);
 
 // Serve static files
 app.use(express.static('build'));

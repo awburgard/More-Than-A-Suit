@@ -60,7 +60,12 @@ router.post('/register', (req: Request, res: Response, next: express.NextFunctio
 });
 
 router.post('/login', userStrategy.authenticate('local'), (req: Request, res: Response): void => {
+<<<<<<< HEAD
+    console.log('/login');
+  res.sendStatus(200);
+=======
     res.sendStatus(200);
+>>>>>>> develop
 });
 
 router.post('/logout', (req: Request, res: Response): void => {
@@ -74,7 +79,7 @@ router.put('/resource/:id', (req: Request, res: Response): void => {
                                 SET "title" = $1,
                                 "description" = $2,
                                 "link" = $3
-                                WHERE "resources_id" = $4;`;
+                                WHERE "id" = $4;`;
 
     const queryValues = [
         updatedInfo.title,
