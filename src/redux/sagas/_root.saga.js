@@ -9,7 +9,6 @@ import resourcesSaga from './resources.saga';
 import measurementsSaga from './measurements.saga';
 import twilioSaga from './twilio.saga';
 import categoriesSaga from './categories.saga';
-import appointmentSaga from './appointment.saga';
 import needsSaga from './needs.saga';
 
 // rootSaga is the primary saga.

@@ -37,7 +37,6 @@ class AppointmentPage extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.goToConfirmation}>Go to Confirmation</button>
                 <h2>Set Up Your Appointment</h2>
                 <form onSubmit={this.handleSubmit}>
                     <p>Select an appointment type:</p>

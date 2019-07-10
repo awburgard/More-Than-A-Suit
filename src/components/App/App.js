@@ -5,8 +5,6 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import MomentUtils from '@date-io/moment';
 import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
@@ -14,7 +12,6 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import SplashPage from '../SplashPage/SplashPage';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
 import ContactInfo from '../ContactInfo/ContactInfo';
 import LoginPage from '../LoginPage/LoginPage';
 import AppointmentPage from '../AppointmentPage/AppointmentPage';
@@ -76,7 +73,7 @@ class App extends Component {
                 exact
                 path="/login"
                 redirect="/admin"
-                component={LoginPage}
+                component={AdminDashboardPage}
               />
               <Route
                 exact
@@ -102,7 +99,7 @@ class App extends Component {
               <ProtectedRoute
                 exact
                 path="/admin"
-                component={UserPage}
+                component={AdminDashboardPage}
               />
               {/* This works the same as the other protected route, except that if the user is logged in,
               they will see the info page instead. */}

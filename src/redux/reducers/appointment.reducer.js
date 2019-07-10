@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function googleCalendarEventConverter(googleEvents) {
     const calendarEvents = googleEvents.map((gEvent) => {
         return {
@@ -11,9 +10,6 @@ function googleCalendarEventConverter(googleEvents) {
 }
 
 const appointment = (state = {}, action) => {
-=======
-const appointment = (state = [], action) => {
->>>>>>> develop
     switch (action.type) {
         case 'SET_APPOINTMENT':
             return googleCalendarEventConverter(action.payload);

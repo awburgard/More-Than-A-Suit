@@ -60,12 +60,8 @@ router.post('/register', (req: Request, res: Response, next: express.NextFunctio
 });
 
 router.post('/login', userStrategy.authenticate('local'), (req: Request, res: Response): void => {
-<<<<<<< HEAD
     console.log('/login');
   res.sendStatus(200);
-=======
-    res.sendStatus(200);
->>>>>>> develop
 });
 
 router.post('/logout', (req: Request, res: Response): void => {
