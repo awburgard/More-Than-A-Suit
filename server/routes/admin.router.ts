@@ -58,7 +58,7 @@ router.post('/logout', (req: Request, res: Response): void => {
 
 //THE FOLLOWING ROUTES DEAL WITH THE APPOINTMENTS AND RESOURCES ON THE ADMIN DASHBOARD
 router.get('/appointments', rejectUnauthenticated, (req: Request, res: Response, next: express.NextFunction): void => {
-    const queryString: string = `SELECT "first_name", "last_name", "appointment_type", "appointment_date", "appointment_time", "phone" FROM "gentleman";`;
+    const queryString: string = `SELECT * FROM "gentleman";`;
     if (req.isAuthenticated()) {
         pool.query(queryString)
             .then((response: QueryResult): void => {

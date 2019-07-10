@@ -12,6 +12,10 @@ class AdminAppointmentItem extends Component {
             <TableHead>
               <TableRow>
                 <TableCell align="left">Name</TableCell>
+                <TableCell align="left">Height</TableCell>
+                <TableCell align="left">Weight</TableCell>
+                <TableCell align="left">Waist</TableCell>
+                <TableCell align="left">Need</TableCell>
                 <TableCell align="right">Number</TableCell>
                 <TableCell align="right">Appointment Type</TableCell>
                 <TableCell align="right">Appointment Date</TableCell>
@@ -22,7 +26,10 @@ class AdminAppointmentItem extends Component {
               <TableRow key={this.props.key}>
                 <TableCell align="left">{this.props.appointment.first_name} {this.props.appointment.last_name}</TableCell>
                 <TableCell align="right">{this.props.appointment.phone}</TableCell>
-                <TableCell align="right">{this.props.appointment.phone}</TableCell>
+                <TableCell align="right">{this.props.appointment.height_feet} {this.props.appointment.height_inches}</TableCell>
+                <TableCell align="right">{this.props.appointment.weight}</TableCell>
+                <TableCell align="right">{this.props.appointment.waist}</TableCell>
+                <TableCell align="right">{this.props.appointment.need}</TableCell>
                 <TableCell align="right">{this.props.appointment.appointment_type}</TableCell>
                 <TableCell align="right">{moment(this.props.appointment.appointment_date).format(`MMMM Do YYYY`)}</TableCell>
                 <TableCell align="right">{moment(this.props.appointment.appointment_time, 'HH:mm:ss').format(`h:mm a`)}</TableCell>
