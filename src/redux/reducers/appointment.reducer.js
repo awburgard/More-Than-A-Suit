@@ -12,7 +12,7 @@ function googleCalendarEventConverter(googleEvents) {
 const appointment = (state = {}, action) => {
     switch (action.type) {
         case 'SET_APPOINTMENT':
-            return googleCalendarEventConverter(action.payload);
+            return action.payload;
         default:
             return state;
     }

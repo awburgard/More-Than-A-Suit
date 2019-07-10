@@ -16,6 +16,18 @@ function* getAppointment(action) {
     }
 }
 
+function* getAdminAppointment(action) {
+    try {
+        const getResponse = yield axios.get('/api/admin/appointments');
+        yield put({
+            type: 'SET_ADMIN_APPOINTMENT',
+            payload: getResponse.data,
+        });
+    } catch (error) {
+        console.log('Error with get appointment:', error);
+    }
+}
+
 function* postAppointment(action) {
     try {
         const googleEvent = {
@@ -51,6 +63,7 @@ function* rootSaga() {
     yield takeEvery('GET_APPOINTMENT', getAppointment);
     yield takeEvery('UPDATE_APPOINTMENT_INFO', updateAppointmentInfo);
     yield takeEvery('POST_APPOINTMENT', postAppointment);
+    yield takeEvery('GET_ADMIN_APPOINTMENT', getAdminAppointment);
 }
 
 export default rootSaga;

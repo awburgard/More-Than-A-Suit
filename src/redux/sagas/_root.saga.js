@@ -30,7 +30,6 @@ export default function* rootSaga() {
     measurementsSaga(),
     twilioSaga(),
     categoriesSaga(),
-    appointmentSaga(),
-    needsSaga()
+    needsSaga(),
   ]);
 }

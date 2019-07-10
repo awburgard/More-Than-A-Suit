@@ -6,7 +6,7 @@ import AdminAppointmentItem from '../AdminAppointmentItem/AdminAppointmentItem';
 class AdminAppointmentList extends Component {
   componentDidMount(){
     this.props.dispatch({
-      type: 'GET_APPOINTMENT'
+      type: 'GET_ADMIN_APPOINTMENT'
     })
   }
   render() {
