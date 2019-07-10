@@ -1,22 +1,7 @@
-<<<<<<< HEAD
-function googleCalendarEventConverter(googleEvents) {
-    const calendarEvents = googleEvents.map((gEvent) => {
-        return {
-            title: 'Unavailable',
-            start: gEvent.start.dateTime,
-            end: gEvent.end.dateTime
-        }
-    })
-    return calendarEvents
-}
-
-const appointment = (state = {}, action) => {
-=======
 const appointment = (state = [], action) => {
->>>>>>> develop
     switch (action.type) {
         case 'SET_APPOINTMENT':
-            return googleCalendarEventConverter(action.payload);
+            return action.payload;
         default:
             return state;
     }
