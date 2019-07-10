@@ -20,7 +20,7 @@ class TwilioButton extends Component {
         MySwal.fire({
             title: <h1>Thank you!</h1>,
             html: <p>Look for a text message coming your way</p>,
-            footer: 'Suits for Hire',
+            footer: 'SuitsForHire',
         }).then(() => {
             this.props.history.push('/resources');
         });
