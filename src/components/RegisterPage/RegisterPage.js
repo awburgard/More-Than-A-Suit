@@ -4,19 +4,26 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
 class RegisterPage extends Component {
   state = {
-    username: '',
+    first_name: '',
+    last_name: '',
+    email: '',
     password: '',
+    passwordConfirmation: '',
+    passwordError: null
   };
 
   registerUser = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.first_name && this.state.last_name && this.state.email && this.state.password && this.state.passwordConfirmation === this.state.password) {
       this.props.dispatch({
         type: 'REGISTER',
         payload: {
-          username: this.state.username,
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          email: this.state.email,
           password: this.state.password,
+          passwordConfirmation: this.state.passwordConfirmation
         },
       });
     } else {
@@ -25,6 +32,15 @@ class RegisterPage extends Component {
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
+    if (propertyName === 'passwordConfirmation' && this.state[propertyName] !== this.state.password) {
+      this.setState({
+        passwordError: 'Passwords do not match!'
+      })
+    } else {
+      this.setState({
+        passwordError: null,
+      })
+    }
     this.setState({
       [propertyName]: event.target.value,
     });
@@ -45,14 +61,34 @@ class RegisterPage extends Component {
           <h1 className="loginPanel-hd">Register User</h1>
 
           <div className="loginPanel-fields">
-            <label className="fieldSet" htmlFor="username">
-              <span className="fieldSet-label">Username:</span>
+            <label className="fieldSet" htmlFor="first_name">
+              <span className="fieldSet-label">First Name:</span>
               <input
                 className="fieldSet-input"
                 type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                name="first_name"
+                value={this.state.first_name}
+                onChange={this.handleInputChangeFor('first_name')}
+              />
+            </label>
+            <label className="fieldSet" htmlFor="last_name">
+              <span className="fieldSet-label">Last Name:</span>
+              <input
+                className="fieldSet-input"
+                type="text"
+                name="last_name"
+                value={this.state.last_name}
+                onChange={this.handleInputChangeFor('last_name')}
+              />
+            </label>
+            <label className="fieldSet" htmlFor="email">
+              <span className="fieldSet-label">email:</span>
+              <input
+                className="fieldSet-input"
+                type="text"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChangeFor('email')}
               />
             </label>
             <label className="fieldSet" htmlFor="password">
@@ -65,8 +101,18 @@ class RegisterPage extends Component {
                 onChange={this.handleInputChangeFor('password')}
               />
             </label>
+            <label className="fieldSet" htmlFor="passwordConfirmation">
+              <span className="fieldSet-label">Password Confirmation:</span>
+              <input
+                className="fieldSet-input"
+                type="password"
+                name="password"
+                value={this.state.passwordConfirmation}
+                onChange={this.handleInputChangeFor('passwordConfirmation')}
+              />
+            </label>
           </div>
-          
+          <p>{this.state.passwordError}</p>
           <div className="loginPanel-action">
             <input
               className="btn btn_sizeMin"

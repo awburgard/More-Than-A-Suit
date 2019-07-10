@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
-import moment from 'moment'
+import moment from 'moment';
+import TextField from '@material-ui/core/TextField';
+import ReactPhoneInput from 'react-phone-input-mui';
 
 class InputField extends Component {
 
@@ -47,8 +49,12 @@ class InputField extends Component {
 
 
     handleInputChangeFor = propertyName => (event) => {
+        let finalValue = event;
+        if (event.target) {
+            finalValue = event.target.value
+        }
         this.setState({
-            [propertyName]: event.target.value,
+            [propertyName]: finalValue,
         });
     };
 
@@ -58,7 +64,18 @@ class InputField extends Component {
                 First Name: <input type="text" value={this.state.first_name} onChange={this.handleInputChangeFor('first_name')}></input><br />
                 Last Name: <input type="text" value={this.state.last_name} onChange={this.handleInputChangeFor('last_name')}></input><br />
                 Zip Code: <input type="text" value={this.state.zip} onChange={this.handleInputChangeFor('zip')}></input> <br />
-                Phone Number: <input type="text" value={this.state.phone} onChange={this.handleInputChangeFor('phone')}></input> <br />
+                <ReactPhoneInput
+                    onlyCountries={['us']}
+                    value={this.state.phone}
+                    onChange={this.handleInputChangeFor('phone')}
+                    component={TextField}
+                    defaultCountry={'us'}
+                    disableDropdown={true}
+                    inputExtraProps={{
+                        label: 'Phone Number',
+                        required: true,
+                    }}
+                /><br />
                 Email: <input type="text" value={this.state.email} onChange={this.handleInputChangeFor('email')}></input> <br />
                 Height: Feet <input type="number" value={this.state.height_feet} onChange={this.handleInputChangeFor('height_feet')}></input>
                 Inches <input type="number" value={this.state.height_inches} onChange={this.handleInputChangeFor('height_inches')}></input><br />
@@ -68,9 +85,10 @@ class InputField extends Component {
                 <br />
                 {/* <AppointmentPage /> */}
                 {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
-                Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
+                {/* Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
                 Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
-                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br />
+                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
+                Your appointment has already been set. To change your appointment please call...
                 <button onClick={this.saveInfo}>Save</button>
             </div >
         )

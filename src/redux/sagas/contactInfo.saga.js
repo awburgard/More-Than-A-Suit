@@ -2,7 +2,6 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* addContactInfo(action) {
-    console.log(action.payload);
     try {
         const response = yield axios.post('/api/info', action.payload);
         yield put({
@@ -12,8 +11,7 @@ function* addContactInfo(action) {
                 id: response.data,
             }
         });
-        console.log(action.payload);
-    } catch (err) {
+        } catch (err) {
         console.log('error HELP:', err);
     }
 }

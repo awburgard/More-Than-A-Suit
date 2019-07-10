@@ -88,7 +88,7 @@ class ContactInfo extends Component {
                     defaultCountry={'us'}
                     disableDropdown={true}
                     inputExtraProps={{
-                        label: 'Cell Phone',
+                        label: 'Phone Number',
                         required: true,
                     }}
                 /> <br />
