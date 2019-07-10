@@ -6,18 +6,18 @@ import './Login.css';
 
 class LoginPage extends Component {
   state = {
-    username: '',
+    email: '',
     password: '',
   };
 
   login = (event) => {
     event.preventDefault();
 
-    if (this.state.username && this.state.password) {
+    if (this.state.email && this.state.password) {
       this.props.dispatch({
         type: 'LOGIN',
         payload: {
-          username: this.state.username,
+          username: this.state.email,
           password: this.state.password,
         },
       });
@@ -50,14 +50,14 @@ class LoginPage extends Component {
           <h1 className="loginPanel-hd">Login</h1>
 
           <div className="loginPanel-fields">
-            <label className="fieldSet" htmlFor="username">
-              <span className="fieldSet-label">Username:</span>
+            <label className="fieldSet" htmlFor="email">
+              <span className="fieldSet-label">email:</span>
               <input
                 className="fieldSet-input"
                 type="text"
-                name="username"
-                value={this.state.username}
-                onChange={this.handleInputChangeFor('username')}
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInputChangeFor('email')}
               />
             </label>
             <label className="fieldSet" htmlFor="password">

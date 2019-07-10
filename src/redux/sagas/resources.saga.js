@@ -28,7 +28,7 @@ function* getAllResources(action) {
 
 function* updateResource(action) {
   try {
-    yield axios.put(`/api/resources/${action.payload.id}`, action.payload);
+    yield axios.put(`/api/admin/${action.payload.id}`, action.payload);
     yield put({
       type: 'GET_ALL_RESOURCES',
       payload: action.payload
@@ -40,7 +40,7 @@ function* updateResource(action) {
 
 function* deleteResource(action) {
   try {
-    yield axios.delete(`/api/resources/${action.payload.id}`, action.payload);
+    yield axios.delete(`/api/admin/${action.payload.id}`, action.payload);
     yield put({
       type: 'GET_ALL_RESOURCES',
       payload: action.payload
@@ -52,7 +52,7 @@ function* deleteResource(action) {
 
 function* addResource(action) {
   try {
-    yield axios.post('/api/resources', action.payload);
+    yield axios.post('/api/admin/', action.payload);
     yield put({
       type: 'GET_ALL_RESOURCES',
       payload: action.payload,

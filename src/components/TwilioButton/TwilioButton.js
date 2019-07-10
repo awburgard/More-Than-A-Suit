@@ -19,8 +19,9 @@ class TwilioButton extends Component {
     testMethod = () => {
         MySwal.fire({
             title: <h1>Thank you!</h1>,
-            html: <p>Look for a text message coming your way</p>,
+            html: <p>Look for a text message coming your way!</p>,
             footer: 'SuitsForHire',
+            allowOutsideClick: false
         }).then(() => {
             this.props.history.push('/resources');
         });

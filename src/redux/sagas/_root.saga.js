@@ -4,11 +4,11 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import contactInfoSaga from './contactInfo.saga';
 import confirmationSaga from './confirmation.saga';
+import appointmentSaga from './appointment.saga';
 import resourcesSaga from './resources.saga';
 import measurementsSaga from './measurements.saga';
 import twilioSaga from './twilio.saga';
 import categoriesSaga from './categories.saga';
-import appointmentSaga from './appointment.saga';
 import needsSaga from './needs.saga';
 
 // rootSaga is the primary saga.
@@ -25,11 +25,11 @@ export default function* rootSaga() {
     userSaga(),
     contactInfoSaga(),
     confirmationSaga(),
+    appointmentSaga(),
     resourcesSaga(),
     measurementsSaga(),
     twilioSaga(),
     categoriesSaga(),
-    appointmentSaga(),
-    needsSaga()
+    needsSaga(),
   ]);
 }

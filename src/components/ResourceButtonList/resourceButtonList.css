@@ -1,0 +1,8 @@
+@media(min-width: 600px) {
+    .btnMenuGrid {
+        justify-content: flex-start;
+    }
+    .btnMenuGrid > .btnMenuGrid-col{
+        padding: 0;
+    }
+}

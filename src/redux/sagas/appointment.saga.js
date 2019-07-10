@@ -3,32 +3,72 @@ import axios from 'axios';
 
 
 function* getAppointment(action) {
-  try {
-    const getResponse = yield axios.get('/api/appointment/');
-    yield put({
-      type: 'SET_APPOINTMENT',
-      payload: getResponse.data,
-    });
-  } catch (error) {
-    console.log('Error with get appointment:', error);
-  }
+    try {
+        console.log('Get Appointment', action);
+        const getResponse = yield axios.get('/googlecal/event');
+        console.log(getResponse);
+        yield put({
+            type: 'SET_APPOINTMENT',
+            payload: getResponse.data,
+        });
+    } catch (error) {
+        console.log('Error with get appointment:', error);
+    }
+}
+
+function* getAdminAppointment(action) {
+    try {
+        const getResponse = yield axios.get('/api/admin/appointments');
+        yield put({
+            type: 'SET_ADMIN_APPOINTMENT',
+            payload: getResponse.data,
+        });
+    } catch (error) {
+        console.log('Error with get appointment:', error);
+    }
 }
 
 function* postAppointment(action) {
-  try {
-    yield axios.post('api/appointment', action.payload);
-    yield put({
-      type: 'GET_APPOINTMENT',
-    });
+    try {
+        yield axios.post('api/appointment', action.payload);
+        yield put({
+            type: 'GET_APPOINTMENT',
+        });
 
-  } catch (error) {
-    console.log('Error with posting appointment:', error);
-  }
+    } catch (error) {
+        console.log('Error with posting appointment:', error);
+    }
 }
 
-function* appointmentSaga() {
-  yield takeEvery('GET_APPOINTMENT', getAppointment);
-  yield takeEvery('POST_APPOINTMENT', postAppointment);
+function* updateAppointmentType(action) {
+    try {
+        // const googleEvent = {
+        //     summary: '',
+        //     description: '',
+        //     start: '',
+        //     end: '',
+        // };
+        const gentlemanUpdate = {
+            appointment_type: action.payload.appointment_type,
+            appointment_date: action.payload.appointment_date,
+            appointment_time: action.payload.time
+        };
+        // google calendar API calendar use - googleEvent
+        // yield axios.post('/googlecal/event', googleEvent);
+        yield axios.put(`api/appointment/${action.payload.id}`, action.payload);
+        yield put({
+            type: 'SET_REVIEW',
+            payload: action.payload,
+        })
+    } catch (error) {
+        console.log('Error posting and updating appointment information:', error);
+    }
 }
 
-export default appointmentSaga;
+function* rootSaga() {
+    yield takeEvery('GET_APPOINTMENT', getAppointment);
+    yield takeEvery('POST_APPOINTMENT', postAppointment);
+    yield takeEvery('GET_ADMIN_APPOINTMENT', getAdminAppointment);
+}
+
+export default rootSaga;
