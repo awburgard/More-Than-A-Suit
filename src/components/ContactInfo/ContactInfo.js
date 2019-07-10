@@ -118,6 +118,7 @@ class ContactInfo extends Component {
                     <Button
                         variant="contained"
                         color="primary"
+                        type="submit"
                         onClick= {this.handleClick}
                     >
                         Next
