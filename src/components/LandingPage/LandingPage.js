@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+
 
 class LandingPage extends Component {
     goToInfo = (event) => {
@@ -10,16 +14,16 @@ class LandingPage extends Component {
     render() {
         return (
             <div>
-                <h1>WELCOME TO</h1>
+                <Typography variant="h2" component="h2" gutterBottom>WELCOME TO</Typography>>
                     <div>
                         <img className="center"
                             src="/images/suits.jpg"
                             alt="Suits for Hire Logo"
                         />
                     </div>
-                <h3>OVERVIEW</h3>
-                <p> Register and make an appointment to be fitted with the perfect suit and additional resources</p>
-                <button className="centersuitbtn" onClick={this.goToInfo}>- SUIT UP -</button>
+                <Typography variant="h4" gutterBottom>OVERVIEW</Typography>
+                <Typography variant="body1" gutterBottom> Register and make an appointment to be fitted with the perfect suit and additional resources</Typography>
+                <Button onClick={this.goToInfo}>- SUIT UP -</Button>
             </div>
         )
     }
