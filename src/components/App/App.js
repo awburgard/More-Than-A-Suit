@@ -5,7 +5,8 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import MomentUtils from '@date-io/moment';
 import { connect } from 'react-redux';
 
 import Nav from '../Nav/Nav';
@@ -23,7 +24,11 @@ import ConfirmationPage from '../ConfirmationPage/ConfirmationPage';
 import ResourcesPage from '../ResourcesPage/ResourcesPage';
 import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
+import AdminDashboardPage from '../AdminDashboardPage/AdminDashboardPage';
 import LandingPage from '../LandingPage/LandingPage';
+
+
+
 
 class App extends Component {
   componentDidMount() {
@@ -58,6 +63,12 @@ class App extends Component {
                 exact
                 path="/resources"
                 component={ResourcesPage}
+              />
+
+              <Route
+                exact
+                path="/admindash"
+                component={AdminDashboardPage}
               />
 
 
@@ -113,7 +124,6 @@ class App extends Component {
                 path="/landingpage"
                 component={LandingPage}
               />
-
 
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />

@@ -25,6 +25,9 @@ class AppointmentPage extends Component {
         event.preventDefault();
 
         alert(`You chose the ${this.state.appointmentType} appointment.`);
+        this.props.dispatch({
+            type: 'UPDATE_APPOINTMENT_TYPE'
+        })
     }
     //TO DO: DELETE LATER
     goToConfirmation = (event) => {
@@ -63,10 +66,9 @@ class AppointmentPage extends Component {
                             </label>
                         </li>
                     </ul>
-                    <button type="submit">Select Type</button>
                 </form>
                 <h2>Choose Appointment Date/Time</h2>
-                <AppointmentCalendar />
+                <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
             </div>
         )
     }

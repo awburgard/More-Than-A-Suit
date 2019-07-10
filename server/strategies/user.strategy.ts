@@ -8,7 +8,7 @@ passport.serializeUser((user: any, done: any): void => {
 });
 
 passport.deserializeUser((id: any, done: any): void => {
-  pool.query('SELECT * FROM "user" WHERE id = $1', [id]).then((result: any): void => {
+  pool.query('SELECT * FROM "admin" WHERE id = $1', [id]).then((result: any): void => {
     const user = result && result.rows && result.rows[0];
 
     if (user) {
@@ -23,8 +23,9 @@ passport.deserializeUser((id: any, done: any): void => {
   });
 });
 
-passport.use('local', new Strategy((username: string, password: string, done: Function): void => {
-  pool.query('SELECT * FROM "user" WHERE username = $1', [username])
+passport.use('local', new Strategy((email: string, password: string, done: Function): void => {
+  console.log('email', email);
+  pool.query('SELECT * FROM "admin" WHERE email = $1', [email])
     .then((result: any) => {
       const user = result && result.rows && result.rows[0];
       if (user && comparePassword(password, user.password)) {
