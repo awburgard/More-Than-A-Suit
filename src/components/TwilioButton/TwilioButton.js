@@ -43,10 +43,10 @@ class TwilioButton extends Component {
         this.props.dispatch({
             type: 'POST_APPOINTMENT',
             payload: {
-                summary: '',
-                description: '',
-                start: '',
-                end: '',
+                summary: this.props.info.first_name + ' ' + this.props.info.last_name,
+                description: this.props.info.appointmentType,
+                start: this.props.info.selectedTime,
+                end: this.props.info.selectedTime,
             }
         })
     }
@@ -54,7 +54,7 @@ class TwilioButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.sendText}>Confirm</button>
+                <button onClick={this.sendText} onClick={this.postAppointmentToCalendar}>Confirm</button>
             </div>
         )
     }
