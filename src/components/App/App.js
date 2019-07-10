@@ -25,6 +25,9 @@ import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
 import LandingPage from '../LandingPage/LandingPage';
 
+
+
+
 class App extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' })
@@ -113,7 +116,6 @@ class App extends Component {
                 path="/landingpage"
                 component={LandingPage}
               />
-
 
               {/* If none of the other routes matched, we will show a 404. */}
               <Route render={() => <h1>404</h1>} />
