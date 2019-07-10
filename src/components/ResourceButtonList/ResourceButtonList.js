@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import ResourcesButtonItem from '../ResourcesButtonItem/ResourcesButtonItem';
-import { Grid } from '@material-ui/core';
+import { Tabs, Tab } from '@material-ui/core';
+import './resourceButtonList.css';
 
 const buttons = [
     { name: 'Job', value: 'job' },
@@ -12,17 +12,29 @@ const buttons = [
 ]
 
 class ResourcesButtonList extends Component {
+    state = {
+        tabVal: 'job'
+    }
+
+    changeTab = (e, newValue) => {
+        this.props.dispatch({
+            type: 'GET_NEED_RESOURCES',
+            payload: { categories_name: newValue }
+        })
+        this.setState({
+            tabVal: newValue,
+        })
+    }
+
     render() {
-        const buttonList = buttons.map((button, index) => {
-            return <Grid item xs={3} md='auto' alignItems="center" className="text_alnCenter">
-                <ResourcesButtonItem key={index} name={button.name} value={button.value} />
-            </Grid>
+        const tabList = buttons.map((tab, index) => {
+            return <Tab value={tab.value} label={tab.name} key={index} />
         })
 
         return (
-            <Grid container spacing={2} justify="space-between">
-                {buttonList}
-            </Grid>
+                <Tabs value={this.state.tabVal} onChange={this.changeTab} textColor="secondary">
+                    {tabList}
+                </Tabs>
         )
     }
 }
