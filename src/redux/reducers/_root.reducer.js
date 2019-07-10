@@ -7,6 +7,7 @@ import needs from './needs.reducer';
 import resources from './resources.reducer';
 import categories from './categories.reducer';
 import appointment from './appointment.reducer';
+import appointmentAdmin from './admin.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   resources,
   categories,
   appointment,
+  appointmentAdmin,
 });
 
 export default rootReducer;

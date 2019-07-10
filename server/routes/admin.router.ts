@@ -14,6 +14,8 @@ router.get('/', rejectUnauthenticated, (req: Request, res: Response): void => {
     res.send(req.user);
 });
 
+
+
 router.get('/dashboard', rejectUnauthenticated, (req: Request, res: Response): void => {
     const queryText: string = `SELECT * FROM "resources";`;
     if (req.isAuthenticated()) {
@@ -28,21 +30,7 @@ router.get('/dashboard', rejectUnauthenticated, (req: Request, res: Response): v
     }
 });
 
-router.post('/add-resource', rejectUnauthenticated, (req: Request, res: Response): void => {
-    const queryText: string = `INSERT INTO "resources" (title, description, link) VALUES ($1, $2, $3);`;
-    if (req.isAuthenticated()) {
-        pool.query(queryText, [req.body.title, req.body.description, req.body.link])
-            .then((response: QueryResult): void => {
-                res.sendStatus(201);
-            })
-            .catch((err: QueryResult): void => {
-                console.log(`Error positing to user: ${err}`);
-                res.sendStatus(500);
-            })
-    } else {
-        res.sendStatus(403);
-    }
-});
+
 
 router.post('/register', (req: Request, res: Response, next: express.NextFunction): void => {
     const username: string | null = <string>req.body.username;
@@ -68,44 +56,100 @@ router.post('/logout', (req: Request, res: Response): void => {
     res.sendStatus(200);
 });
 
-router.put('/resource/:id', (req: Request, res: Response): void => {
-    const updatedInfo = req.body;
-    const queryText: string = `UPDATE "resources"
-                                SET "title" = $1,
-                                "description" = $2,
-                                "link" = $3
-                                WHERE "id" = $4;`;
-
-    const queryValues = [
-        updatedInfo.title,
-        updatedInfo.description,
-        updatedInfo.link
-    ]
+//THE FOLLOWING ROUTES DEAL WITH THE APPOINTMENTS AND RESOURCES ON THE ADMIN DASHBOARD
+router.get('/appointments', rejectUnauthenticated, (req: Request, res: Response, next: express.NextFunction): void => {
+    const queryString: string = `SELECT "first_name", "last_name", "appointment_type", "appointment_date", "appointment_time", "phone" FROM "gentleman";`;
     if (req.isAuthenticated()) {
-        pool.query(queryText, queryValues)
+        pool.query(queryString)
             .then((response: QueryResult): void => {
-                res.sendStatus(201);
+                res.send(response.rows)
             })
             .catch((err: QueryResult): void => {
-                console.log(`Error updating resource: ${err}`);
+                console.log(`Error getting gentleman info: ${err}`);
                 res.sendStatus(500);
-            });
+            })
+    } else {
+        res.sendStatus(403)
+    }
+});
+
+router.post('/', (req: Request, res: Response): void => {
+    let queryString: string = `INSERT INTO "resources" (title, description, link) VALUES ($1, $2, $3)
+                                RETURNING id;`;
+    if (req.isAuthenticated()) {
+        pool.query(queryString, [req.body.title, req.body.description, req.body.link])
+            .then((response: QueryResult): void => {
+                queryString = `INSERT INTO "resources_categories" (resources_id, categories_id)
+                            VALUES ($1, $2);`;
+                pool.query(queryString, [response.rows[0].id, req.body.category])
+                    .then((response: QueryResult): void => {
+                        res.sendStatus(200);
+                    })
+                    .catch((err: QueryResult): void => {
+                        console.log(`Error adding resource: ${err}`);
+                        res.sendStatus(500);
+                    })
+            })
+            .catch((err: QueryResult): void => {
+                console.log(`Error adding resource ${err}`);
+                res.sendStatus(500);
+            })
     } else {
         res.sendStatus(403);
     }
 });
 
-router.delete('/delete', rejectUnauthenticated, (req: Request, res: Response): void => {
-    const queryText: string = `DELETE FROM "resources"
-                                WHERE "resources_id" = $1;`;
-
+router.put('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
+    let queryString: string = `UPDATE "resources"
+                                SET "title" = $1,
+                                "description" = $2,
+                                "link" = $3
+                                WHERE "id" = $4;`;
     if (req.isAuthenticated()) {
-        pool.query(queryText)
+        pool.query(queryString, [req.body.title, req.body.description, req.body.link, req.params.id])
             .then((response: QueryResult): void => {
-                res.sendStatus(201);
+                queryString = `UPDATE "resources_categories" SET "categories_id" = $1
+                            WHERE "resources_id" = $2
+                            AND "categories_id" = $3;`;
+                pool.query(queryString, [req.body.categories_id, req.params.id, req.body.prevCategoriesId])
+                    .then((response: QueryResult): void => {
+                        res.sendStatus(201);
+                    })
+                    .catch((err: QueryResult): void => {
+                        console.log(`Error updating resource ${err}`);
+                        res.sendStatus(500);
+                    })
             })
             .catch((err: QueryResult): void => {
-                console.log(`Error deleting: ${err}`);
+                console.log(`Error updating resource ${err}`);
+                res.sendStatus(500);
+            })
+    } else {
+        res.sendStatus(403);
+    }
+});
+
+router.delete('/:id', (req: Request, res: Response, next: express.NextFunction): void => {
+    let queryString: string = `DELETE FROM "resources_categories" WHERE "resources_id" = $1;`;
+    const id = req.params.id;
+
+    if (req.isAuthenticated()) {
+        pool.query(queryString, [id])
+            .then((response: QueryResult): void => {
+                console.log(`DELETE RESOURCE JOIN`)
+                queryString = `DELETE FROM "resources" WHERE "id" = $1;`;
+                pool.query(queryString, [id])
+                    .then((response: QueryResult): void => {
+                        console.log(`DELETE RESOURCE`)
+                        res.send(200);
+                    })
+                    .catch((err: QueryResult): void => {
+                        console.log(`Error deleting resource: ${err}`);
+                        res.sendStatus(500);
+                    })
+            })
+            .catch((err: QueryResult): void => {
+                console.log(`Error deleting resource: ${err}`);
                 res.sendStatus(500);
             })
     } else {

@@ -7,7 +7,6 @@ import { Typography, Paper, Box, } from '@material-ui/core';
 
 
 class ResourcesPage extends Component {
-
   componentDidMount() {
     this.props.dispatch({
       type: 'GET_NEED_RESOURCES',
@@ -16,7 +15,7 @@ class ResourcesPage extends Component {
   }
   render() {
     return (
-      <Paper elevation='15'>
+      <Paper elevation={15}>
         <Box p={3}>
         <Typography align="center" variant='h5'>Resources Page</Typography>
           <ResourcesButtonList />

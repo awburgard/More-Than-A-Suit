@@ -9,8 +9,8 @@ class AdminDashboardPage extends Component {
   render() {
     let appointments = [];
     let archivedAppointments = [];
-    for (let i = 0; i < this.props.store.appointment.length; i++){
-      const indvAppt = this.props.store.appointment[i];
+    for (let i = 0; i < this.props.store.appointmentAdmin.length; i++){
+      const indvAppt = this.props.store.appointmentAdmin[i];
       const currentDate = moment();
       if (moment(indvAppt.appointment_date).isAfter(currentDate)){
         appointments.push(indvAppt)

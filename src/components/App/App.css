@@ -154,13 +154,6 @@ Vertical Rhythm
     text-align: center;
 }
 
-h1,
-h3,
-p {
-  text-align: center;
-}
-
-
 .center {
     display: block;
     margin-left: auto;
