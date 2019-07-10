@@ -1,143 +1,131 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import NumberFormat from 'react-number-format';
-
-const initialState = {
-    gentInfo: {
-        first_name: '',
-        last_name: '',
-        zip: '',
-        phone: '',
-        email: '',
-    },
-    first_name_err: false,
-    last_name_err: false,
-    zip_err: false,
-    phone_err: false,
-    formValid: false,
-    triedSubmit: false,
-};
+import ReactPhoneInput from 'react-phone-input-mui';
+//Material UI
+import {
+    TextField,
+    Paper,
+    Typography,
+    Button,
+    Box,
+    Grid,
+    Container
+} from '@material-ui/core/';
 
 class ContactInfo extends Component {
-    state = initialState;
-
-    validate = () => {
-        if (!this.state.triedSubmit) return;
-
-        let isValid = false;
-        let first_name_err = false;
-        let last_name_err = false;
-        let zip_err = false;
-        let phone_err = false;
-
-        if (!this.state.gentInfo.first_name) {
-            first_name_err = true;
+    state = {
+        gentInfo: {
+            first_name: '',
+            last_name: '',
+            zip: '',
+            phone: '',
+            email: '',
         }
-
-        if (!this.state.gentInfo.last_name) {
-            last_name_err = true;
-        }
-
-        if (!this.state.gentInfo.zip) {
-            zip_err = true;
-        }
-
-        if (!this.state.gentInfo.phone) {
-            phone_err = true;
-        }
-
-        if (this.state.gentInfo.first_name && this.state.gentInfo.last_name && this.state.gentInfo.zip && this.state.gentInfo.phone) {
-            isValid = true;
-        }
-
-        this.setState({
-            first_name_err : first_name_err,
-            last_name_err : last_name_err,
-            zip_err : zip_err,
-            phone_err : phone_err,
-            formValid: isValid
-        });
-    };
+    }
 
     handleClick = event => {
         event.preventDefault();
+        this.props.dispatch({
+            type: 'SET_CONTACT_INFO',
+            payload: this.state.gentInfo
+        });
         this.setState({
-            triedSubmit: true
-        }, async () => {
-            await this.validate();
-            if (this.state.formValid) {
-                this.props.dispatch({ type: 'SET_CONTACT_INFO', payload: this.state.gentInfo })
-                    this.setState({
-                        gentInfo: {
-                            first_name: '',
-                            last_name: '',
-                            zip: '',
-                            phone: '',
-                            email: ''
-                        }
-                    });
-                this.props.history.push('/measurements');
-           }
-        })
+            gentInfo: {
+                first_name: '',
+                last_name: '',
+                zip: '',
+                phone: '',
+                email: ''
+            }
+        });
+        this.props.history.push('/measurements');
     }
 
-    onFormChange = (dataname) => event => {
+    onFormChange = (dataname) => (event, something) => {
+        let finalValue = event;
+        if (event.target) {
+            finalValue = event.target.value
+        }
         this.setState({
             gentInfo: {
                 ...this.state.gentInfo,
-                [dataname]: event.target.value
+                [dataname]: finalValue
             }
-        }, () => {
-            this.validate();
         });
     }
 
     render() {
         const infoInputs = (
-            <form onSubmit={this.handleClick}>
-                <span>Contact Info:</span><br />
-                <input type="text"
-                    value={this.state.gentInfo.first_name}
-                    onChange={this.onFormChange('first_name')}
-                    placeholder="First Name"
-                /> <br />
-
-                {this.state.first_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.last_name}
-                    onChange={this.onFormChange('last_name')}
-                    placeholder="Last Name"
-                /> <br />
-
-                {this.state.last_name_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.zip}
-                    onChange={this.onFormChange('zip')}
-                    placeholder="Zip Code"
-                /> <br />
-
-                {this.state.zip_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <NumberFormat
-                    format="(###) ###-####"
-                    value={this.state.gentInfo.phone}
-                    mask="_"
-                    onChange={this.onFormChange('phone')}
-                    placeholder="Cell Phone Number"
-                /> <br />
-
-                {this.state.phone_err && <div style={{ fontSize: 12, color: "red" }}><p>This field is required</p></div>}
-
-                <input type="text"
-                    value={this.state.gentInfo.email}
-                    onChange={this.onFormChange('email')}
-                    placeholder="E-Mail"
-                /><br />
-                <button type="submit">Next</button>
-            </form>
+            <Container className="behindPaper" maxWidth='xs'>
+                <Paper elevation={15}>
+                <Box m={1} p={3}>
+                    <Typography variant="h5" component="h3">
+                            Contact Info:
+                    </Typography>
+                    <Grid container spacing={2}>
+                    <Grid item xs={12} md={12}>
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="First Name"
+                        value={this.state.gentInfo.first_name}
+                        onChange={this.onFormChange('first_name')}
+                        autoFocus={true}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="Last Name"
+                        value={this.state.gentInfo.last_name}
+                        onChange={this.onFormChange('last_name')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="Zip"
+                        value={this.state.gentInfo.zip}
+                        onChange={this.onFormChange('zip')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <ReactPhoneInput
+                        onlyCountries={['us']}
+                        value={this.state.gentInfo.phone}
+                        onChange={this.onFormChange('phone')}
+                        component={TextField}
+                        defaultCountry={'us'}
+                        disableDropdown={true}
+                        fullWidth={true}
+                        inputExtraProps={{
+                            label: 'Phone Number',
+                            required: true,
+                        }}
+                    /> <br />
+                    <TextField
+                        id="standard-required"
+                        label="E-mail"
+                        value={this.state.gentInfo.email}
+                        onChange={this.onFormChange('email')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    </Grid>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        onClick= {this.handleClick}
+                    >
+                        Next
+                    </Button>
+                </Grid>
+                </Box>
+                </Paper>
+            </Container>
         )
 
         return (

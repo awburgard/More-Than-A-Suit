@@ -21,17 +21,5 @@ router.put('/:id', (req: Request, res: Response, next: express.NextFunction): vo
         })
 });
 
-// router.get('/', (req: Request, res: Response, next: express.NextFunction): void => {
-//     const queryString: string = `SELECT * FROM "categories";`;
-//     pool.query(queryString)
-//         .then((response: Object): void => {
-//             res.sendStatus(201);
-//         })
-//         .catch((err: Object): void => {
-//             console.log(`Error getting resources: ${err}`);
-//             res.sendStatus(500);
-//         })
-// })
-
 
 export default router;

@@ -8,7 +8,12 @@ import './Footer.css'
 
 const Footer = () => (
   <footer>
-    &copy; Prime Digital Academy
+      <div>SUITSFORHIRE <br />
+            1301 OAK ST. #705 <br />
+            KANSAS CITY MO 64106 <br />
+            suitsforhire@yahoo.com
+      </div>
+    <br />COPYRIGHT © 2019 SUITSFORHIRE - ALL RIGHTS RESERVED.
   </footer>
 );
 
