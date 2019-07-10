@@ -23,7 +23,6 @@ const rootReducer = combineReducers({
   needs,
   resources,
   categories,
-  appointment,
 });
 
 export default rootReducer;

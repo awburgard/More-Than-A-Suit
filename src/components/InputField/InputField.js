@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
-import moment from 'moment';
 import TextField from '@material-ui/core/TextField';
 import ReactPhoneInput from 'react-phone-input-mui';
 
