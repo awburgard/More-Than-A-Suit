@@ -39,6 +39,18 @@ class TwilioButton extends Component {
         this.testMethod();
     }
 
+    postAppointmentToCalendar = () => {
+        this.props.dispatch({
+            type: 'POST_APPOINTMENT',
+            payload: {
+                summary: '',
+                description: '',
+                start: '',
+                end: '',
+            }
+        })
+    }
+
     render() {
         return (
             <div>

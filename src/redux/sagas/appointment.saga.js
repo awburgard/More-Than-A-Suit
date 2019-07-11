@@ -30,7 +30,14 @@ function* getAdminAppointment(action) {
 
 function* postAppointment(action) {
     try {
-        yield axios.post('api/appointment', action.payload);
+        const googleEvent = {
+            summary: this.props.info.first_name + ' ' + this.props.info.last_name,
+            description: this.props.info.appointmentType,
+            start: this.props.info.selectedTime,
+            end: this.props.info.selectedTime,
+        };
+
+        yield axios.post('/googlecal/event', googleEvent);
         yield put({
             type: 'GET_APPOINTMENT',
         });
@@ -40,21 +47,8 @@ function* postAppointment(action) {
     }
 }
 
-function* updateAppointmentType(action) {
+function* updateAppointmentInfo(action) {
     try {
-        // const googleEvent = {
-        //     summary: '',
-        //     description: '',
-        //     start: '',
-        //     end: '',
-        // };
-        const gentlemanUpdate = {
-            appointment_type: action.payload.appointment_type,
-            appointment_date: action.payload.appointment_date,
-            appointment_time: action.payload.time
-        };
-        // google calendar API calendar use - googleEvent
-        // yield axios.post('/googlecal/event', googleEvent);
         yield axios.put(`api/appointment/${action.payload.id}`, action.payload);
         yield put({
             type: 'SET_REVIEW',
@@ -67,6 +61,7 @@ function* updateAppointmentType(action) {
 
 function* rootSaga() {
     yield takeEvery('GET_APPOINTMENT', getAppointment);
+    yield takeEvery('UPDATE_APPOINTMENT_INFO', updateAppointmentInfo);
     yield takeEvery('POST_APPOINTMENT', postAppointment);
     yield takeEvery('GET_ADMIN_APPOINTMENT', getAdminAppointment);
 }
