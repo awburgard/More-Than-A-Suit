@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import TextField from '@material-ui/core/TextField';
 import ReactPhoneInput from 'react-phone-input-mui';
+//Material UI
+import {
+    TextField,
+    Paper,
+    Typography,
+    Button,
+    Box,
+    Grid,
+    Container
+} from '@material-ui/core/';
+
+import './ContactInfo.css';
 
 class ContactInfo extends Component {
     state = {
@@ -38,8 +49,6 @@ class ContactInfo extends Component {
         if (event.target) {
             finalValue = event.target.value
         }
-        console.log('something: ', something);
-        console.log('event: ', event);
         this.setState({
             gentInfo: {
                 ...this.state.gentInfo,
@@ -50,58 +59,79 @@ class ContactInfo extends Component {
 
     render() {
         const infoInputs = (
-            <form onSubmit={this.handleClick}>
-                <span>Contact Info:</span><br />
-                <TextField
-                    required={true}
-                    id="standard-required"
-                    label="First Name"
-                    value={this.state.gentInfo.first_name}
-                    onChange={this.onFormChange('first_name')}
-                    autoFocus={true}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <TextField
-                    required={true}
-                    id="standard-required"
-                    label="Last Name"
-                    value={this.state.gentInfo.last_name}
-                    onChange={this.onFormChange('last_name')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <TextField
-                    required={true}
-                    id="standard-required"
-                    label="Zip"
-                    value={this.state.gentInfo.zip}
-                    onChange={this.onFormChange('zip')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <ReactPhoneInput
-                    onlyCountries={['us']}
-                    value={this.state.gentInfo.phone}
-                    onChange={this.onFormChange('phone')}
-                    component={TextField}
-                    defaultCountry={'us'}
-                    disableDropdown={true}
-                    inputExtraProps={{
-                        label: 'Phone Number',
-                        required: true,
-                    }}
-                /> <br />
-                <TextField
-                    id="standard-required"
-                    label="E-mail"
-                    value={this.state.gentInfo.email}
-                    onChange={this.onFormChange('email')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <button type="submit">Next</button>
-            </form>
+            <Container className="behindPaper" maxWidth='xs'>
+                <Paper elevation={15}>
+                <Box m={1} p={3}>
+                <form onSubmit={this.handleClick}>
+                    <Typography variant="h5" component="h3">
+                            Contact Info:
+                    </Typography>
+                    <Grid container spacing={2}>
+                    <Grid item xs={12} md={12}>
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="First Name"
+                        value={this.state.gentInfo.first_name}
+                        onChange={this.onFormChange('first_name')}
+                        autoFocus={true}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="Last Name"
+                        value={this.state.gentInfo.last_name}
+                        onChange={this.onFormChange('last_name')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <TextField
+                        required={true}
+                        id="standard-required"
+                        label="Zip"
+                        value={this.state.gentInfo.zip}
+                        onChange={this.onFormChange('zip')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    <ReactPhoneInput
+                        onlyCountries={['us']}
+                        value={this.state.gentInfo.phone}
+                        onChange={this.onFormChange('phone')}
+                        component={TextField}
+                        defaultCountry={'us'}
+                        disableCountryCode={true}
+                        disableDropdown={true}
+                        disableSearchIcon={true}
+                        fullWidth={true}
+                        inputExtraProps={{
+                            label: 'Phone Number',
+                            required: true,
+                        }}
+                    /> <br />
+                    <TextField
+                        id="standard-required"
+                        label="E-mail"
+                        value={this.state.gentInfo.email}
+                        onChange={this.onFormChange('email')}
+                        margin="normal"
+                        fullWidth={true}
+                    /> <br />
+                    </Grid>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                    >
+                        Next
+                    </Button>
+                </Grid>
+                </form>
+                </Box>
+                </Paper>
+            </Container>
         )
 
         return (

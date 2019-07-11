@@ -18,9 +18,9 @@ class TwilioButton extends Component {
 
     testMethod = () => {
         MySwal.fire({
-            title: <h1>Thank you!</h1>,
+            title: <span>Thank you!</span>,
             html: <p>Look for a text message coming your way!</p>,
-            footer: 'SuitsforHire',
+            footer: 'SuitsForHire',
             allowOutsideClick: false
         }).then(() => {
             this.props.history.push('/resources');
@@ -37,6 +37,18 @@ class TwilioButton extends Component {
             }
         });
         this.testMethod();
+    }
+
+    postAppointmentToCalendar = () => {
+        this.props.dispatch({
+            type: 'POST_APPOINTMENT',
+            payload: {
+                summary: '',
+                description: '',
+                start: '',
+                end: '',
+            }
+        })
     }
 
     render() {

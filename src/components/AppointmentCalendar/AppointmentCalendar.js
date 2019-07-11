@@ -6,7 +6,6 @@ import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid'
 import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
-import moment from "moment";
 import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
 import Modal from '@material-ui/core/Modal';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
