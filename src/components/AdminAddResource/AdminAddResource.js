@@ -41,11 +41,7 @@ class AdminAddResource extends Component {
                     <Input placeholder="title" type="text" value={this.state.title} onChange={this.handleInputChangeFor('title')}></Input>
                     <Input placeholder="description" type="text" value={this.state.description} onChange={this.handleInputChangeFor('description')}></Input>
                     <Input placeholder="link" type="text" value={this.state.link} onChange={this.handleInputChangeFor('link')}></Input>
-
-                    <div>
-                        <NeedSelector onChange={this.handleInputChangeFor('category')} value={this.state.category}  />
-                    </div>
-
+                    <NeedSelector onChange={this.handleInputChangeFor('category')} value={this.state.category} />
                     <Button variant="contained" color="primary" onClick={this.addResource}>Add Resource</Button>
                 </DialogContent>
             </Dialog>

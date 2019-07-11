@@ -9,18 +9,27 @@ import AdminDeleteButton from '../AdminDeleteButton/AdminDeleteButton';
 class AdminResourcesItem extends Component {
   state = {
     editing: false,
+    show: false,
+  }
+
+  handleClose = () => {
+    this.setState({
+      show: false,
+    })
+    this.toggleEdit();
   }
 
   toggleEdit = () => {
     this.setState({
-      editing: !this.state.editing
+      editing: !this.state.editing,
+      show: true,
     })
   }
 
   render() {
     let conditionalElement;
     if (this.state.editing) {
-      conditionalElement = <AdminEditResource resources={this.props.resources} toggleEdit={this.toggleEdit} />
+      conditionalElement = <AdminEditResource show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
     } else {
       conditionalElement = <AdminResourcesInfo resources={this.props.resources} />
     }
