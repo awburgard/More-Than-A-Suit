@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import NeedSelector from '../NeedSelector/NeedSelector';
-import { Button, Input, Typography, Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Button, Input, Typography, Dialog, DialogContent, DialogTitle, Grid } from '@material-ui/core';
 
 class AdminEditResource extends Component {
 
@@ -37,16 +37,28 @@ class AdminEditResource extends Component {
 
     render() {
         return (
-            <Dialog open={this.props.show} onClose={this.props.handleClose}>
+            <Dialog maxWidth={"md"}  open={this.props.show} onClose={this.props.handleClose}>
                 <DialogContent>
                     <DialogTitle id="simple-dialog-title">
                         <Typography align="center"> Edit Resource</Typography>
                     </DialogTitle>
-                    Title: <Input type="text" value={this.state.title} onChange={this.handleInputChangeFor('title')}></Input>
-                    Description: <Input type="text" value={this.state.description} onChange={this.handleInputChangeFor('description')}></Input>
-                    Link: <Input type="text" value={this.state.link} onChange={this.handleInputChangeFor('link')}></Input>
-                    Category: <NeedSelector onChange={this.handleInputChangeFor('category')} value={this.state.category} />
-                    <Button variant="contained" color="primary" onClick={this.saveInfo}>Save</Button>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <Input fullWidth={true} type="text" value={this.state.title} onChange={this.handleInputChangeFor('title')}></Input>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Input fullWidth={true} type="text" value={this.state.description} onChange={this.handleInputChangeFor('description')}></Input>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Input fullWidth={true} type="text" value={this.state.link} onChange={this.handleInputChangeFor('link')}></Input>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <NeedSelector onChange={this.handleInputChangeFor('category')} value={this.state.category} />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Button variant="contained" color="primary" onClick={this.saveInfo}>Save</Button>
+                        </Grid>
+                    </Grid>
                 </DialogContent>
             </Dialog >
         )

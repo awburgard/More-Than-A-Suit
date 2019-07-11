@@ -16,7 +16,7 @@ class NeedSelector extends Component {
         })
         categoryOptions.unshift(<MenuItem value={'default'} key={-1}>Select a Need</MenuItem>)
         return (
-            <Select value={this.props.value} onChange={this.props.onChange}>{categoryOptions}</Select>
+            <Select autoWidth={true} value={this.props.value} onChange={this.props.onChange}>{categoryOptions}</Select>
         );
     }
 }
