@@ -5,6 +5,44 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
+import { withStyles, createStyles, Theme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { createMuiTheme } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
+
+import { cyan, grey } from '@material-ui/core/colors';
+
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      flexGrow: 1,
+    },
+    menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    title: {
+      flexGrow: 1,
+    },
+  });
+
+const orangeTheme = createMuiTheme({ palette: { primary: grey } })
+const cyanTheme = createMuiTheme({ palette: { primary: cyan } })
+const theme = createMuiTheme({
+  palette: {
+    primary: cyan,
+    secondary: {
+      main: '#eceff1',
+    },
+  },
+});
+
+
+
+
 const Nav = (props) => {
   let loginLinkTo = '/login';
 
@@ -13,32 +51,44 @@ const Nav = (props) => {
   }
 
   return (
-    <div className="nav">
-      <Link to="/">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div className="nav-right">
-        <Link className="nav-link" to={loginLinkTo}>
-          {/* Show this link if they are logged in or not,
-          but call this link 'Welcome' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-          {props.store.user.id ? 'Welcome' : 'Login / Register'}
-        </Link>
-        {/* Show the link to the info page and the logout button if the user is logged in */}
-        {props.store.user.id && (
-          <>
-            {/* '<></>' - this is short syntax for React.Fragment */}
-            <Link className="nav-link" to="/info">
-              Info Page
-            </Link>
-            <LogOutButton className="nav-link"/>
-          </>
-        )}
-        {/* Always show this link since the about page is not protected */}
-        <Link className="nav-link" to="/about">
-          About
-        </Link>
-      </div>
+    <div>
+      <MuiThemeProvider theme={orangeTheme}>
+        <AppBar position="static">
+          <Toolbar>
+            <MuiThemeProvider theme={theme}>
+              <Link to="/">
+                <MuiThemeProvider theme={theme}>
+                  <Typography variant="h3" color="secondary">
+                    MORE THAN A SUIT
+                  </Typography>
+                </MuiThemeProvider>
+              </Link>
+            </MuiThemeProvider>
+            <div>
+              <Link to={loginLinkTo}>
+                {/* Show this link if they are logged in or not,
+                but call this link 'Welcome' if they are logged in,
+                and call this link 'Login / Register' if they are not */}
+                {props.store.user.id ? 'Welcome' : 'Login / Register'}
+             </Link>
+                {/* Show the link to the info page and the logout button if the user is logged in */}
+                {props.store.user.id && (
+                <>
+                  {/* '<></>' - this is short syntax for React.Fragment */}
+                  <Link to="/info">
+                      Info Page
+                  </Link>
+                  <LogOutButton/>
+                </>
+                )}
+                {/* Always show this link since the about page is not protected */}
+              <Link to="/about">
+                      About
+              </Link>
+              </div>
+            </Toolbar>
+          </AppBar>
+        </MuiThemeProvider>
     </div>
   )
 };
