@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import moment from 'moment';
 
 const MySwal = withReactContent(Swal);
 
@@ -40,21 +41,28 @@ class TwilioButton extends Component {
     }
 
     postAppointmentToCalendar = () => {
+        const startTime = this.props.store.setReview.appointment_date + ' ' + this.props.store.setReview.appointment_time
+        console.log(startTime);
+        const payload =  {
+            summary: this.props.store.setReview.first_name + ' ' + this.props.store.setReview.last_name,
+            description: this.props.store.setReview.appointment_type,
+            start: {dateTime: moment(startTime, 'YYYY-MM-DD mm').format(),
+                    timeZone: 'America/Chicago'},
+            end: {dateTime: moment(startTime, 'YYYY-MM-DD mm').add(1, 'hours').format(),
+                    timeZone: 'America/Chicago'},
+        }
+        console.log(payload);
         this.props.dispatch({
             type: 'POST_APPOINTMENT',
-            payload: {
-                summary: this.props.info.first_name + ' ' + this.props.info.last_name,
-                description: this.props.info.appointmentType,
-                start: this.props.info.selectedTime,
-                end: this.props.info.selectedTime,
-            }
+            payload,
         })
+        this.sendText()
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.sendText} onClick={this.postAppointmentToCalendar}>Confirm</button>
+                <button onClick={this.postAppointmentToCalendar}>Confirm</button>
             </div>
         )
     }

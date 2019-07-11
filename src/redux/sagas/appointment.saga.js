@@ -31,10 +31,10 @@ function* getAdminAppointment(action) {
 function* postAppointment(action) {
     try {
         const googleEvent = {
-            summary: '',
-            description: '',
-            start: '',
-            end: ''
+            summary: action.payload.summary,
+            description: action.payload.description,
+            start: action.payload.start,
+            end: action.payload.end
         };
 
         yield axios.post('/googlecal/event', googleEvent);
