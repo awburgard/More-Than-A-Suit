@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminResourcesItem from '../AdminResourcesItem/AdminResourcesItem';
 import AdminAddResource from '../AdminAddResource/AdminAddResource';
-import { Button } from '@material-ui/core';
-
+import { Button, Table, Paper, TableHead, TableCell, TableRow, TableBody, Box } from '@material-ui/core';
 
 class AdminResourcesList extends Component {
   state = {
@@ -35,7 +34,7 @@ class AdminResourcesList extends Component {
   render() {
     let conditionalAddField;
     if (this.state.add) {
-      conditionalAddField = <AdminAddResource toggleAdd={this.toggleAdd} show={this.state.show} handleClose={this.handleClose}/>
+      conditionalAddField = <AdminAddResource toggleAdd={this.toggleAdd} show={this.state.show} handleClose={this.handleClose} />
     } else {
       conditionalAddField = null;
     }
@@ -52,9 +51,27 @@ class AdminResourcesList extends Component {
     })
     return (
       <div>
+        <Paper elevation={15}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left" component="th" scope="row">Title</TableCell>
+                <TableCell align="left" component="th" scope="row">Description</TableCell>
+                <TableCell align="left" component="th" scope="row">Link</TableCell>
+                <TableCell align="left" component="th" scope="row">Category</TableCell>
+                <TableCell align="left" component="th" scope="row"></TableCell>
+                <TableCell align="left" component="th" scope="row"></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {resources}
+            </TableBody>
+          </Table>
+        </Paper>
+        <Box marginTop={2}>
         {conditionalAddField}
         {conditionalAddButton}
-        {resources}
+        </Box>
       </div>
     );
   }

@@ -20,16 +20,12 @@ class AdminDashboardPage extends Component {
       }
     }
     return (
-      <div>
-        <Paper elevation={15}>
           <Box p={3}>
             <Typography variant="h5">Dashboard</Typography>
             <AdminAppointment title="Appointments" appointments={appointments} />
             <AdminResources />
             <AdminAppointment title="Archived Appointments" appointments={archivedAppointments} archived={true} />
           </Box>
-        </Paper>
-      </div>
     );
   }
 }

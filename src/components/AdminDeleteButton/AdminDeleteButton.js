@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import { Button } from '@material-ui/core'
 
+
 class AdminDeleteButton extends Component {
 
   deleteResource = (event) => {
+
     this.props.dispatch({
       type: 'DELETE_RESOURCE',
       payload: {

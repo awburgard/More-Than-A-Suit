@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import EditButton from '../EditButton/EditButton';
 import AdminEditResource from '../AdminEditResource/AdminEditResource';
 import AdminResourcesInfo from '../AdminResourcesInfo/AdminResourcesInfo';
-import AdminDeleteButton from '../AdminDeleteButton/AdminDeleteButton';
+
 
 class AdminResourcesItem extends Component {
   state = {
@@ -29,17 +28,15 @@ class AdminResourcesItem extends Component {
   render() {
     let conditionalElement;
     if (this.state.editing) {
-      conditionalElement = <AdminEditResource show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
+      conditionalElement = <AdminEditResource editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
     } else {
       conditionalElement = <AdminResourcesInfo resources={this.props.resources} />
     }
 
     return (
-      <div>
+      <>
         {conditionalElement}
-        <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} />
-        <AdminDeleteButton resources={this.props.resources} />
-      </div>
+      </>
     );
   }
 }

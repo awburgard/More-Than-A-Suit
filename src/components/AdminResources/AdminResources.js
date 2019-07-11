@@ -8,7 +8,7 @@ class AdminResources extends Component {
   render() {
     return (
       <div>
-        <Typography align="center" variant="h5">Resources</Typography>
+        <Typography gutterBottom={true} align="center" variant="h5">Resources</Typography>
         <AdminResourcesList />
       </div>
     );

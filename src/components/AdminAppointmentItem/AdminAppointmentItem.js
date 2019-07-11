@@ -7,7 +7,7 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@materi
 class AdminAppointmentItem extends Component {
   render() {
     return (
-      <Paper>
+      <Paper elevation={15}>
         <Table>
           <TableHead>
             <TableRow>
