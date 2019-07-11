@@ -13,6 +13,8 @@ import {
     Container
 } from '@material-ui/core/';
 
+import './ContactInfo.css';
+
 class ContactInfo extends Component {
     state = {
         gentInfo: {
@@ -100,7 +102,9 @@ class ContactInfo extends Component {
                         onChange={this.onFormChange('phone')}
                         component={TextField}
                         defaultCountry={'us'}
+                        disableCountryCode={true}
                         disableDropdown={true}
+                        disableSearchIcon={true}
                         fullWidth={true}
                         inputExtraProps={{
                             label: 'Phone Number',
