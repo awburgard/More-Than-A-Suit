@@ -13,6 +13,8 @@ import {
     Container
 } from '@material-ui/core/';
 
+import './ContactInfo.css';
+
 class ContactInfo extends Component {
     state = {
         gentInfo: {
@@ -60,6 +62,7 @@ class ContactInfo extends Component {
             <Container className="behindPaper" maxWidth='xs'>
                 <Paper elevation={15}>
                 <Box m={1} p={3}>
+                <form onSubmit={this.handleClick}>
                     <Typography variant="h5" component="h3">
                             Contact Info:
                     </Typography>
@@ -99,7 +102,9 @@ class ContactInfo extends Component {
                         onChange={this.onFormChange('phone')}
                         component={TextField}
                         defaultCountry={'us'}
+                        disableCountryCode={true}
                         disableDropdown={true}
+                        disableSearchIcon={true}
                         fullWidth={true}
                         inputExtraProps={{
                             label: 'Phone Number',
@@ -116,13 +121,14 @@ class ContactInfo extends Component {
                     /> <br />
                     </Grid>
                     <Button
+                        type="submit"
                         variant="contained"
                         color="primary"
-                        onClick= {this.handleClick}
                     >
                         Next
                     </Button>
                 </Grid>
+                </form>
                 </Box>
                 </Paper>
             </Container>
