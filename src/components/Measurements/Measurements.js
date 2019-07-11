@@ -55,6 +55,10 @@ class Measurements extends Component {
         this.props.history.push('/needs');
     }
 
+    goBack = event => {
+        this.props.history.goBack();
+    }
+
     render() {
         const measurementInfo = (
             <Container className="behindPaper" maxWidth="xs">
@@ -118,6 +122,13 @@ class Measurements extends Component {
                     </Grid>
                     </Grid>
                     <br />
+                    <Button
+                        variant="contained"
+                        color="default"
+                        onClick= {this.goBack}
+                    >
+                        Back
+                    </Button>
                     <Button
                         variant="contained"
                         color="primary"
