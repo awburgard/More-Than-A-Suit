@@ -60,6 +60,7 @@ class ContactInfo extends Component {
             <Container className="behindPaper" maxWidth='xs'>
                 <Paper elevation={15}>
                 <Box m={1} p={3}>
+                <form onSubmit={this.handleClick}>
                     <Typography variant="h5" component="h3">
                             Contact Info:
                     </Typography>
@@ -116,14 +117,14 @@ class ContactInfo extends Component {
                     /> <br />
                     </Grid>
                     <Button
+                        type="submit"
                         variant="contained"
                         color="primary"
-                        type="submit"
-                        onClick= {this.handleClick}
                     >
                         Next
                     </Button>
                 </Grid>
+                </form>
                 </Box>
                 </Paper>
             </Container>
