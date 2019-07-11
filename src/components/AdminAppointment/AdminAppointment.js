@@ -8,7 +8,7 @@ class AdminAppointment extends Component {
   render() {
     return (
       <Box marginBottom={2} marginTop={2} paddingTop={2} paddingBottom={2}>
-        <Typography gutterBottom={true} align="center" variant="h5">{this.props.title}</Typography>
+        <Typography gutterBottom={true} align="left" variant="h5">{this.props.title}</Typography>
         <AdminAppointmentList appointments={this.props.appointments} archived={this.props.archived}/>
       </Box>
     );

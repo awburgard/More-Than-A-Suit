@@ -41,7 +41,7 @@ class AdminResourcesList extends Component {
 
     let conditionalAddButton;
     if (this.state.add === false) {
-      conditionalAddButton = <Button variant="contained" color="primary" onClick={this.toggleAdd}>Add</Button>
+      conditionalAddButton = <Button variant="contained" color="primary" onClick={this.toggleAdd}>Add Resource</Button>
     } else {
       conditionalAddButton = null;
     }
@@ -51,7 +51,7 @@ class AdminResourcesList extends Component {
     })
     return (
       <div>
-        <Paper elevation={15}>
+        <Paper elevation={5}>
           <Table>
             <TableHead>
               <TableRow>

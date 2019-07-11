@@ -7,9 +7,7 @@ import { Paper, Table, TableHead, TableCell, TableRow, TableBody } from '@materi
 
 
 class AdminResourcesInfo extends Component {
-    constructor(props) {
-        super(props)
-    }
+  
     render() {
         return (
             <TableRow>
