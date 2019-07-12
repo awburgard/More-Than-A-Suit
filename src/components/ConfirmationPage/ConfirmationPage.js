@@ -9,7 +9,6 @@ class ConfirmationPage extends Component {
 
     return (
       <div>
-        <h2>Confirmation Page</h2>
           <ConfirmationPageList history={this.props.history}/>
       </div>
     );
