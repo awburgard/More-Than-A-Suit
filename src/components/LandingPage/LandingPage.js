@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import { Link } from 'react-router-dom';
+import Typography from '@material-ui/core/Typography';
+
 
 class LandingPage extends Component {
     goToInfo = (event) => {
@@ -10,6 +13,11 @@ class LandingPage extends Component {
     render() {
         return (
             <div>
+                <div className="text_alnRight">
+                    <Link to="/resources">
+                        <Typography>Resources</Typography>
+                    </Link>
+                </div>
                 <h1>WELCOME TO</h1>
                     <div>
                         <img className="center"

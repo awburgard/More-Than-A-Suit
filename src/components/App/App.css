@@ -177,3 +177,7 @@ Vertical Rhythm
   .rootneedspage {
       display: flex
   }
+
+  .text_alnRight{
+    text-align: right;
+}
