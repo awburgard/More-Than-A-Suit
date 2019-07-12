@@ -9,11 +9,16 @@ class EditButton extends Component {
         if (this.props.editing) {
             conditionalButton = null;
         } else {
-            conditionalButton = <Button variant="contained" color="secondary" onClick={this.props.toggleEdit}>Edit</Button>
-
+            conditionalButton = <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={this.props.toggleEdit}
+                                    fullWidth={true}
+                                >   Edit
+                                </Button>
         }
         return (
-            <div>
+            <div className="vr">
                 {conditionalButton}
             </div>
         );

@@ -13,7 +13,7 @@ class AdminDeleteButton extends Component {
       type: 'warning',
       showConfirmButton: true,
       showCancelButton: true,
-      confirmButtonText:  "Yeah!",
+      confirmButtonText: "Yeah!",
       cancelButtonText: "No!",
       dangerMode: true,
     })
@@ -39,7 +39,7 @@ class AdminDeleteButton extends Component {
   render() {
     return (
       <div>
-        <Button variant="contained" color="primary" onClick={this.deleteResource}>Delete</Button>
+        <Button variant="contained" color='primary' onClick={this.deleteResource}>Delete</Button>
       </div>
     );
   }
