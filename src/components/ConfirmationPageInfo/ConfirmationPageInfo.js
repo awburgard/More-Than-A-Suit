@@ -11,7 +11,7 @@ import {
     Button,
     Box,
     Grid,
-    Container
+    Container,
 } from '@material-ui/core/';
 
 class ConfirmationPageInfo extends Component {

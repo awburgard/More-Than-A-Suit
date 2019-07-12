@@ -20,16 +20,20 @@ class ConfirmationPageItem extends Component {
 
     render() {
         let conditionalElement;
+        let confirmButton;
         if (this.state.editing) {
             conditionalElement = <InputField info={this.props.info} toggleEdit={this.toggleEdit} />
+            confirmButton = null;
         } else {
             conditionalElement = <ConfirmationPageInfo info={this.props.info} />
+            confirmButton =  <TwilioButton info={this.props.info} history={this.props.history}/>
         }
+
         return (
             <div>
                 {conditionalElement}
                 <EditButton editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} />
-                <TwilioButton info={this.props.info} history={this.props.history}/>
+               {confirmButton}
             </div>
         );
     }

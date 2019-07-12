@@ -4,6 +4,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 const MySwal = withReactContent(Swal);
 
@@ -62,7 +63,12 @@ class TwilioButton extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.postAppointmentToCalendar}>Confirm</button>
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={this.postAppointmentToCalendar}
+                >   Confirm
+                </Button>
             </div>
         )
     }
