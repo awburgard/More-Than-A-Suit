@@ -2,6 +2,18 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 
+//Material UI
+import {
+  TextField,
+  Paper,
+  Typography,
+  Button,
+  Box,
+  Grid,
+  Container
+} from '@material-ui/core/';
+
+
 class RegisterPage extends Component {
   state = {
     first_name: '',
@@ -48,80 +60,79 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div>
+      <Container className="behindPaper" maxWidth='xs'>
         {this.props.store.errors.registrationMessage && (
-          <h2
+          <Typography variant="h6"
             className="alert"
             role="alert"
           >
             {this.props.store.errors.registrationMessage}
-          </h2>
+          </Typography>
         )}
-        <form className="loginPanel" onSubmit={this.registerUser}>
-          <h1 className="loginPanel-hd">Register User</h1>
+        <Paper elevation={15}>g
+        <Box m={1} p={3}>
+          <Typography variant="h5" component="h3">Register User</Typography>
+          <Grid container spacing={2}>
+          <Grid item xs={12} md={12}>
 
-          <div className="loginPanel-fields">
-            <label className="fieldSet" htmlFor="first_name">
-              <span className="fieldSet-label">First Name:</span>
-              <input
-                className="fieldSet-input"
+              <TextField
+                fullWidth={true}
+                label="First Name"
+                required={true}
                 type="text"
                 name="first_name"
                 value={this.state.first_name}
                 onChange={this.handleInputChangeFor('first_name')}
               />
-            </label>
-            <label className="fieldSet" htmlFor="last_name">
-              <span className="fieldSet-label">Last Name:</span>
-              <input
-                className="fieldSet-input"
+
+              <TextField
+                fullWidth={true}
+                label="Last Name"
+                required={true}
                 type="text"
                 name="last_name"
                 value={this.state.last_name}
                 onChange={this.handleInputChangeFor('last_name')}
               />
-            </label>
-            <label className="fieldSet" htmlFor="email">
-              <span className="fieldSet-label">email:</span>
-              <input
-                className="fieldSet-input"
+
+
+              <TextField
+                fullWidth={true}
+                label="Email:"
+                required={true}
                 type="text"
                 name="email"
                 value={this.state.email}
                 onChange={this.handleInputChangeFor('email')}
               />
-            </label>
-            <label className="fieldSet" htmlFor="password">
-              <span className="fieldSet-label">Password:</span>
-              <input
-                className="fieldSet-input"
+
+
+              <TextField
+                fullWidth={true}
+                label="Password:"
+                required={true}
                 type="password"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
-            <label className="fieldSet" htmlFor="passwordConfirmation">
-              <span className="fieldSet-label">Password Confirmation:</span>
-              <input
-                className="fieldSet-input"
-                type="password"
-                name="password"
-                value={this.state.passwordConfirmation}
-                onChange={this.handleInputChangeFor('passwordConfirmation')}
-              />
-            </label>
-          </div>
+
+            <div className="vr_2x">
+                <TextField
+                  fullWidth={true}
+                  label="Password Confirmation:"
+                  required={true}
+                  type="password"
+                  name="password_confirmation"
+                  value={this.state.passwordConfirmation}
+                  onChange={this.handleInputChangeFor('passwordConfirmation')}
+                />
+            </div>
+
           <p>{this.state.passwordError}</p>
-          <div className="loginPanel-action">
-            <input
-              className="btn btn_sizeMin"
-              type="submit"
-              name="submit"
-              value="Register"
-            />
-          </div>
-        </form>
+            <Button variant="outlined" color="inherit" onClick={this.registerUser}>Register</Button>
+            </Grid>
+            </Grid>
         <center>
           <button
             type="button"
@@ -131,7 +142,9 @@ class RegisterPage extends Component {
             Login
           </button>
         </center>
-      </div>
+        </Box>
+        </Paper>
+        </Container>
     );
   }
 }

@@ -1,6 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+//Material UI
+import {
+  TextField,
+  Paper,
+  Typography,
+  Button,
+  Box,
+  Grid,
+  Container
+} from '@material-ui/core/';
+
 
 import './Login.css';
 
@@ -34,63 +45,56 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <div>
-        {this.props.store.errors.loginMessage && (
-          <h2
+      <Container className="behindPaper" maxWidth='xs'>
+         {this.props.store.errors.loginMessage && (
+          <Typography variant="h6"
             className="alert"
             role="alert"
           >
             {this.props.store.errors.loginMessage}
-          </h2>
+          </Typography>
         )}
-        <form
-          className="loginPanel"
-          onSubmit={this.login}
-        >
-          <h1 className="loginPanel-hd">Login</h1>
+        <Paper elevation={15}>
+        <Box m={1} p={3}>
 
-          <div className="loginPanel-fields">
-            <label className="fieldSet" htmlFor="email">
-              <span className="fieldSet-label">email:</span>
-              <input
-                className="fieldSet-input"
+          <Typography variant="h5" component="h3">Login</Typography>
+          <Grid container spacing={2}>
+          <Grid item xs={12} md={12}>
+
+              <TextField
+                fullWidth={true}
+                label="email:"
+                required={true}
                 type="text"
-                name="email"
                 value={this.state.email}
                 onChange={this.handleInputChangeFor('email')}
               />
-            </label>
-            <label className="fieldSet" htmlFor="password">
-              <span className="fieldSet-label">Password:</span>
-              <input
-                className="fieldSet-input"
+              <div className="vr_2x">
+              <TextField
+                fullWidth={true}
+                label="password:"
+                required={true}
                 type="password"
-                name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
-            </label>
-          </div>
-          <div className="loginPanel-action">
-            <input
-              className="btn btn_sizeMin"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
-          </div>
-        </form>
+              </div>
+            <Button variant="outlined" color="inherit" onClick={this.login}>Login</Button>
+          </Grid>
+          </Grid>
 
         <center>
-          <button
+          <Button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_REGISTER_MODE'})}}
           >
             Register
-          </button>
+          </Button>
         </center>
-      </div>
+        </Box>
+        </Paper>
+      </Container>
     );
   }
 }
