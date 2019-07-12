@@ -106,160 +106,165 @@ class InputField extends Component {
         }
 
         return (
-            
-            <form onSubmit={this.saveInfo}>
-            <Grid container spacing={2}>
-            <Grid item xs={12} md={12}>
-                <TextField
-                    required={true}
-                    label="First Name"
-                    value={this.state.first_name}
-                    onChange={this.handleInputChangeFor('first_name')}
-                    autoFocus={true}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <TextField
-                    required={true}
-                    label="Last Name"
-                    value={this.state.last_name}
-                    onChange={this.handleInputChangeFor('last_name')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <TextField
-                    required={true}
-                    label="Zip"
-                    value={this.state.zip}
-                    onChange={this.handleInputChangeFor('zip')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <ReactPhoneInput
-                    onlyCountries={['us']}
-                    value={this.state.phone}
-                    onChange={this.handleInputChangeFor('phone')}
-                    component={TextField}
-                    defaultCountry={'us'}
-                    disableCountryCode={true}
-                    disableDropdown={true}
-                    disableSearchIcon={true}
-                    fullWidth={true}
-                    inputExtraProps={{
-                        label: 'Phone Number',
-                        required: true,
-                    }}
-                /> <br />
-                <TextField
-                    label="Email"
-                    value={this.state.email}
-                    onChange={this.handleInputChangeFor('email')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                </Grid>
-                <Grid item xs={6} md={6}>
-                <TextField
-                    label="Height"
-                    value={this.state.height_feet}
-                    onChange={this.handleInputChangeFor('height_feet')}
-                    margin="normal"
-                    fullWidth={true}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">ft</InputAdornment>,
-                    }}
-                />
-                </Grid>
-                <Grid item xs={6} md={6}>
-                <TextField
-                    label=" "
-                    value={this.state.height_inches}
-                    onChange={this.handleInputChangeFor('height_inches')}
-                    margin="normal"
-                    fullWidth={true}
-                    InputProps={{
-                        endAdornment: <InputAdornment position="end">in</InputAdornment>,
-                    }}
-                />
-                </Grid> <br />
-                <Grid item xs={12} md={12}>
-                <TextField
-                    label="Weight"
-                    value={this.state.weight}
-                    onChange={this.handleInputChangeFor('weight')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <TextField
-                    label="Waist"
-                    value={this.state.waist}
-                    onChange={this.handleInputChangeFor('waist')}
-                    margin="normal"
-                    fullWidth={true}
-                /> <br />
-                <RadioGroup>
-                <label>
-                    <Radio
-                        type="radio"
-                        value="Job"
-                        checked={this.state.needsType === "Job"}
-                        onChange={this.handleInputChangeFor('needsType')}
-                    />
-                    Job
-                </label>
-                <label>
-                    <Radio
-                        type="radio"
-                        value="Court"
-                        checked={this.state.needsType === "Court"}
-                        onChange={this.handleInputChangeFor('needsType')}
-                        control={<Radio color="primary" />}
-                    />
-                    Court
-                </label>
-                <label>
-                    <Radio
-                        type="radio"
-                        value="Funeral"
-                        checked={this.state.needsType === "Funeral"}
-                        onChange={this.handleInputChangeFor('needsType')}
-                        control={<Radio color="primary" />}
-                    />
-                    Funeral
-                </label>
-                <label>
-                    <Radio
-                        type="radio"
-                        value="Other"
-                        checked={this.state.needsType === "Other"}
-                        onChange={this.handleInputChangeFor('needsType')}
-                        control={<Radio color="primary" />}
-                    />
-                    Other
-                </label>
-                    {otherField}
-                </RadioGroup>
+            <Container className="behindPaper" maxWidth='xs'>
+                <Paper elevation={15}>
+                <Box m={1} p={3}>
+                    <form onSubmit={this.saveInfo}>
+                    <Typography variant="h5" component="h3">
+                            Edit:
+                    </Typography>
+                    <Grid container spacing={2}>
+                    <Grid item xs={12} md={12}>
+                        <TextField
+                            required={true}
+                            label="First Name"
+                            value={this.state.first_name}
+                            onChange={this.handleInputChangeFor('first_name')}
+                            autoFocus={true}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        <TextField
+                            required={true}
+                            label="Last Name"
+                            value={this.state.last_name}
+                            onChange={this.handleInputChangeFor('last_name')}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        <TextField
+                            required={true}
+                            label="Zip"
+                            value={this.state.zip}
+                            onChange={this.handleInputChangeFor('zip')}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        <ReactPhoneInput
+                            onlyCountries={['us']}
+                            value={this.state.phone}
+                            onChange={this.handleInputChangeFor('phone')}
+                            component={TextField}
+                            defaultCountry={'us'}
+                            disableCountryCode={true}
+                            disableDropdown={true}
+                            disableSearchIcon={true}
+                            fullWidth={true}
+                            inputExtraProps={{
+                                label: 'Phone Number',
+                                required: true,
+                            }}
+                        /> <br />
+                        <TextField
+                            label="Email"
+                            value={this.state.email}
+                            onChange={this.handleInputChangeFor('email')}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        </Grid>
+                        <Grid item xs={6} md={6}>
+                        <TextField
+                            label="Height"
+                            value={this.state.height_feet}
+                            onChange={this.handleInputChangeFor('height_feet')}
+                            margin="normal"
+                            fullWidth={true}
+                            InputProps={{
+                                endAdornment: <InputAdornment position="end">ft</InputAdornment>,
+                            }}
+                        />
+                        </Grid>
+                        <Grid item xs={6} md={6}>
+                        <TextField
+                            label=" "
+                            value={this.state.height_inches}
+                            onChange={this.handleInputChangeFor('height_inches')}
+                            margin="normal"
+                            fullWidth={true}
+                            InputProps={{
+                                endAdornment: <InputAdornment position="end">in</InputAdornment>,
+                            }}
+                        />
+                        </Grid> <br />
+                        <Grid item xs={12} md={12}>
+                        <TextField
+                            label="Weight"
+                            value={this.state.weight}
+                            onChange={this.handleInputChangeFor('weight')}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        <TextField
+                            label="Waist"
+                            value={this.state.waist}
+                            onChange={this.handleInputChangeFor('waist')}
+                            margin="normal"
+                            fullWidth={true}
+                        /> <br />
+                        <RadioGroup>
+                        <label>
+                            <Radio
+                                type="radio"
+                                value="Job"
+                                checked={this.state.needsType === "Job"}
+                                onChange={this.handleInputChangeFor('needsType')}
+                            />
+                            Job
+                        </label>
+                        <label>
+                            <Radio
+                                type="radio"
+                                value="Court"
+                                checked={this.state.needsType === "Court"}
+                                onChange={this.handleInputChangeFor('needsType')}
+                                control={<Radio color="primary" />}
+                            />
+                            Court
+                        </label>
+                        <label>
+                            <Radio
+                                type="radio"
+                                value="Funeral"
+                                checked={this.state.needsType === "Funeral"}
+                                onChange={this.handleInputChangeFor('needsType')}
+                                control={<Radio color="primary" />}
+                            />
+                            Funeral
+                        </label>
+                        <label>
+                            <Radio
+                                type="radio"
+                                value="Other"
+                                checked={this.state.needsType === "Other"}
+                                onChange={this.handleInputChangeFor('needsType')}
+                                control={<Radio color="primary" />}
+                            />
+                            Other
+                        </label>
+                            {otherField}
+                        </RadioGroup>
 
 
-                {/* <RadioButtons
-                    handleChange={this.handleInputChangeFor}
-                    need={this.state.need}
-                /> <br /> */}
-                {/* <AppointmentPage /> */}
-                {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
-                {/* Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
-                Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
-                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
-                {/* Your appointment has already been set. To change your appointment please call... */}
-                <Button
-                    type="submit"
-                    variant="contained"
-                    color="default"
-                >   Save
-                </Button>
-                </Grid>
-                </Grid>
-                </form>
+                        {/* <AppointmentPage /> */}
+                        {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
+                        {/* Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
+                        Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
+                        Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
+                        {/* Your appointment has already been set. To change your appointment please call... */}
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            color="default"
+                        >   Save
+                        </Button>
+                        </Grid>
+                        </Grid>
+                        </form>
+                </Box>
+                </Paper>
+            </Container>
+
         )
     }
 }
