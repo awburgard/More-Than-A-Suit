@@ -58,7 +58,7 @@ class Measurements extends Component {
     render() {
         const measurementInfo = (
             <Container className="behindPaper" maxWidth="xs">
-                <Paper elevation={15}>
+                <Paper elevation={5}>
                 <Box m={3} p={5}>
                     <Typography variant="h5" component="h3">
                         Measurements:

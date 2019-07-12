@@ -23,7 +23,7 @@ class ResourcesPage extends Component {
   }
   render() {
     return (
-      <Paper elevation={15}>
+      <Paper elevation={5}>
         <Box p={3}>
         <Typography align="center" variant='h5'>Resources</Typography>
           <ResourcesButtonList />

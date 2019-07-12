@@ -1,15 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
-
-.bg-img-landing {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/more_than_a_suit.jpg");
-  background-position: right left;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-@media(max-width: 780px){
-  .shadow-text{
-      font-size: 50px;
-  }
+.hero .MuiPaper-root {
+  background-color: rgba(255,255,255,0.8)
 }

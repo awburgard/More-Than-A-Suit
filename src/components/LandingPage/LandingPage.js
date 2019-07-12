@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import './LandingPage.css'
-import { Link } from 'react-router-dom';
-import {
-    TextField,
-    Paper,
-    Typography,
-    Button,
-    Box,
-    Grid,
-    Container
-} from '@material-ui/core/';
+import { Paper, Typography, Button, Box, Grid, Container } from '@material-ui/core/';
 
 
 class LandingPage extends Component {
@@ -21,22 +12,27 @@ class LandingPage extends Component {
 
     render() {
         return (
-            <Container>
-                <Paper>
-                    <Grid container spacing={2} className="bg-img-landing" >
-                        <Grid item xs={12}>
-                            <Typography align="center" variant="h1">Welcome to More Than A Suit</Typography>
+            <Container className="hero" maxWidth='md'>
+                <Paper elevation={5} >
+                    <Box m={3} p={6}>
+                        <Grid container spacing={2} >
+                            <Grid item xs={12} >
+                                <Typography gutterBottom={true} align="center" variant="h4">Welcome to </Typography>
+                                <Typography gutterBottom={true} align="center" variant="h2">More Than A Suit</Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography gutterBottom={true}  align="center" variant="h6">Overview</Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography gutterBottom={true}  align="center">Register and make an appointment to be fitted with the perfect suit and additional resources</Typography>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Typography gutterBottom={true}  align="center">
+                                    <Button variant="contained" color="primary" onClick={this.goToInfo}>Suit Up</Button>
+                                </Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={12}>
-                            <Typography align="center" variant="h5">Overview</Typography>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Typography align="center">Register and make an appointment to be fitted with the perfect suit and additional resources</Typography>
-                        </Grid>
-                        <Grid item xs={12} alignItems='center'>
-                            <Button variant="contained" color="primary" onClick={this.goToInfo}>Suit Up</Button>
-                        </Grid>
-                    </Grid>
+                    </Box>
                 </Paper>
             </Container>
         )

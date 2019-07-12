@@ -59,7 +59,7 @@ class NeedsPage extends Component {
         }
         return (
             <Container maxWidth='xs'>
-                <Paper elevation={15}>
+                <Paper elevation={5}>
                     <Box m={1} p={3}>
                         <FormControl>
                             <Typography variant="h5" gutterBottom={true}>Occasion:</Typography>
