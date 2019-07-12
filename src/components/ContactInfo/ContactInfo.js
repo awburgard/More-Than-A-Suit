@@ -124,8 +124,7 @@ class ContactInfo extends Component {
                         type="submit"
                         variant="contained"
                         color="primary"
-                    >
-                        Next
+                    >   Next
                     </Button>
                 </Grid>
                 </form>

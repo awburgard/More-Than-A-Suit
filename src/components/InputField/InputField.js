@@ -255,7 +255,7 @@ class InputField extends Component {
                         <Button
                             type="submit"
                             variant="contained"
-                            color="default"
+                            color="primary"
                         >   Save
                         </Button>
                         </Grid>
