@@ -59,10 +59,32 @@ class InputField extends Component {
 
     render() {
         return (
-            <div>
-                First Name: <input type="text" value={this.state.first_name} onChange={this.handleInputChangeFor('first_name')}></input><br />
-                Last Name: <input type="text" value={this.state.last_name} onChange={this.handleInputChangeFor('last_name')}></input><br />
-                Zip Code: <input type="text" value={this.state.zip} onChange={this.handleInputChangeFor('zip')}></input> <br />
+            <form onSubmit={this.saveInfo}>
+                <TextField
+                    required={true}
+                    label="First Name"
+                    value={this.state.first_name}
+                    onChange={this.handleInputChangeFor('first_name')}
+                    autoFocus={true}
+                    margin="normal"
+                    fullWidth={true}
+                /> <br />
+                <TextField
+                    required={true}
+                    label="Last Name"
+                    value={this.state.last_name}
+                    onChange={this.handleInputChangeFor('last_name')}
+                    margin="normal"
+                    fullWidth={true}
+                /> <br />
+                <TextField
+                    required={true}
+                    label="Zip"
+                    value={this.state.zip}
+                    onChange={this.handleInputChangeFor('zip')}
+                    margin="normal"
+                    fullWidth={true}
+                /> <br />
                 <ReactPhoneInput
                     onlyCountries={['us']}
                     value={this.state.phone}
@@ -78,7 +100,15 @@ class InputField extends Component {
                         required: true,
                     }}
                 /> <br />
-                Email: <input type="text" value={this.state.email} onChange={this.handleInputChangeFor('email')}></input> <br />
+                <TextField
+                    label="Email"
+                    value={this.state.email}
+                    onChange={this.handleInputChangeFor('email')}
+                    margin="normal"
+                    fullWidth={true}
+                /> <br />
+
+
                 Height: Feet <input type="number" value={this.state.height_feet} onChange={this.handleInputChangeFor('height_feet')}></input>
                 Inches <input type="number" value={this.state.height_inches} onChange={this.handleInputChangeFor('height_inches')}></input><br />
                 Weight: <input type="number" value={this.state.weight} onChange={this.handleInputChangeFor('weight')}></input> <br />
@@ -91,8 +121,8 @@ class InputField extends Component {
                 Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
                 Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
                 Your appointment has already been set. To change your appointment please call...
-                <button onClick={this.saveInfo}>Save</button>
-            </div >
+                <button type="submit">Save</button>
+            </form>
         )
     }
 }
