@@ -2,14 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import ResourcesPageItem from '../ResourcesPageItem/ResourcesPageItem';
+import { Grid } from '@material-ui/core';
+
 
 class ResourcesPageList extends Component {
   render() {
     let resources = this.props.store.needs.map((resource, index) => {
       return (
         <div key={index}>
-          <ResourcesPageItem resource={resource} index={index}/>
-        </div>)
+          <ResourcesPageItem resource={resource} index={index} />
+        </div>
+      )
 
     })
     return (

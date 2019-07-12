@@ -63,7 +63,7 @@ class App extends Component {
                 path="/needs"
                 component={NeedsPage}
               />
-            <Route
+              <Route
                 exact
                 path="/appointment"
                 component={AppointmentPage}

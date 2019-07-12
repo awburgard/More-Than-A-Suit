@@ -2,6 +2,9 @@ const fs = require('fs');
 const readline = require('readline');
 const {google} = require('googleapis');
 
+const apiKey = 'AIzaSyBHz8gbi56Xuvbd9GPaPC9OUDm9hnLNGeY';
+
+
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/calendar'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -28,6 +31,7 @@ function authorize(credentials: any, callback: any, response: any, eventObject?:
   const {client_secret, client_id, redirect_uris} = credentials.installed;
   const oAuth2Client = new google.auth.OAuth2(
       client_id, client_secret, redirect_uris[0]);
+      console.log('Authorized', credentials);
 
   fs.readFile(TOKEN_PATH, (err: any, token: any) => {
     if (err) {

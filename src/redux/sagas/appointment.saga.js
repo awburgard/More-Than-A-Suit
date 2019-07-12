@@ -4,31 +4,66 @@ import axios from 'axios';
 
 function* getAppointment(action) {
     try {
-      const getResponse = yield axios.get('/api/appointment');
-      yield put({
-          type: 'SET_APPOINTMENT',
-          payload: getResponse.data,
-      });
+        console.log('Get Appointment', action);
+        const getResponse = yield axios.get('/googlecal/event');
+        console.log(getResponse);
+        yield put({
+            type: 'SET_APPOINTMENT',
+            payload: getResponse.data,
+        });
     } catch (error) {
-      console.log('Error with get appointment:', error);
+        console.log('Error with get appointment:', error);
     }
-  }
+}
+
+function* getAdminAppointment(action) {
+    try {
+        const getResponse = yield axios.get('/api/admin/appointments');
+        yield put({
+            type: 'SET_ADMIN_APPOINTMENT',
+            payload: getResponse.data,
+        });
+    } catch (error) {
+        console.log('Error with get appointment:', error);
+    }
+}
 
 function* postAppointment(action) {
     try {
-      yield axios.post('api/appointment', action.payload);
-      yield put({
-          type: 'GET_APPOINTMENT',
-      });
-  
-    } catch (error) {
-      console.log('Error with posting appointment:', error);
-    }
-  }
+        const googleEvent = {
+            summary: action.payload.summary,
+            description: action.payload.description,
+            start: action.payload.start,
+            end: action.payload.end
+        };
 
-  function* rootSaga() {
+        yield axios.post('/googlecal/event', googleEvent);
+        yield put({
+            type: 'GET_APPOINTMENT',
+        });
+
+    } catch (error) {
+        console.log('Error with posting appointment:', error);
+    }
+}
+
+function* updateAppointmentInfo(action) {
+    try {
+        yield axios.put(`api/appointment/${action.payload.id}`, action.payload);
+        yield put({
+            type: 'SET_REVIEW',
+            payload: action.payload,
+        })
+    } catch (error) {
+        console.log('Error posting and updating appointment information:', error);
+    }
+}
+
+function* rootSaga() {
     yield takeEvery('GET_APPOINTMENT', getAppointment);
+    yield takeEvery('UPDATE_APPOINTMENT_INFO', updateAppointmentInfo);
     yield takeEvery('POST_APPOINTMENT', postAppointment);
-  }
-  
-  export default rootSaga;
+    yield takeEvery('GET_ADMIN_APPOINTMENT', getAdminAppointment);
+}
+
+export default rootSaga;
