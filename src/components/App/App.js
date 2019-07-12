@@ -20,17 +20,28 @@ import Measurements from '../Measurements/Measurements';
 import NeedsPage from '../NeedsPage/NeedsPage';
 import AdminDashboardPage from '../AdminDashboardPage/AdminDashboardPage';
 import LandingPage from '../LandingPage/LandingPage';
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 
-
-
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#262626',
+    },
+    secondary: {
+      light: '#F2F2F2',
+      main: '#595959',
+    },
+  },
+});
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch({ type: 'FETCH_USER' })
-  }
+  // componentDidMount() {
+  //   this.props.dispatch({ type: 'FETCH_USER' })
+  // }
 
   render() {
     return (
+      <MuiThemeProvider theme={theme}>
       <Router>
         {/* element with .site is in index.html */}
         {/* <div className="site-hd">
@@ -118,6 +129,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+      </MuiThemeProvider>
     )
   }
 }
