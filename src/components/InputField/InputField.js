@@ -53,7 +53,7 @@ class InputField extends Component {
             appointment_time: props.info.appointment_time,
         }
     }
-    
+
 
     saveInfo = () => {
         const need = this.state.needsType;
@@ -96,7 +96,7 @@ class InputField extends Component {
 
     render() {
         let otherField = (
-            <div>
+            <div className="vr_2x">
                 <TextField type="text" id="other" value={this.state.otherText} name="other" placeholder="other need" onChange={this.handleInputChangeFor('otherText')} />
             </div>
         );

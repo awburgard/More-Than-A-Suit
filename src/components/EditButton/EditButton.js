@@ -13,7 +13,7 @@ class EditButton extends Component {
 
         }
         return (
-            <div>
+            <div className="vr">
                 {conditionalButton}
             </div>
         );
