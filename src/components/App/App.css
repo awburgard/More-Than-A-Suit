@@ -151,7 +151,15 @@ Vertical Rhythm
     margin-bottom: 40px;
 }
 
+<<<<<<< HEAD
 .text_alnCenter {
+=======
+.button-margin {
+    margin-left: -40px;
+}
+
+.text_alnCenter{
+>>>>>>> develop
     text-align: center;
 }
 

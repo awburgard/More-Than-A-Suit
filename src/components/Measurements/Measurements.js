@@ -61,7 +61,7 @@ class Measurements extends Component {
                 <Paper elevation={5}>
                 <Box m={3} p={5}>
                     <Typography variant="h5" component="h3">
-                        Measurements:
+                        Measurements
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>
                         Note: Knowing these measurements are an important part of getting the right fit.

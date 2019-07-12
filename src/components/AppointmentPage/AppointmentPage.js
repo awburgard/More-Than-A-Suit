@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AppointmentCalendar from '../AppointmentCalendar/AppointmentCalendar';
+import {
+    TextField,
+    Paper,
+    Typography,
+    Button,
+    Box,
+    Grid,
+    Container,
+    Radio
+} from '@material-ui/core/';
 
 class AppointmentPage extends Component {
     constructor() {
@@ -37,13 +47,12 @@ class AppointmentPage extends Component {
     render() {
         return (
             <div>
+                <Paper elevation={15}>
+                <Box m={1} p={1}>
                 <h2>Set Up Your Appointment</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <p>Select an appointment type:</p>
-                    <ul>
-                        <li>
                             <label>
-                                <input
+                                <Radio
                                     type="radio"
                                     value="Phone Call"
                                     checked={this.state.appointmentType === "Phone Call"}
@@ -51,11 +60,8 @@ class AppointmentPage extends Component {
                                 />
                                 Phone Call
                             </label>
-                        </li>
-
-                        <li>
                             <label>
-                                <input
+                                <Radio
                                     type="radio"
                                     value="In Person"
                                     checked={this.state.appointmentType === "In Person"}
@@ -63,11 +69,10 @@ class AppointmentPage extends Component {
                                 />
                                 In Person
                             </label>
-                        </li>
-                    </ul>
                 </form>
-                <h2>Choose Appointment Date/Time</h2>
                 <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
+                </Box>
+                </Paper>
             </div>
         )
     }
