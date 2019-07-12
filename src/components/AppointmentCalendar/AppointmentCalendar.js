@@ -9,6 +9,16 @@ import '@fullcalendar/daygrid/main.css';
 import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
 import Modal from '@material-ui/core/Modal';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
+import {
+    Paper,
+    Typography,
+    Button,
+    Box,
+    Grid,
+    Container
+} from '@material-ui/core/';
+
+import './AppointmentCalendar.css'
 
 
 function getModalStyle() {
@@ -88,7 +98,11 @@ class AppointmentCalendar extends Component {
 
     render() {
         return (
-            <div>
+                <Container className="behindPaper" maxWidth='xs'>
+                <Paper elevation={15}>
+                <Box m={1} p={1}>
+                <Grid container spacing={2}>
+                <Grid item xs={12} md={12}>
                 <FullCalendar
                     defaultView="dayGridMonth"
                     plugins={[dayGridPlugin, interactionPlugin]}
@@ -108,7 +122,11 @@ class AppointmentCalendar extends Component {
                         <button onClick={this.handleTimeConfirmation}>OKAY</button>
                     </div>
                 </Modal>
-            </div>
+                </Grid>
+                </Grid>
+                </Box>
+                </Paper>
+            </Container>
         )
     }
 }
