@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import Link from '@material-ui/core/Link'
-import { Grid, Typography, Box } from '@material-ui/core';
+import { Grid, Typography } from '@material-ui/core';
 
 class ResourcesPageItem extends Component {
   render() {

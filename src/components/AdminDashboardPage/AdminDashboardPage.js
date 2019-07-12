@@ -4,7 +4,7 @@ import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminResources from '../AdminResources/AdminResources';
 import AdminAppointment from '../AdminAppointment/AdminAppointment';
 import moment from 'moment';
-import { Typography, Paper, Box } from '@material-ui/core'
+import { Typography, Box } from '@material-ui/core'
 
 class AdminDashboardPage extends Component {
   render() {
