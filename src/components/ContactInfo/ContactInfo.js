@@ -63,7 +63,7 @@ class ContactInfo extends Component {
                 <Box m={1} p={3}>
                 <form onSubmit={this.handleClick}>
                     <Typography variant="h5" component="h3">
-                            Contact Info:
+                            Contact Info
                     </Typography>
                     <Grid container spacing={2}>
                     <Grid item xs={12} md={12}>

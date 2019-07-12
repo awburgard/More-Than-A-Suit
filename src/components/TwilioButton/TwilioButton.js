@@ -67,6 +67,7 @@ class TwilioButton extends Component {
                     color="primary"
                     variant="contained"
                     onClick={this.postAppointmentToCalendar}
+                    fullWidth={true}
                 >   Confirm
                 </Button>
             </div>

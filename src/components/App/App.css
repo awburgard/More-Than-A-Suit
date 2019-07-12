@@ -150,6 +150,10 @@ Vertical Rhythm
     margin-bottom: 40px;
 }
 
+.button-margin {
+    margin-left: -40px;
+}
+
 .text_alnCenter{
     text-align: center;
 }
