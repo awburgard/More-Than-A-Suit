@@ -47,10 +47,10 @@ class AppointmentPage extends Component {
     render() {
         return (
             <div>
-                <Paper>
+                <Paper elevation={15}>
+                <Box m={1} p={1}>
                 <h2>Set Up Your Appointment</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <p>Select an appointment type:</p>
                             <label>
                                 <Radio
                                     type="radio"
@@ -71,6 +71,7 @@ class AppointmentPage extends Component {
                             </label>
                 </form>
                 <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
+                </Box>
                 </Paper>
             </div>
         )

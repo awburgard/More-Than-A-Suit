@@ -12,4 +12,9 @@
     .fc-toolbar .fc-right {
         width: 100%;
     }
+
+    .AppointmentCalendar-paper-63 {
+        max-width: 80%;
+        box-sizing: border-box;
+    }
 }
