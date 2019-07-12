@@ -33,9 +33,9 @@ class App extends Component {
     return (
       <Router>
         {/* element with .site is in index.html */}
-        <div className="site-hd">
+        {/* <div className="site-hd">
           <Nav />
-        </div>
+        </div> */}
 
         <div className="site-bd">
           <div className="container">
