@@ -9,12 +9,6 @@ import '@fullcalendar/daygrid/main.css';
 import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
 import Modal from '@material-ui/core/Modal';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
-import {
-    Paper,
-    Box,
-    Grid,
-    Container
-} from '@material-ui/core/';
 
 import './AppointmentCalendar.css';
 
@@ -113,7 +107,7 @@ class AppointmentCalendar extends Component {
                         <p>You Selected {this.state.selectedDate}</p>
                         <p>Now Select Your Time</p>
                         <CalendarTimePicker selectedTime={this.state.selectedTime} handleTimeChange={this.handleTimeChange} />
-                        <button onClick={this.handleTimeConfirmation}>OKAY</button>
+                        <button onClick={this.handleTimeConfirmation}>Confirm Time</button>
                     </div>
                 </Modal>
             </div>
