@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import ResourcesPageItem from '../ResourcesPageItem/ResourcesPageItem';
-import { Grid } from '@material-ui/core';
 
 
 class ResourcesPageList extends Component {

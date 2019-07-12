@@ -178,6 +178,9 @@ Vertical Rhythm
       display: flex
   }
 
+  .text_alnRight{
+    text-align: right;
+}
   .react-tel-input .flag-dropdown {
     display: none;
 }

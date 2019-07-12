@@ -33,9 +33,9 @@ class App extends Component {
     return (
       <Router>
         {/* element with .site is in index.html */}
-        <div className="site-hd">
+        {/* <div className="site-hd">
           <Nav />
-        </div>
+        </div> */}
 
         <div className="site-bd">
           <div className="container">
@@ -82,12 +82,12 @@ class App extends Component {
               {/* For protected routes, in the case that you provide a
               redirect attribute the path value for that attribute will
               cause a path redirect when the User is logged in. */}
-              <ProtectedRoute
+              {/* <ProtectedRoute
                 exact
                 path="/admindash"
                 redirect="/admindash"
                 component={AdminDashboardPage}
-              />
+              /> */}
               {/* Visiting localhost:3000/about will show the about page.
               This is a route anyone can see, no login necessary */}
               <Route
