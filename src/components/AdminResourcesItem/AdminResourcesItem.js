@@ -28,9 +28,9 @@ class AdminResourcesItem extends Component {
   render() {
     let conditionalElement;
     if (this.state.editing) {
-      conditionalElement = <AdminEditResource editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
+      conditionalElement = <AdminEditResource editing={this.state.editing} saveInfo={this.saveInfo} show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
     } else {
-      conditionalElement = <AdminResourcesInfo editing={this.state.editing} toggleEdit={this.toggleEdit} saveInfo={this.saveInfo} show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
+      conditionalElement = <AdminResourcesInfo editing={this.state.editing} saveInfo={this.saveInfo} show={this.state.show} resources={this.props.resources} toggleEdit={this.toggleEdit} handleClose={this.handleClose}/>
     }
 
     return (

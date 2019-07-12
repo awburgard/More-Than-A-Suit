@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import moment from "moment";
-import { Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@material-ui/core';
+import {  TableRow, TableCell } from '@material-ui/core';
 
 class AdminAppointmentItem extends Component {
   render() {
