@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import RadioButtons from '../RadioButtons/RadioButtons';
-import moment from 'moment';
 import TextField from '@material-ui/core/TextField';
 import ReactPhoneInput from 'react-phone-input-mui';
 
@@ -70,12 +69,15 @@ class InputField extends Component {
                     onChange={this.handleInputChangeFor('phone')}
                     component={TextField}
                     defaultCountry={'us'}
+                    disableCountryCode={true}
                     disableDropdown={true}
+                    disableSearchIcon={true}
+                    fullWidth={true}
                     inputExtraProps={{
                         label: 'Phone Number',
                         required: true,
                     }}
-                /><br />
+                /> <br />
                 Email: <input type="text" value={this.state.email} onChange={this.handleInputChangeFor('email')}></input> <br />
                 Height: Feet <input type="number" value={this.state.height_feet} onChange={this.handleInputChangeFor('height_feet')}></input>
                 Inches <input type="number" value={this.state.height_inches} onChange={this.handleInputChangeFor('height_inches')}></input><br />

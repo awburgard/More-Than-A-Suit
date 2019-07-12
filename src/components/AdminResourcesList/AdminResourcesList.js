@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminResourcesItem from '../AdminResourcesItem/AdminResourcesItem';
 import AdminAddResource from '../AdminAddResource/AdminAddResource';
-
+import { Button, Table, Paper, TableHead, TableCell, TableRow, TableBody, Box } from '@material-ui/core';
 
 class AdminResourcesList extends Component {
   state = {
     add: false,
+    show: false,
   }
 
   componentDidMount() {
@@ -15,22 +16,32 @@ class AdminResourcesList extends Component {
       type: 'GET_ALL_RESOURCES'
     })
   }
+
   toggleAdd = () => {
     this.setState({
-      add: !this.state.add
+      add: !this.state.add,
+      show: true,
     })
   }
+
+  handleClose = () => {
+    this.setState({
+      show: false,
+    })
+    this.toggleAdd();
+  }
+
   render() {
     let conditionalAddField;
     if (this.state.add) {
-      conditionalAddField = <AdminAddResource toggleAdd={this.toggleAdd} />
+      conditionalAddField = <AdminAddResource toggleAdd={this.toggleAdd} show={this.state.show} handleClose={this.handleClose} />
     } else {
       conditionalAddField = null;
     }
 
     let conditionalAddButton;
     if (this.state.add === false) {
-      conditionalAddButton = <button onClick={this.toggleAdd}>Add</button>
+      conditionalAddButton = <Button variant="contained" color="primary" onClick={this.toggleAdd}>Add Resource</Button>
     } else {
       conditionalAddButton = null;
     }
@@ -40,9 +51,27 @@ class AdminResourcesList extends Component {
     })
     return (
       <div>
+        <Paper elevation={5}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left" component="th" scope="row">Title</TableCell>
+                <TableCell align="left" component="th" scope="row">Description</TableCell>
+                <TableCell align="left" component="th" scope="row">Link</TableCell>
+                <TableCell align="left" component="th" scope="row">Category</TableCell>
+                <TableCell align="left" component="th" scope="row"></TableCell>
+                <TableCell align="left" component="th" scope="row"></TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {resources}
+            </TableBody>
+          </Table>
+        </Paper>
+        <Box marginTop={2}>
         {conditionalAddField}
         {conditionalAddButton}
-        {resources}
+        </Box>
       </div>
     );
   }

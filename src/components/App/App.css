@@ -181,3 +181,10 @@ Vertical Rhythm
   .text_alnRight{
     text-align: right;
 }
+  .react-tel-input .flag-dropdown {
+    display: none;
+}
+
+.react-tel-input input[type=tel] {
+    padding-left: 0;
+}

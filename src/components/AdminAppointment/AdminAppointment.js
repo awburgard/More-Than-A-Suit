@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminAppointmentList from '../AdminAppointmentList/AdminAppointmentList';
+import { Typography,Box } from '@material-ui/core';
 
 class AdminAppointment extends Component {
   render() {
     return (
-      <div>
-        <h2>{this.props.title}</h2>
+      <Box marginBottom={2} marginTop={2} paddingTop={2} paddingBottom={2}>
+        <Typography gutterBottom={true} align="left" variant="h5">{this.props.title}</Typography>
         <AdminAppointmentList appointments={this.props.appointments} archived={this.props.archived}/>
-      </div>
+      </Box>
     );
   }
 }
