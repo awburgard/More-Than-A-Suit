@@ -22,15 +22,11 @@ const Nav = (props) => {
           {/* Show this link if they are logged in or not,
           but call this link 'Welcome' if they are logged in,
           and call this link 'Login / Register' if they are not */}
-          {props.store.user.id ? 'Welcome' : 'Login / Register'}
         </Link>
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
             {/* '<></>' - this is short syntax for React.Fragment */}
-            <Link className="nav-link" to="/info">
-              Info Page
-            </Link>
             <LogOutButton className="nav-link"/>
           </>
         )}
