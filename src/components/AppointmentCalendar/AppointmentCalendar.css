@@ -13,7 +13,7 @@
         width: 100%;
     }
 
-    .AppointmentCalendar-paper-63 {
+    [class*="AppointmentCalendar-paper-"] {
         max-width: 80%;
         box-sizing: border-box;
     }
