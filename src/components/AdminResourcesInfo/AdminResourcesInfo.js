@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminDeleteButton from '../AdminDeleteButton/AdminDeleteButton';
 import EditButton from '../EditButton/EditButton';
-import { Paper, Table, TableHead, TableCell, TableRow, TableBody } from '@material-ui/core';
+import { TableCell, TableRow } from '@material-ui/core';
 
 
 class AdminResourcesInfo extends Component {
-  
     render() {
         return (
             <TableRow>

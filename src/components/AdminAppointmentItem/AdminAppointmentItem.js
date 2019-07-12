@@ -7,23 +7,7 @@ import { Table, TableHead, TableRow, TableCell, TableBody, Paper } from '@materi
 class AdminAppointmentItem extends Component {
   render() {
     return (
-      <Paper elevation={5}>
-        <Table>
-          <TableHead>
             <TableRow>
-              <TableCell align="left" component="th" scope="row">Name</TableCell>
-              <TableCell align="left" component="th" scope="row">Phone</TableCell>
-              <TableCell align="left" component="th" scope="row">Height</TableCell>
-              <TableCell align="left" component="th" scope="row">Weight</TableCell>
-              <TableCell align="left" component="th" scope="row">Waist</TableCell>
-              <TableCell align="left" component="th" scope="row">Need</TableCell>
-              <TableCell align="left" component="th" scope="row">Appointment Type</TableCell>
-              <TableCell align="left" component="th" scope="row">Appointment Date</TableCell>
-              <TableCell align="left" component="th" scope="row">Appointment Time</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            <TableRow key={this.props.key}>
               <TableCell align="left">{this.props.appointment.first_name} {this.props.appointment.last_name}</TableCell>
               <TableCell align="left">{this.props.appointment.phone}</TableCell>
               <TableCell align="left">{this.props.appointment.height_feet}' {this.props.appointment.height_inches}"</TableCell>
@@ -34,9 +18,6 @@ class AdminAppointmentItem extends Component {
               <TableCell align="left">{moment(this.props.appointment.appointment_date).format(`MMMM Do YYYY`)}</TableCell>
               <TableCell align="left">{moment(this.props.appointment.appointment_time, 'HH:mm:ss').format(`h:mm a`)}</TableCell>
             </TableRow>
-          </TableBody>
-        </Table>
-      </Paper>
     );
   }
 }
