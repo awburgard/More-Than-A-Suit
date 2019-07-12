@@ -21,6 +21,7 @@ class AdminAppointmentList extends Component {
               <TableRow>
                 <TableCell align="left" component="th" scope="row">Name</TableCell>
                 <TableCell align="left" component="th" scope="row">Phone Number</TableCell>
+                <TableCell align="left" component="th" scope="row">Zip Code</TableCell>
                 <TableCell align="left" component="th" scope="row">Height</TableCell>
                 <TableCell align="left" component="th" scope="row">Weight</TableCell>
                 <TableCell align="left" component="th" scope="row">Waist</TableCell>

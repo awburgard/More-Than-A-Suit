@@ -10,6 +10,7 @@ class AdminAppointmentItem extends Component {
             <TableRow>
               <TableCell align="left">{this.props.appointment.first_name} {this.props.appointment.last_name}</TableCell>
               <TableCell align="left">{this.props.appointment.phone}</TableCell>
+              <TableCell align="left">{this.props.appointment.zip}</TableCell>
               <TableCell align="left">{this.props.appointment.height_feet}' {this.props.appointment.height_inches}"</TableCell>
               <TableCell align="left">{this.props.appointment.weight}</TableCell>
               <TableCell align="left">{this.props.appointment.waist}</TableCell>
