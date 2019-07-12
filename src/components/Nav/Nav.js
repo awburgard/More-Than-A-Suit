@@ -16,29 +16,7 @@ import orange from '@material-ui/core/colors/orange';
 
 import { cyan, grey } from '@material-ui/core/colors';
 
-const styles = (theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-  });
 
-const orangeTheme = createMuiTheme({ palette: { primary: grey } })
-const cyanTheme = createMuiTheme({ palette: { primary: cyan } })
-const theme = createMuiTheme({
-  palette: {
-    primary: cyan,
-    secondary: {
-      main: '#eceff1',
-    },
-  },
-});
 
 
 

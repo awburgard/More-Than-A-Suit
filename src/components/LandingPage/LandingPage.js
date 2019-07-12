@@ -29,11 +29,11 @@ class LandingPage extends Component {
             >
                 <Grid item xs={12} md={12}>
                     <div>
-                            <div className="text_alnRight">
+                            {/* <div className="text_alnRight">
                                 <Link to="/resources">
                                     <Typography>Resources</Typography>
                                 </Link>
-                            </div>
+                            </div> */}
                             <Typography variant="h4" align="center">WELCOME TO</Typography>
                                 <div>
                                     <img className="center"
