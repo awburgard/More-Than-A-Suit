@@ -29,7 +29,7 @@ class AdminDeleteButton extends Component {
             type: 'success',
           });
         } else {
-          Swal.fire('Your resourcs is safe!', {
+          Swal.fire('Your resources is safe!', {
             type: 'info',
           })
         }
