@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import './ContactInfo.css';
 import ReactPhoneInput from 'react-phone-input-mui';
 //Material UI
 import {
@@ -12,8 +13,6 @@ import {
     Grid,
     Container
 } from '@material-ui/core/';
-
-import './ContactInfo.css';
 
 class ContactInfo extends Component {
     state = {
@@ -97,6 +96,7 @@ class ContactInfo extends Component {
                         fullWidth={true}
                     /> <br />
                     <ReactPhoneInput
+                        containerClass="phone-margin"
                         onlyCountries={['us']}
                         value={this.state.gentInfo.phone}
                         onChange={this.onFormChange('phone')}
