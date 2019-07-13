@@ -41,10 +41,10 @@ class AppointmentPage extends Component {
 
     render() {
         return (
-            <div>
+            <Container maxWidth='md' className='behindPaper'>
                 <Paper elevation={15}>
-                <Box m={1} p={1}>
-                <h2>Set Up Your Appointment</h2>
+                <Box m={3} p={5}>
+                <Typography variant='h5' gutterBottom={true}>Set Your Appointment</Typography>
                 <form onSubmit={this.handleSubmit}>
                             <label>
                                 <Radio
@@ -68,7 +68,7 @@ class AppointmentPage extends Component {
                 <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
                 </Box>
                 </Paper>
-            </div>
+            </Container>
         )
     }
 };

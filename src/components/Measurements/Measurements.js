@@ -60,7 +60,7 @@ class Measurements extends Component {
             <Container className="behindPaper" maxWidth="xs">
                 <Paper elevation={5}>
                 <Box m={3} p={5}>
-                    <Typography variant="h5" component="h3">
+                    <Typography variant="h5" gutterBottom={true}>
                         Measurements
                     </Typography>
                     <Typography variant="caption" display="block" gutterBottom>

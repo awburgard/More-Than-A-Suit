@@ -60,7 +60,7 @@ class ContactInfo extends Component {
         const infoInputs = (
             <Container className="behindPaper" maxWidth='xs'>
                 <Paper elevation={5}>
-                <Box m={1} p={3}>
+                <Box m={3} p={5}>
                 <form onSubmit={this.handleClick}>
                     <Typography variant="h5" component="h3">
                             Contact Info

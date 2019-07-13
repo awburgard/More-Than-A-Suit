@@ -69,7 +69,7 @@ class RegisterPage extends Component {
             {this.props.store.errors.registrationMessage}
           </Typography>
         )}
-        <Paper elevation={15}>g
+        <Paper elevation={15}>
         <Box m={1} p={3}>
           <Typography variant="h5" component="h3">Register User</Typography>
           <Grid container spacing={2}>
@@ -134,13 +134,13 @@ class RegisterPage extends Component {
             </Grid>
             </Grid>
         <center>
-          <button
+          <Button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
             Login
-          </button>
+          </Button>
         </center>
         </Box>
         </Paper>

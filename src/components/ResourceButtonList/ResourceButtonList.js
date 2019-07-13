@@ -41,7 +41,7 @@ class ResourcesButtonList extends Component {
         })
 
         return (
-                <Tabs value={this.state.tabVal} onChange={this.changeTab} textColor="secondary">
+                <Tabs value={this.state.tabVal} onChange={this.changeTab} textColor="primary">
                     {tabList}
                 </Tabs>
         )

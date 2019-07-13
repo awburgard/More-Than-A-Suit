@@ -31,8 +31,8 @@ function Nav(props) {
           <AppBar >
             <Toolbar>
               <Grid container alignItems="center">
-                <Grid item xs={6}>
-                    <Typography color="secondary" variant="h5">More Than A Suit</Typography>
+                <Grid item xs={12}>
+                  <Typography align='center' color="secondary" variant="h5">More Than A Suit</Typography>
                 </Grid>
               </Grid>
             </Toolbar>
