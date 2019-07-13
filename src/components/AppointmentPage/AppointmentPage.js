@@ -5,7 +5,9 @@ import AppointmentCalendar from '../AppointmentCalendar/AppointmentCalendar';
 import {
     Paper,
     Box,
-    Radio
+    Radio,
+    Container,
+    Typography
 } from '@material-ui/core/';
 
 class AppointmentPage extends Component {
@@ -41,9 +43,7 @@ class AppointmentPage extends Component {
 
     render() {
         return (
-            <Container maxWidth='md' className='behindPaper'>
-                <Paper elevation={15}>
-                <Box m={3} p={5}>
+            <Container maxWidth='md'>
                 <Typography variant='h5' gutterBottom={true}>Set Your Appointment</Typography>
                 <form onSubmit={this.handleSubmit}>
                             <label>
@@ -66,8 +66,6 @@ class AppointmentPage extends Component {
                             </label>
                 </form>
                 <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
-                </Box>
-                </Paper>
             </Container>
         )
     }
