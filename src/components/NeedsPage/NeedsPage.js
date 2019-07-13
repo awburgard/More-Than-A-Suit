@@ -70,7 +70,7 @@ class NeedsPage extends Component {
             otherField = null;
         }
         return (
-            <Container maxWidth='xs'>
+            <Container maxWidth='xs' className="behindPaper">
                 <Paper elevation={5}>
                     <Box m={1} p={3}>
                         <FormControl>

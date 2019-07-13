@@ -46,7 +46,7 @@ class AppointmentPage extends Component {
 
     render() {
         return (
-            <div>
+            <Container maxWidth='md' className='behindPaper'>
                 <Paper elevation={15}>
                 <Box m={1} p={1}>
                 <h2>Set Up Your Appointment</h2>
@@ -73,7 +73,7 @@ class AppointmentPage extends Component {
                 <AppointmentCalendar appointmentType={this.state.appointmentType} nextStep={this.goToConfirmation}/>
                 </Box>
                 </Paper>
-            </div>
+            </Container>
         )
     }
 };

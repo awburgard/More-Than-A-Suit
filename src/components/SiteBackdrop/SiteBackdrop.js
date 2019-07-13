@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import { withRouter } from 'react-router-dom';
+import { Grid } from '@material-ui/core'
 
 import './SiteBackdrop.css';
 
@@ -19,8 +20,8 @@ class SiteBackdrop extends Component {
             backdropStyle += ` ${STYLING.suitBg}`
         }
 
-        return(
-            <div className={backdropStyle}></div>
+        return (
+            <Grid item={12} className={backdropStyle}></Grid>
         )
     }
 };
