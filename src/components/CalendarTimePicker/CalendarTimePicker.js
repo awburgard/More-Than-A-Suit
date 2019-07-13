@@ -15,7 +15,7 @@ class CalendarTimePicker extends Component {
                 <MuiPickersUtilsProvider utils={MomentUtils}>
                     <TimePicker
                         variant="inline"
-                        label="Inline mode"
+                        label="Select Your Time"
                         value={this.props.selectedTime}
                         onChange={this.props.handleTimeChange}
                     />

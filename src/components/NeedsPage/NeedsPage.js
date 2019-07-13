@@ -72,53 +72,53 @@ class NeedsPage extends Component {
         return (
             <Container maxWidth='xs' className="behindPaper">
                 <Paper elevation={5}>
-                    <Box m={1} p={3}>
+                    <Box m={3} p={5}>
                         <FormControl>
-                            <Typography variant="h5" gutterBottom={true}>Occasion:</Typography>
+                            <Typography variant="h5" gutterBottom={true}>Occasion</Typography>
                             <Grid container spacing={2}>
-                            <RadioGroup>
-                                <label>
-                                    <Radio
-                                        type="radio"
-                                        value="Job"
-                                        checked={this.state.needsType === "Job"}
-                                        onChange={this.handleChange}
-                                    />
-                                    Job
+                                <RadioGroup>
+                                    <label>
+                                        <Radio
+                                            type="radio"
+                                            value="Job"
+                                            checked={this.state.needsType === "Job"}
+                                            onChange={this.handleChange}
+                                        />
+                                        Job
                             </label>
-                                <label>
-                                    <Radio
-                                        type="radio"
-                                        value="Court"
-                                        checked={this.state.needsType === "Court"}
-                                        onChange={this.handleChange}
-                                        control={<Radio color="primary" />}
-                                    />
-                                    Court
+                                    <label>
+                                        <Radio
+                                            type="radio"
+                                            value="Court"
+                                            checked={this.state.needsType === "Court"}
+                                            onChange={this.handleChange}
+                                            control={<Radio color="primary" />}
+                                        />
+                                        Court
                             </label>
-                                <label>
-                                    <Radio
-                                        type="radio"
-                                        value="Funeral"
-                                        checked={this.state.needsType === "Funeral"}
-                                        onChange={this.handleChange}
-                                        control={<Radio color="primary" />}
-                                    />
-                                    Funeral
+                                    <label>
+                                        <Radio
+                                            type="radio"
+                                            value="Funeral"
+                                            checked={this.state.needsType === "Funeral"}
+                                            onChange={this.handleChange}
+                                            control={<Radio color="primary" />}
+                                        />
+                                        Funeral
                             </label>
-                                <label>
-                                    <Radio
-                                        type="radio"
-                                        value="Other"
-                                        checked={this.state.needsType === "Other"}
-                                        onChange={this.handleChange}
-                                        control={<Radio color="primary" />}
-                                    />
-                                    Other
+                                    <label>
+                                        <Radio
+                                            type="radio"
+                                            value="Other"
+                                            checked={this.state.needsType === "Other"}
+                                            onChange={this.handleChange}
+                                            control={<Radio color="primary" />}
+                                        />
+                                        Other
                             </label>
-                                {otherField}
-                                <Button variant="contained" color="primary" onClick={this.handleSubmit}>Next</Button>
-                            </RadioGroup>
+                                    {otherField}
+                                    <Button variant="contained" color="primary" onClick={this.handleSubmit}>Next</Button>
+                                </RadioGroup>
                             </Grid>
                         </FormControl>
                     </Box>

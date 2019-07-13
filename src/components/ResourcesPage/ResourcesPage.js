@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import ResourcesPageList from '../ResourcesPageList/ResourcesPageList';
 import ResourcesButtonList from '../ResourceButtonList/ResourceButtonList';
-import { Typography, Paper, Box, } from '@material-ui/core';
+import { Typography, Paper, Box, Container } from '@material-ui/core';
 
 
 class ResourcesPage extends Component {
@@ -23,13 +23,15 @@ class ResourcesPage extends Component {
   }
   render() {
     return (
+      <Container className="behindPaper">
       <Paper elevation={5}>
-        <Box p={3}>
-        <Typography align="center" variant='h5'>Resources</Typography>
+        <Box m={3} p={5}>
+        <Typography align="center" variant='h5' gutterBottom={true}>Resources</Typography>
           <ResourcesButtonList />
           <ResourcesPageList />
           </Box>
       </Paper>
+      </Container>
     );
   }
 }
