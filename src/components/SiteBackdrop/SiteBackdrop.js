@@ -13,7 +13,6 @@ const STYLING = {
 class SiteBackdrop extends Component {
     render() {
         const currentPath = this.props.history.location.pathname;
-        console.log(this.props.history);
         let backdropStyle = STYLING.base;
 
         if (currentPath === '/') {
