@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import moment from "moment";
 // Material UI
 import Typography from '@material-ui/core/Typography';
 

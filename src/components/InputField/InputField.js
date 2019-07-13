@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import otherField from '../NeedsPage/NeedsPage';
-import RadioButtons from '../RadioButtons/RadioButtons';
 import ReactPhoneInput from 'react-phone-input-mui';
 // Material UI
 import {
     TextField,
     InputAdornment,
-    Paper,
     Typography,
     Button,
-    Box,
     Grid,
-    Container,
     Radio,
     RadioGroup
 } from '@material-ui/core/';

@@ -3,13 +3,8 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AppointmentCalendar from '../AppointmentCalendar/AppointmentCalendar';
 import {
-    TextField,
     Paper,
-    Typography,
-    Button,
     Box,
-    Grid,
-    Container,
     Radio
 } from '@material-ui/core/';
 
