@@ -41,9 +41,6 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.props.history)
-    console.log(this.props.location)
-
     return (
       <MuiThemeProvider theme={theme}>
         <Router>
@@ -92,15 +89,6 @@ class App extends Component {
                   component={ResourcesPage}
                 />
 
-                {/* For protected routes, in the case that you provide a
-              redirect attribute the path value for that attribute will
-              cause a path redirect when the User is logged in. */}
-                {/* <ProtectedRoute
-                exact
-                path="/admindash"
-                redirect="/admindash"
-                component={AdminDashboardPage}
-              /> */}
                 {/* Visiting localhost:3000/about will show the about page.
               This is a route anyone can see, no login necessary */}
                 <Route
