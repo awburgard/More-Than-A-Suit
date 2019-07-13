@@ -21,7 +21,8 @@ class ConfirmationPageInfo extends Component {
                 Need: {this.props.info.need} <br />
                 Appointment Type: {this.props.info.appointment_type} <br />
                 Appointment Date: {this.props.info.appointment_date}<br />
-                Appointment Time: {this.props.info.appointment_time}<br />                </Typography>
+                Appointment Time: {this.props.info.appointment_time}<br />
+                </Typography>
             </div>
         )
     }
