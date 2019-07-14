@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
+import moment from 'moment'
 // Material UI
 import Typography from '@material-ui/core/Typography';
 
@@ -21,7 +22,8 @@ class ConfirmationPageInfo extends Component {
                 Need: {this.props.info.need} <br />
                 Appointment Type: {this.props.info.appointment_type} <br />
                 Appointment Date: {moment(this.props.info.appointment_date).format(`MMMM Do YYYY`)} <br />
-                Appointment Time: {moment(this.props.info.appointment_time, 'HH:mm:ss').format(`h:mm a`)} <br />                </Typography>
+                Appointment Time: {this.props.info.appointment_time} <br />
+                </Typography>
             </div>
         )
     }

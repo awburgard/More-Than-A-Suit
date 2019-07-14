@@ -5,7 +5,9 @@ import AppointmentCalendar from '../AppointmentCalendar/AppointmentCalendar';
 import {
     Paper,
     Box,
-    Radio
+    Radio,
+    Typography,
+    Container
 } from '@material-ui/core/';
 
 class AppointmentPage extends Component {
@@ -42,8 +44,8 @@ class AppointmentPage extends Component {
     render() {
         return (
             <Container maxWidth='md' className='behindPaper'>
-                <Paper elevation={15}>
-                <Box m={3} p={5}>
+                <Paper elevation={5}>
+                <Box m={1} p={2}>
                 <Typography variant='h5' gutterBottom={true}>Set Your Appointment</Typography>
                 <form onSubmit={this.handleSubmit}>
                             <label>
