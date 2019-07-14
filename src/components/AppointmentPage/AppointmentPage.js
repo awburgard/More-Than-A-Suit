@@ -6,13 +6,8 @@ import {
     Paper,
     Box,
     Radio,
-<<<<<<< HEAD
-    Container,
-    Typography
-=======
     Typography,
     Container
->>>>>>> develop
 } from '@material-ui/core/';
 
 class AppointmentPage extends Component {
