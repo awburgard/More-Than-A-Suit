@@ -57,6 +57,7 @@ class AppointmentPage extends Component {
                                 />
                                 Phone Call
                             </label>
+                            <br />
                             <label>
                                 <Radio
                                     type="radio"
