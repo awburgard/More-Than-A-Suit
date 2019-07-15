@@ -5,22 +5,24 @@ import {
 } from "@material-ui/pickers";
 import MomentUtils from '@date-io/moment';
 import {
-    Container,
+    Grid,
 } from '@material-ui/core/';
 
 class CalendarTimePicker extends Component {
     render() {
         return (
-            <Container maxWidth='xs'>
-                <MuiPickersUtilsProvider utils={MomentUtils}>
-                    <TimePicker
-                        variant="inline"
-                        label="Select Your Time"
-                        value={this.props.selectedTime}
-                        onChange={this.props.handleTimeChange}
-                    />
-                </MuiPickersUtilsProvider>
-            </Container>
+            <Grid container spacing={2}>
+                <Grid item xs={12}>
+                    <MuiPickersUtilsProvider utils={MomentUtils}>
+                        <TimePicker
+                            variant="inline"
+                            label="Select Your Time"
+                            value={this.props.selectedTime}
+                            onChange={this.props.handleTimeChange}
+                        />
+                    </MuiPickersUtilsProvider>
+                </Grid>
+            </Grid>
         )
     }
 }

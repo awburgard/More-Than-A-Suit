@@ -36,7 +36,7 @@ class ConfirmationPageInfo extends Component {
                             {moment(this.props.info.appointment_date).format(`MMMM Do YYYY`)}</Typography> <br />
                 <Typography component="h6" color="secondary" display="inline">Appointment Time: </Typography>
                 <Typography component="p" color="primary" display="inline">
-                            {moment(this.props.info.appointment_time, 'HH:mm:ss').format(`h:mm a`)}</Typography> <br />
+                        {moment(this.props.info.appointment_time, 'h:mm:ss a').format(`h:mm a`)}</Typography> <br />
             </div>
         )
     }

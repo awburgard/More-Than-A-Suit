@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import {
-    Grid,
     Typography,
     Box,
     Container,
@@ -71,10 +70,9 @@ class NeedsPage extends Component {
         return (
             <Container maxWidth='xs' className="behindPaper">
                 <Paper elevation={5}>
-                    <Box m={3} p={5}>
+                    <Box m={3} p={2}>
                         <FormControl>
                             <Typography variant="h5" gutterBottom={true}>Occasion</Typography>
-                            <Grid container spacing={2}>
                                 <RadioGroup>
                                     <label>
                                         <Radio
@@ -118,7 +116,6 @@ class NeedsPage extends Component {
                                     {otherField}
                                     <Button variant="contained" color="primary" onClick={this.handleSubmit}>Next</Button>
                                 </RadioGroup>
-                            </Grid>
                         </FormControl>
                     </Box>
                 </Paper>
