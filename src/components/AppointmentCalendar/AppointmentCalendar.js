@@ -91,7 +91,7 @@ class AppointmentCalendar extends Component {
 
     render() {
         return (
-            <Typography>
+            <div>
                 <FullCalendar
                     defaultView="dayGridMonth"
                     plugins={[dayGridPlugin, interactionPlugin]}
@@ -111,7 +111,7 @@ class AppointmentCalendar extends Component {
                         <Button onClick={this.handleTimeConfirmation}>Confirm Time</Button>
                     </div>
                 </Modal>
-            </Typography>
+            </div>
         )
     }
 }
