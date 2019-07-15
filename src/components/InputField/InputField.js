@@ -194,6 +194,9 @@ class InputField extends Component {
                     margin="normal"
                     fullWidth={true}
                 /> <br />
+            <Typography variant="h6" component="h4">
+                Occasion
+            </Typography>
                 <RadioGroup>
                 <label>
                     <Radio
