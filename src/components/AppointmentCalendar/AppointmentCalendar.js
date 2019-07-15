@@ -104,12 +104,12 @@ class AppointmentCalendar extends Component {
                     open={this.state.isModalOpen}
                     onClose={this.handleClose}
                 >
-                    <Typography className={this.props.classes.paper}>
+                    <div className={this.props.classes.paper}>
                         <Typography>You Selected {this.state.selectedDate}</Typography>
                         <Typography>Now Select Your Time</Typography>
                         <CalendarTimePicker selectedTime={this.state.selectedTime} handleTimeChange={this.handleTimeChange} />
                         <Button onClick={this.handleTimeConfirmation}>Confirm Time</Button>
-                    </Typography>
+                    </div>
                 </Modal>
             </Typography>
         )
