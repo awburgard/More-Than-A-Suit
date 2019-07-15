@@ -9,7 +9,7 @@ import '@fullcalendar/daygrid/main.css';
 import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
 import Modal from '@material-ui/core/Modal';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
-import {Button, Typography} from '@material-ui/core';
+import { Button, Typography, Grid, Box } from '@material-ui/core';
 
 import './AppointmentCalendar.css';
 
@@ -69,7 +69,6 @@ class AppointmentCalendar extends Component {
     }
 
     handleTimeChange = (time) => {
-        console.log(time);
         this.setState({
             selectedTime: time
         })
@@ -98,20 +97,22 @@ class AppointmentCalendar extends Component {
                     events={this.props.store.appointment}
                     dateClick={this.handleDateClick}
                 />
-                <Modal
-                    aria-labelledby="simple-modal-title"
-                    aria-describedby="simple-modal-description"
-                    open={this.state.isModalOpen}
-                    onClose={this.handleClose}
-                >
-                    <div className={this.props.classes.paper}>
-                        <Typography>You Selected {this.state.selectedDate}</Typography>
-                        <Typography>Now Select Your Time</Typography>
-                        <CalendarTimePicker selectedTime={this.state.selectedTime} handleTimeChange={this.handleTimeChange} />
-                        <Button onClick={this.handleTimeConfirmation}>Confirm Time</Button>
-                    </div>
-                </Modal>
-            </div>
+                        <Modal
+                            aria-labelledby="simple-modal-title"
+                            aria-describedby="simple-modal-description"
+                            open={this.state.isModalOpen}
+                            onClose={this.handleClose}
+                        >
+
+                            <div className={this.props.classes.paper}>
+                                <Typography gutterBottom={true}>You Selected {this.state.selectedDate}</Typography>
+                                <CalendarTimePicker selectedTime={this.state.selectedTime} handleTimeChange={this.handleTimeChange} />
+                                <Box marginTop={1} paddingLeft={-1}>
+                                <Button color="primary" variant="contained" onClick={this.handleTimeConfirmation}>Confirm Time</Button>
+                                </Box>
+                            </div>
+                        </Modal>
+            </div >
         )
     }
 }
