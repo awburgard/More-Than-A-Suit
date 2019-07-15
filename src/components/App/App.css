@@ -190,3 +190,7 @@ Vertical Rhythm
 .react-tel-input input[type=tel] {
     padding-left: 0;
 }
+
+.space-right {
+    margin-right: 10px;
+}
