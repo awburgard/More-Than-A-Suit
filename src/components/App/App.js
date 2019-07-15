@@ -45,7 +45,7 @@ class App extends Component {
       <MuiThemeProvider theme={theme}>
         <Router>
           {/* element with .site is in index.html */}
-          <Nav />
+          <Nav theme={theme} />
           <div className="site-bd">
             <SiteBackdrop />
             <div className="container">
