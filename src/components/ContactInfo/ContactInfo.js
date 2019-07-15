@@ -60,12 +60,11 @@ class ContactInfo extends Component {
         const infoInputs = (
             <Container className="behindPaper" maxWidth='xs'>
                 <Paper elevation={5}>
-                <Box m={3} p={5}>
+                <Box m={3} p={2}>
                 <form onSubmit={this.handleClick}>
                     <Typography variant="h5" component="h3">
                             Contact Info
                     </Typography>
-                    <Grid container spacing={2}>
                     <Grid item xs={12} md={12}>
                     <TextField
                         required={true}
@@ -119,7 +118,6 @@ class ContactInfo extends Component {
                         margin="normal"
                         fullWidth={true}
                     /> <br />
-                    </Grid>
                     <Button
                         type="submit"
                         variant="contained"

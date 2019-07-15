@@ -14,7 +14,7 @@ class LandingPage extends Component {
         return (
             <Container className="hero" maxWidth='md'>
                 <Paper elevation={5} >
-                    <Box m={3} p={6}>
+                    <Box m={3} p={2}>
                         <Grid container spacing={2} >
                             <Grid item xs={12} >
                                 <Typography gutterBottom={true} align="center" variant="h4">Welcome to </Typography>
