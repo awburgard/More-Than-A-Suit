@@ -23,6 +23,7 @@ class TwilioButton extends Component {
             title: <span>Thank you!</span>,
             html: <p>Look for a text message coming your way!</p>,
             footer: 'SuitsForHire',
+            confirmButtonColor: '#262626',
             allowOutsideClick: false
         }).then(() => {
             this.props.history.push('/resources');
