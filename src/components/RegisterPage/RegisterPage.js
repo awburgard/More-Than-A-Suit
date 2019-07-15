@@ -71,10 +71,13 @@ class RegisterPage extends Component {
         )}
         <Paper elevation={15}>
         <Box m={1} p={3}>
+        <div className="vr">
           <Typography variant="h5" component="h3">Register User</Typography>
+          </div>
           <Grid container spacing={2}>
           <Grid item xs={12} md={12}>
 
+          <div className="vr_2x">
               <TextField
                 fullWidth={true}
                 label="First Name"
@@ -84,7 +87,8 @@ class RegisterPage extends Component {
                 value={this.state.first_name}
                 onChange={this.handleInputChangeFor('first_name')}
               />
-
+          </div>
+          <div className="vr_2x">
               <TextField
                 fullWidth={true}
                 label="Last Name"
@@ -94,8 +98,8 @@ class RegisterPage extends Component {
                 value={this.state.last_name}
                 onChange={this.handleInputChangeFor('last_name')}
               />
-
-
+          </div>
+          <div className="vr_2x">
               <TextField
                 fullWidth={true}
                 label="Email:"
@@ -105,8 +109,8 @@ class RegisterPage extends Component {
                 value={this.state.email}
                 onChange={this.handleInputChangeFor('email')}
               />
-
-
+          </div>
+          <div className="vr_2x">
               <TextField
                 fullWidth={true}
                 label="Password:"
@@ -116,6 +120,7 @@ class RegisterPage extends Component {
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
               />
+          </div>
 
             <div className="vr_2x">
                 <TextField
