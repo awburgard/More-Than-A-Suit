@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import Link from '@material-ui/core/Link'
-import { Grid, Typography } from '@material-ui/core';
+import { Grid, Typography, Box } from '@material-ui/core';
 
 class ResourcesPageItem extends Component {
   render() {
     return (
+      <Box m={1} paddingLeft={2}>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} lg={12} >
           <Typography gutterBottom={true}>
@@ -15,6 +16,7 @@ class ResourcesPageItem extends Component {
           </Typography>
         </Grid>
       </Grid>
+      </Box>
     );
   }
 }
