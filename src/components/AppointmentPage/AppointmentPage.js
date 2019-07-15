@@ -9,6 +9,7 @@ import {
     Typography,
     Container
 } from '@material-ui/core/';
+import './AppointmentPage.css';
 
 class AppointmentPage extends Component {
     constructor() {
@@ -48,8 +49,8 @@ class AppointmentPage extends Component {
                 <Box m={1} p={1}>
                 <Typography variant='h5' gutterBottom={true}>Set Your Appointment</Typography>
                 <form onSubmit={this.handleSubmit}>
-                            <label>
-                                <Radio
+                            <label className="textShift">
+                                <Radio 
                                     type="radio"
                                     value="Phone Call"
                                     checked={this.state.appointmentType === "Phone Call"}
@@ -58,8 +59,8 @@ class AppointmentPage extends Component {
                                 Phone Call
                             </label>
                             <br />
-                            <label>
-                                <Radio
+                            <label className="textShift">
+                                <Radio 
                                     type="radio"
                                     value="In Person"
                                     checked={this.state.appointmentType === "In Person"}
