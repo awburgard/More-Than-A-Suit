@@ -9,28 +9,28 @@ import { Typography, Paper, Box, Container } from '@material-ui/core';
 class ResourcesPage extends Component {
 
   componentDidMount() {
-    if(this.props.store.setReview.need){
+    if (this.props.store.setReview.need) {
       this.props.dispatch({
-          type: 'GET_NEED_RESOURCES',
-          payload: { categories_name: this.props.store.setReview.need.toLowerCase() }
+        type: 'GET_NEED_RESOURCES',
+        payload: { categories_name: this.props.store.setReview.need.toLowerCase() }
       })
-  } else {
+    } else {
       this.props.dispatch({
-          type: 'GET_NEED_RESOURCES',
-          payload: { categories_name: 'job' }
+        type: 'GET_NEED_RESOURCES',
+        payload: { categories_name: 'job' }
       })
-  }
+    }
   }
   render() {
     return (
-      <Container className="behindPaper">
-      <Paper elevation={5}>
-        <Box m={3} p={5}>
-        <Typography align="center" variant='h5' gutterBottom={true}>Resources</Typography>
+      <Container>
+        <Paper elevation={5}>
+          <Box m={1} paddingTop={1}>
+            <Typography align="center" variant='h5' gutterBottom={true}>Resources</Typography>
+          </Box>
           <ResourcesButtonList />
           <ResourcesPageList />
-          </Box>
-      </Paper>
+        </Paper>
       </Container>
     );
   }
