@@ -24,7 +24,7 @@ class InputField extends Component {
     constructor(props) {
         super(props);
         let needsType = props.info.need;
-        let otherText = null;
+        let otherText = '';
 
         if (NEED_TYPES.indexOf(needsType) === -1) {
             needsType = NEED_TYPES[3];
