@@ -236,14 +236,11 @@ class InputField extends Component {
                 </label>
                     {otherField}
                 </RadioGroup>
-
-
-                {/* <AppointmentPage /> */}
-                {/* TO DO: This will be replaced by the appointment page component once google API is figured out */}
-                {/* Appointment Type: <input value={this.state.appointment_type} onChange={this.handleInputChangeFor('appointment_type')}></input> <br />
-                Appointment Date: <input value={moment(this.state.appointment_date).format(`MMMM Do YYYY`)} onChange={this.handleInputChangeFor('appointment_date')}></input> <br />
-                Appointment Time: <input value={moment(this.state.appointment_time, 'HH:mm:ss').format(`h:mm a`)} onChange={this.handleInputChangeFor('appointment_time')}></input> <br /> */}
-                {/* Your appointment has already been set. To change your appointment please call... */}
+                <Grid item xs={12}>
+                <Typography gutterBottom={true} variant="caption" align="center">
+                <b>Note:</b> Your appointment has already been set. To change your appointment, please email suitsforhire@yahoo.com
+                </Typography>
+                </Grid>
                 <Button
                     type="submit"
                     variant="contained"
