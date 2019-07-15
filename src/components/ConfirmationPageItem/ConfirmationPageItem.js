@@ -38,7 +38,7 @@ class ConfirmationPageItem extends Component {
         return (
             <Container className="behindPaper" maxWidth='xs'>
                 <Paper elevation={15}>
-                <Box m={1} p={3}>
+                <Box m={1} p={1}>
                     {conditionalElement}
                     <Grid container spacing={2}>
                     <Grid item xs={6} md={6}>
