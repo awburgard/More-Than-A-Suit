@@ -41,7 +41,7 @@ export default function Footer() {
               spacing={1}
             >
               <Grid item>
-                <Typography align="center" variant="caption" gutterBottom={true}>
+                <Typography align="center" variant="caption" display="block" gutterBottom={true}>
                   Suits for Hire |
                   1301 Oak St. Suite 705 Kansas City, MO 64106 |
                   suitsforhire@yahoo.com |
