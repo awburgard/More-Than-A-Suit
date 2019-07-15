@@ -40,7 +40,7 @@ export default function Footer() {
               className={classes.iconsWrapper}
               spacing={1}
             >
-              <Grid item alignItems="center">
+              <Grid item>
                 <Typography align="center" variant="caption" gutterBottom={true}>
                   Suits for Hire |
                   1301 Oak St. Suite 705 Kansas City, MO 64106 |
