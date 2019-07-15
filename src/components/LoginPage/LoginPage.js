@@ -56,19 +56,22 @@ class LoginPage extends Component {
         )}
         <Paper elevation={15}>
         <Box m={1} p={3}>
-
+          <div className="vr">
           <Typography variant="h5" component="h3">Login</Typography>
+          </div>
           <Grid container spacing={2}>
           <Grid item xs={12} md={12}>
 
-              <TextField
-                fullWidth={true}
-                label="email:"
-                required={true}
-                type="text"
-                value={this.state.email}
-                onChange={this.handleInputChangeFor('email')}
-              />
+              <div className="vr_2x">
+                <TextField
+                  fullWidth={true}
+                  label="email:"
+                  required={true}
+                  type="text"
+                  value={this.state.email}
+                  onChange={this.handleInputChangeFor('email')}
+                />
+              </div>  
               <div className="vr_2x">
               <TextField
                 fullWidth={true}
