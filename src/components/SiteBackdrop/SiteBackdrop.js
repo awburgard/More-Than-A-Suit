@@ -21,7 +21,7 @@ class SiteBackdrop extends Component {
         }
 
         return (
-            <Grid item={12} className={backdropStyle}></Grid>
+            <div item={12} className={backdropStyle}></div>
         )
     }
 };
