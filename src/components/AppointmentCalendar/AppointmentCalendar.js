@@ -9,7 +9,7 @@ import '@fullcalendar/daygrid/main.css';
 import CalendarTimePicker from '../CalendarTimePicker/CalendarTimePicker';
 import Modal from '@material-ui/core/Modal';
 import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
-import { Button, Typography, Grid, Box } from '@material-ui/core';
+import { Button, Typography, Box } from '@material-ui/core';
 
 import './AppointmentCalendar.css';
 
