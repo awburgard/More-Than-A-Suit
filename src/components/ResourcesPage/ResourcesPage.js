@@ -25,7 +25,7 @@ class ResourcesPage extends Component {
     return (
       <Container className="behindPaper">
       <Paper elevation={5}>
-        <Box m={3} p={5}>
+        <Box m={3} p={2}>
         <Typography align="center" variant='h5' gutterBottom={true}>Resources</Typography>
           <ResourcesButtonList />
           <ResourcesPageList />

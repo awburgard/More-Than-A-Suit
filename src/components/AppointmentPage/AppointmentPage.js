@@ -45,7 +45,7 @@ class AppointmentPage extends Component {
         return (
             <Container maxWidth='md' className='behindPaper'>
                 <Paper elevation={5}>
-                <Box m={1} p={2}>
+                <Box m={1} p={1}>
                 <Typography variant='h5' gutterBottom={true}>Set Your Appointment</Typography>
                 <form onSubmit={this.handleSubmit}>
                             <label>

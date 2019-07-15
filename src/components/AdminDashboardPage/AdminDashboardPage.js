@@ -20,7 +20,7 @@ class AdminDashboardPage extends Component {
       }
     }
     return (
-          <Box p={3}>
+          <Box p={2}>
             <Typography variant="h5">Dashboard</Typography>
             <AdminAppointment title="Appointments" appointments={appointments} />
             <AdminResources />
