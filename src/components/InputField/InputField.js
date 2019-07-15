@@ -51,7 +51,7 @@ class InputField extends Component {
 
 
     saveInfo = () => {
-        const need = this.state.needsType;
+        let need = this.state.needsType;
 
         if (need === 'Other') {
             need = this.state.otherText;
