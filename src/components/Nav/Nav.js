@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { AppBar, Toolbar, Typography, useScrollTrigger, Grid } from '@material-ui/core';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
-import { MuiThemeProvider } from '@material-ui/core/styles';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -25,7 +24,6 @@ ElevationScroll.propTypes = {
 
 function Nav(props) {
   return (
-    <MuiThemeProvider theme={props.theme}>
       <React.Fragment>
         <ElevationScroll {...props}>
           <AppBar >
@@ -40,7 +38,6 @@ function Nav(props) {
         </ElevationScroll>
         <Toolbar />
       </React.Fragment>
-    </MuiThemeProvider>
   );
 }
 export default connect(mapStateToProps)(Nav);
