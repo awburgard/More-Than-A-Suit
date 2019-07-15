@@ -22,7 +22,7 @@ class ConfirmationPageInfo extends Component {
                 Need: {this.props.info.need} <br />
                 Appointment Type: {this.props.info.appointment_type} <br />
                 Appointment Date: {moment(this.props.info.appointment_date).format(`MMMM Do YYYY`)} <br />
-                Appointment Time: {moment(this.props.info.appointment_time, 'HH:mm:ss').format(`h:mm a`)} <br />
+                Appointment Time: {moment(this.props.info.appointment_time, 'h:mm:ss a').format(`h:mm a`)} <br />
                 </Typography>
             </div>
         )
