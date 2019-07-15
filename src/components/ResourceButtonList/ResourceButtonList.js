@@ -13,11 +13,11 @@ const buttons = [
 
 class ResourcesButtonList extends Component {
     state = {
-        tabVal: this.props.tabVal
+        tabVal: 'job'
     }
 
     componentDidMount() {
-        const need = this.props.store.setReview.need;
+        let need = this.props.store.setReview.need;
         if (need != null) {
             this.setState({
                 tabVal: need.toLowerCase(),
@@ -41,9 +41,9 @@ class ResourcesButtonList extends Component {
         })
 
         return (
-                <Tabs value={this.state.tabVal} onChange={this.changeTab} textColor="primary">
-                    {tabList}
-                </Tabs>
+            <Tabs value={this.state.tabVal} onChange={this.changeTab} textColor="primary">
+                {tabList}
+            </Tabs>
         )
     }
 }
