@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminAppointmentItem from '../AdminAppointmentItem/AdminAppointmentItem';
-import {Paper, Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core'
+import {Paper, Table, TableHead, TableRow, TableCell, TableBody} from '@material-ui/core';
+import downloadCsv from 'download-csv';
 
 class AdminAppointmentList extends Component {
+
   componentDidMount(){
     this.props.dispatch({
       type: 'GET_ADMIN_APPOINTMENT'
@@ -14,6 +16,7 @@ class AdminAppointmentList extends Component {
     const appointmentElement = this.props.appointments.map((appointment, index)=>{
       return <AdminAppointmentItem appointment={appointment} index={index} key={index} archived={this.props.archived}/>
     })
+
     return (
          <Paper elevation={5}>
           <Table>
