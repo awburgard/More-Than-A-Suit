@@ -33,7 +33,7 @@ class AdminResourcesInfo extends Component {
                     </Grid>
                     <Grid item xs={12} sm={12} md={3}>
                         <Typography variant="caption" className="showOnlyMobile" component='div'>Link:</Typography>
-                        <Typography className="breakWord">{this.props.resources.link}</Typography>
+                        <span className="breakWord">{this.props.resources.link}</span>
                     </Grid>
                     <Grid item xs={12} sm={12} md={1}>
                         <Typography variant="caption" className="showOnlyMobile" component='div'>Category:</Typography>

@@ -228,6 +228,10 @@ tbody tr.MuiTableRow-root:nth-child(odd){
     .gridTable-row_smHide{
         display: none;
     }
+
+    .showOnlyLg{
+        display: none;
+    }
 }
 
 @media(min-width: 960px) {

@@ -40,7 +40,7 @@ class AdminDashboardPage extends Component {
           <Grid item xs={8}>
             <Typography variant="h4">Admin Dashboard</Typography>
           </Grid>
-          <Grid item xs={4} >
+          <Grid item xs={4} className="showOnlyLg">
             <Typography component="div" align="right">
             <Button onClick={this.csvExport} color="primary" variant="outlined"><SaveAlt className="space-right"></SaveAlt>Export</Button>
             </Typography>
