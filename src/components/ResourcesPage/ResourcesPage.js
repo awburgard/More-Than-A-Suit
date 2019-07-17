@@ -14,11 +14,6 @@ class ResourcesPage extends Component {
         type: 'GET_NEED_RESOURCES',
         payload: { categories_name: this.props.store.setReview.need.toLowerCase() }
       })
-    } else if ((this.props.store.setReview.need) === 'other') {
-      this.props.dispatch({
-        type: 'GET_NEED_RESOURCES',
-        payload: { categories_name: 'other' }
-      })
     } else {
       this.props.dispatch({
         type: 'GET_NEED_RESOURCES',
