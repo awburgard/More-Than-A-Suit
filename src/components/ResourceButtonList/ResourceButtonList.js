@@ -18,9 +18,20 @@ class ResourcesButtonList extends Component {
 
     componentDidMount() {
         let need = this.props.store.setReview.need;
-        if (need != null) {
+        // looping through the array of buttons
+        const allTabVals = buttons.map((indvTab) => {
+            return indvTab.value;
+        });
+        // if need is not null and the index of the button array does not equal -1 (which would be outside of the array)
+        // set the tab to the value of the need
+        if (need != null && allTabVals.indexOf(need.toLowerCase()) !== -1) {
             this.setState({
                 tabVal: need.toLowerCase(),
+            })
+        // if need value is none of the above, set the tab to 'other'
+        } else if (need != null) {
+            this.setState({
+                tabVal: 'other',
             })
         }
     }

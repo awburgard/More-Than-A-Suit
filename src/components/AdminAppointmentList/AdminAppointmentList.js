@@ -14,6 +14,7 @@ class AdminAppointmentList extends Component {
     const appointmentElement = this.props.appointments.map((appointment, index) => {
       return <AdminAppointmentItem appointment={appointment} index={index} key={index} archived={this.props.archived} />
     })
+
     return (
       <Paper className="gridTable" elevation={5}>
         <div className="gridTable-row gridTable-row_smHide">
