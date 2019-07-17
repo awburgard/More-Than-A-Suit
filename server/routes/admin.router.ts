@@ -79,16 +79,33 @@ router.post('/', (req: Request, res: Response): void => {
     if (req.isAuthenticated()) {
         pool.query(queryString, [req.body.title, req.body.description, req.body.link])
             .then((response: QueryResult): void => {
-                queryString = `INSERT INTO "resources_categories" (resources_id, categories_id)
-                            VALUES ($1, $2);`;
-                pool.query(queryString, [response.rows[0].id, req.body.category])
-                    .then((response: QueryResult): void => {
-                        res.sendStatus(200);
+                queryString = `SELECT * FROM "categories"
+                                WHERE "category_name" = 'other';`;
+
+                pool.query(queryString)
+                    .then((responseCat: QueryResult) => {
+                        let defaultCategory: string = responseCat.rows[0].id;
+
+                        queryString = `INSERT INTO "resources_categories" (resources_id, categories_id)
+                                    VALUES ($1, $2);`;
+
+                        if(req.body.category !== 'default'){
+                            defaultCategory = req.body.category;
+                        }
+
+                        pool.query(queryString, [response.rows[0].id, defaultCategory])
+                            .then((response: QueryResult): void => {
+                                res.sendStatus(200);
+                            })
+                            .catch((err: QueryResult): void => {
+                                console.log(`Error adding resource: ${err}`);
+                                res.sendStatus(500);
+                            })
                     })
-                    .catch((err: QueryResult): void => {
+                    .catch((err: QueryResult) => {
                         console.log(`Error adding resource: ${err}`);
                         res.sendStatus(500);
-                    })
+                    });
             })
             .catch((err: QueryResult): void => {
                 console.log(`Error adding resource ${err}`);
