@@ -56,7 +56,7 @@ class Measurements extends Component {
     }
 
     render() {
-        const measurementInfo = (
+          const measurementInfo = (
             <Container className="behindPaper" maxWidth="xs">
                 <Paper elevation={5}>
                 <Box m={3} p={2}>
@@ -73,7 +73,6 @@ class Measurements extends Component {
                             label="Height"
                             value={this.state.stats.height_feet}
                             onChange={this.onFormChange('height_feet')}
-                            InputProps={{ inputProps: { min: 0, max: 10 } }}
                             autoFocus={true}
                             margin="normal"
                             InputProps={{
