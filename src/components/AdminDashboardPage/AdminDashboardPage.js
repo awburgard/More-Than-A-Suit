@@ -6,8 +6,22 @@ import AdminAppointment from '../AdminAppointment/AdminAppointment';
 import moment from 'moment';
 import { Typography, Box, Grid, Button } from '@material-ui/core';
 import SaveAlt from '@material-ui/icons/SaveAlt';
+import downloadCsv from 'download-csv';
+
 
 class AdminDashboardPage extends Component {
+  csvExport = () => {
+
+      const columns = {
+        id: 'id',
+        first_name: 'first_name',
+        last_name: 'last_name',
+        zip: 'zip',
+        phone: 'phone',
+      };
+
+    downloadCsv(this.props.store.appointmentAdmin, columns);
+  }
   render() {
     let appointments = [];
     let archivedAppointments = [];
@@ -26,9 +40,9 @@ class AdminDashboardPage extends Component {
           <Grid item xs={8}>
             <Typography variant="h4">Admin Dashboard</Typography>
           </Grid>
-          <Grid item xs={4} >
+          <Grid item xs={4} className="showOnlyLg">
             <Typography component="div" align="right">
-            <Button color="primary" variant="outlined"><SaveAlt className="space-right"></SaveAlt>Export</Button>
+            <Button onClick={this.csvExport} color="primary" variant="outlined"><SaveAlt className="space-right"></SaveAlt>Export</Button>
             </Typography>
           </Grid>
         </Grid>

@@ -13,23 +13,25 @@ class AdminDeleteButton extends Component {
       type: 'warning',
       showConfirmButton: true,
       showCancelButton: true,
-      confirmButtonText: "Yeah!",
-      cancelButtonText: "No!",
-      dangerMode: true,
+      confirmButtonText: "Yeah, delete it!",
+      cancelButtonText: "No, cancel it!",
+      allowOutsideClick: false,
     })
-      .then((willDelete) => {
-        if (willDelete) {
+      .then((result) => {
+        if (result.value) {
           this.props.dispatch({
             type: 'DELETE_RESOURCE',
             payload: {
               id: this.props.resources.resources_id,
             }
           })
-          Swal.fire('Poof! Your resource has been removed!', {
+          Swal.fire({
+            title: 'Poof! Your resource has been removed!',
             type: 'success',
           });
         } else {
-          Swal.fire('Your resources is safe!', {
+          Swal.fire( {
+            title:'Your resource is safe!',
             type: 'info',
           })
         }

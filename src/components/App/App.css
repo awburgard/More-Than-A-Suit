@@ -198,3 +198,48 @@ Vertical Rhythm
 tbody tr.MuiTableRow-root:nth-child(odd){
     background-color: #f7f7f7;
 }
+
+.gridTable{
+    border: 1px solid rgba(224, 224, 224, 1);
+    background-color: white;
+}
+
+.gridTable-row{
+    border-top: 1px solid rgba(224, 224, 224, 1);
+    padding: 15px;
+}
+
+.gridTable-row:nth-child(even){
+    background-color: #f7f7f7;
+}
+
+.breakWord{
+    overflow-wrap: break-word;
+}
+
+@media(min-width: 600px) and (max-width: 960px){
+    .gridTable-row-col {
+        border-left: 1px solid rgba(224, 224, 224, 1);
+        text-align: center;
+    }
+}
+
+@media(max-width: 960px){
+    .gridTable-row_smHide{
+        display: none;
+    }
+
+    .showOnlyLg{
+        display: none;
+    }
+}
+
+@media(min-width: 960px) {
+    .showOnlyMobile {
+        display: none;
+    }
+
+    .gridTable-row {
+        padding: 5px;
+    }
+}
