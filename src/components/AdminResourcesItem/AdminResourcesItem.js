@@ -34,9 +34,9 @@ class AdminResourcesItem extends Component {
     }
 
     return (
-      <>
+      <div className="gridTable-row">
         {conditionalElement}
-      </>
+      </div>
     );
   }
 }

@@ -213,6 +213,10 @@ tbody tr.MuiTableRow-root:nth-child(odd){
     background-color: #f7f7f7;
 }
 
+.breakWord{
+    overflow-wrap: break-word;
+}
+
 @media(min-width: 600px) and (max-width: 960px){
     .gridTable-row-col {
         border-left: 1px solid rgba(224, 224, 224, 1);
