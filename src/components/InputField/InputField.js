@@ -164,36 +164,45 @@ class InputField extends Component {
                     margin="normal"
                     fullWidth={true}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">ft</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">ft.</InputAdornment>,
                     }}
                 />
                 </Grid>
                 <Grid item xs={6} md={6}>
                 <TextField
+                    type="number"
                     label=" "
                     value={this.state.height_inches}
                     onChange={this.handleInputChangeFor('height_inches')}
                     margin="normal"
                     fullWidth={true}
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">in</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">in.</InputAdornment>,
                     }}
                 />
                 </Grid> <br />
                 <Grid item xs={12} md={12}>
                 <TextField
+                    type="number"
                     label="Weight"
                     value={this.state.weight}
                     onChange={this.handleInputChangeFor('weight')}
                     margin="normal"
                     fullWidth={true}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">lbs.</InputAdornment>,
+                    }}
                 /> <br />
                 <TextField
+                    type="number"
                     label="Waist"
                     value={this.state.waist}
                     onChange={this.handleInputChangeFor('waist')}
                     margin="normal"
                     fullWidth={true}
+                    InputProps={{
+                        endAdornment: <InputAdornment position="end">in.</InputAdornment>,
+                    }}
                 /> <br />
             <Typography variant="h6" component="h4">
                 Occasion
