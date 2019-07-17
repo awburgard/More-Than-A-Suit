@@ -157,6 +157,7 @@ class InputField extends Component {
                 </Grid>
                 <Grid item xs={6} md={6}>
                 <TextField
+                    type="number"
                     label="Height"
                     value={this.state.height_feet}
                     onChange={this.handleInputChangeFor('height_feet')}
