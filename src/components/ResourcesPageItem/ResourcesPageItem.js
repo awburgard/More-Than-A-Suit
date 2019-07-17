@@ -11,7 +11,7 @@ class ResourcesPageItem extends Component {
       <Grid container spacing={3}>
         <Grid item xs={12} md={6} lg={12} >
           <Typography gutterBottom={true}>
-            <Link underline="none" href={this.props.resource.link}>{this.props.resource.title}</Link> <br />
+            <Link underline="none" href={this.props.resource.link} target="_blank" rel="noopener noreferrer">{this.props.resource.title}</Link> <br />
             {this.props.resource.description}
           </Typography>
         </Grid>
