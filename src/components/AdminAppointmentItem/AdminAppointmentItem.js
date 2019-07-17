@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import moment from "moment";
 import { Grid, Typography } from '@material-ui/core';
-import { withStyles, createStyles, Theme } from "@material-ui/core/styles";
+import { withStyles, createStyles } from "@material-ui/core/styles";
 
-const styles = (theme: Theme) => createStyles({
+const styles = (theme) => createStyles({
   caption: {
     [theme.breakpoints.between('xs', 'sm')]: {
       fontSize: '1.0rem'
