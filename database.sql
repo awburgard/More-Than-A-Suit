@@ -40,3 +40,27 @@ CREATE TABLE "resources_categories" (
     "resources_id" INT REFERENCES "resources",   
     "categories_id" INT REFERENCES "categories"
 );
+
+INSERT INTO "categories" ("id", "category_name") 
+VALUES ('1', 'job'), ('2', 'funeral'), ('3', 'court'),('4', 'other');
+
+INSERT INTO "resources" ("id", "title" , "description" , "link")
+VALUES ('1', 'StartLand', 'Job Boards', 'https://www.startlandnews.com/jobs/');
+
+INSERT INTO "resources" ("id", "title", "description", "link")
+VALUES ('2', 'KCJOBS.com', 'Job Boards', 'https://www.kcjobs.com/');
+
+INSERT INTO "resources" ("id", "title", "description", "link")
+VALUES ('3', 'Full Employment Council', 'Job Services', 'https://www.feckc.org/');
+
+INSERT INTO "resources" ("id", "title", "description", "link")
+VALUES ('4', 'Kansas City Job Seekers', 'Job Services', 'https://www.kansascityjobseekers.com/');
+
+INSERT INTO "resources" ("id", "title", "description", "link")
+VALUES ('5', 'Indeed Career Guide', 'Resume Resources', 'https://www.indeed.com/career-advice/resumes-cover-letters/10-resume-writing-tips');
+
+INSERT INTO "resources" ("id", "title", "description", "link")
+VALUES ('6', 'The Muse', 'Resume Resources', 'https://www.themuse.com/advice/43-resume-tips-that-will-help-you-get-hired');
+
+INSERT INTO "resources_categories" ("id", "resources_id", "categories_id")
+VALUES ('1', '1', '1'), ('2', '2', '1'), ('3', '3', '1'), ('4', '4', '1'), ('5', '5', '1'), ('6', '6', '1');
