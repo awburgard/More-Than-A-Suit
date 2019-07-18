@@ -64,6 +64,20 @@ Keep in mind that once you using the login route, Postman will manage your sessi
 After running the login route above, you can try any other route you've created that requires a logged in user!
 
 
+## Usage
+
+1. Click 'Suit Up' button to begin.
+2. User enters their contact information. The 'First Name', 'Last Name', 'Zip', and 'Phone Number' are required to move on. This information is sent right away to David's dashboard so in the case of the user exiting the application before final confirmation, David can contact the user by phone.
+3. User enters their measurements. This information allows David to approximate suit sizes and check against his inventory.
+4. User selects what occasion they need the suit for. The selection better helps David decide what garments are best for the specific occasion.
+5. User meets with David in-person or a phone call. They will select a date, click on the digital time to change the time, and an analog clock will appear. First selection will be the hour, second selection will be the minute, and third selection will be AM or PM. Once the user is satisfied with the time, they can click 'Enter' or click outside of the analog clock and their appointment time will appear in digital format. User will confirm.
+6. User can review and edit information they have entered. If they need to change their appointment, they must email David to do so (noted in 'Edit' side of 'Confirmation').
+7. User selects 'Confirm' and receives a text message reminding them of their appointment with David.
+8. User will be brought to the 'Resources' page which will display the resources pertinent to their occasion they selected. If no selection was made, resources related to 'Job' will display automatically. The user can explore all the resources David has pooled by clicking on the different tabs. These resources are always available to the user
+
+
+
+
 ## Production Build
 
 Before pushing to Heroku, run `npm run build` in terminal. This will create a build folder that contains the code Heroku will be pointed at. You can test this build by typing `npm start`. Keep in mind that `npm start` will let you preview the production build but will **not** auto update.
