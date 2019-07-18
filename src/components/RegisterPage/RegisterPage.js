@@ -44,14 +44,18 @@ class RegisterPage extends Component {
   } // end registerUser
 
   handleInputChangeFor = propertyName => (event) => {
-    if (propertyName === 'passwordConfirmation' && this.state[propertyName] !== this.state.password) {
-      this.setState({
-        passwordError: 'Passwords do not match!'
-      })
-    } else {
-      this.setState({
-        passwordError: null,
-      })
+    if (propertyName === 'passwordConfirmation') {
+      if (event.target.value !== this.state.password) {
+        this.setState({
+          passwordError: 'Passwords do not match!'
+        })
+        this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR_CONFIRMATION'});
+      } else {
+        this.setState({
+          passwordError: null,
+        })
+        this.props.dispatch({type: 'CLEAR_REGISTRATION_ERROR'});
+      }
     }
     this.setState({
       [propertyName]: event.target.value,

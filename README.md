@@ -1,23 +1,24 @@
-# Prime Project
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+## Description
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+Duration: 2 Week Sprint
 
-## Download (Don't Clone) This Repository
+More than a Suit is a form filling and scheduling app created for the non-profit organization, Suits for Hire. The app helps gentlemen in need of suits find the appropriate attire for various occasions such as job interviews, funerals and court. Additional resources are provided on the app for the gentlemen; resources such as job skill training, legal aid, mental health and etc. The Kansas City Metro is the target community of the app and allows gentlemen to readily access the Suit for Hire calendar to schedule fittings.
 
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
+The administration side of the app allows the administrator from Suit for Hire to edit resources, view scheduled fittings and to download appointment data in a csv file. All appointments past current date is automatically archived in the database while current schedules are displayed to ensure the most up to date schedule for the administer.
 
-## Prerequisites
+To see the fully functional site, please visit: {PUT A LINK HERE}
+![MIT LICENSE](https://img.shields.io/github/license/awburgard/more_than_a_suit.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/awburgard/more_than_a_suit.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/awburgard/more_than_a_suit.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/awburgard/more_than_a_suit.svg?style=social)
 
-Before you get started, make sure you have the following software installed on your computer:
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-- [Node.js](https://nodejs.org/en/)
-- [PostrgeSQL](https://www.postgresql.org/)
-- [Nodemon](https://nodemon.io/)
+## Acknowledgement
+Thanks to [Prime Digital Academy](www.primeacademy.io) in Kansas City who equipped and helped us to make this application a reality.
 
-## Create database and table
+Thanks to [Suits for Hire](https://suitsforhire.org/) and David Garcia for giving us the opportunity to build More Than A Suit.
 
 Create a new database called `suitup` and create a tables from database.sql file.
 
@@ -120,3 +121,5 @@ This code is also heavily commented. We recommend reading through the comments, 
 ## Update Documentation
 
 Customize this ReadMe and the code comments in this project to read less like a starter repo and more like a project. Here is an example: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
+## Support
+If you have suggestions or issues, please email Austin Burgard [awburgard@gmail.com](awburgard@gmail.com), Devon Mitchell [devonamitchell10@gmail.com](devonamitchell10@gmail.com), Isaac Morerod [idm9191@gmail.com](idm9191@gmail.com), or Konou Vang [konouvang@gmail.com](konouvang@gmail.com).
