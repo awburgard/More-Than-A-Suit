@@ -73,9 +73,7 @@ After running the login route above, you can try any other route you've created 
 5. User meets with David in-person or a phone call. They will select a date, click on the digital time to change the time, and an analog clock will appear. First selection will be the hour, second selection will be the minute, and third selection will be AM or PM. Once the user is satisfied with the time, they can click 'Enter' or click outside of the analog clock and their appointment time will appear in digital format. User will confirm.
 6. User can review and edit information they have entered. If they need to change their appointment, they must email David to do so (noted in 'Edit' side of 'Confirmation').
 7. User selects 'Confirm' and receives a text message reminding them of their appointment with David.
-8. User will be brought to the 'Resources' page which will display the resources pertinent to their occasion they selected. If no selection was made, resources related to 'Job' will display automatically. The user can explore all the resources David has pooled by clicking on the different tabs. These resources are always available to the user
-
-
+8. User will be brought to the 'Resources' page which will display the resources pertinent to their occasion they selected. If no selection was made, resources related to 'Job' will display automatically. The user can explore all the resources David has pooled by clicking on the different tabs. Numbers two through seven are not required by the user to view these resources as they are readily available for exploration.
 
 
 ## Production Build
