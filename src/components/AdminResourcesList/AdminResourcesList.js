@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStateToProps from '../../redux/mapRedux/mapStateToProps';
 import AdminResourcesItem from '../AdminResourcesItem/AdminResourcesItem';
 import AdminAddResource from '../AdminAddResource/AdminAddResource';
-import { Button, Table, Paper, TableHead, TableCell, TableRow, TableBody, Box } from '@material-ui/core';
+import { Button, Grid, Paper, Box, Typography } from '@material-ui/core';
 
 class AdminResourcesList extends Component {
   state = {
@@ -50,30 +50,32 @@ class AdminResourcesList extends Component {
       return <AdminResourcesItem resources={resources} key={index} />
     })
     return (
-      <div>
-        <Paper elevation={5}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell align="left" component="th" scope="row">Title</TableCell>
-                <TableCell align="left" component="th" scope="row">Description</TableCell>
-                <TableCell align="left" component="th" scope="row">Link</TableCell>
-                <TableCell align="left" component="th" scope="row">Category</TableCell>
-                <TableCell align="left" component="th" scope="row"></TableCell>
-                <TableCell align="left" component="th" scope="row"></TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {resources}
-            </TableBody>
-          </Table>
-        </Paper>
-        <Box marginTop={2}>
+      <>
+      <Paper className="gridTable" elevation={5}>
+          <div className="gridTable-row gridTable-row_smHide">
+            <Grid container spacing={2}>
+              <Grid item md={2}>
+                <Typography>Title</Typography>
+              </Grid>
+              <Grid item md={2}>
+                <Typography>Description</Typography>
+              </Grid>
+              <Grid item md={3}>
+                <Typography>Link</Typography>
+              </Grid>
+              <Grid item md={1}>
+                <Typography>Category</Typography>
+              </Grid>
+            </Grid>
+          </div>
+          {resources}
+      </Paper>
+      <Box marginTop={2}>
         {conditionalAddField}
         {conditionalAddButton}
-        </Box>
-      </div>
-    );
+      </Box>
+      </>
+        );
   }
 }
 

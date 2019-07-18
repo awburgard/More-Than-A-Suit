@@ -56,7 +56,7 @@ class Measurements extends Component {
     }
 
     render() {
-        const measurementInfo = (
+          const measurementInfo = (
             <Container className="behindPaper" maxWidth="xs">
                 <Paper elevation={5}>
                 <Box m={3} p={2}>
@@ -69,6 +69,7 @@ class Measurements extends Component {
                     <Grid container spacing={2}>
                     <Grid item xs={6} md={6}>
                     <TextField
+                            type="number"
                             label="Height"
                             value={this.state.stats.height_feet}
                             onChange={this.onFormChange('height_feet')}
@@ -83,6 +84,7 @@ class Measurements extends Component {
                         <Grid item xs={6} md={6}>
                     <TextField
                         label=" "
+                        type="number"
                         value={this.state.stats.height_inches}
                         onChange={this.onFormChange('height_inches')}
                         margin="normal"
@@ -95,6 +97,7 @@ class Measurements extends Component {
                     <Grid item xs={12} md={12}>
                     <TextField
                         label="Weight"
+                        type="number"
                         value={this.state.stats.weight}
                         onChange={this.onFormChange('weight')}
                         margin="normal"
@@ -107,6 +110,7 @@ class Measurements extends Component {
                     <Grid item xs={12} md={12}>
                     <TextField
                         label="Waist"
+                        type="number"
                         value={this.state.stats.waist}
                         onChange={this.onFormChange('waist')}
                         margin="normal"

@@ -37,6 +37,7 @@ class AppointmentPage extends Component {
             type: 'UPDATE_APPOINTMENT_TYPE'
         })
     }
+
     //TO DO: DELETE LATER
     goToConfirmation = (event) => {
         this.props.history.push('/confirmation');
