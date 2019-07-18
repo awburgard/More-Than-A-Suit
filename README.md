@@ -1,3 +1,8 @@
+![MIT LICENSE](https://img.shields.io/github/license/awburgard/more_than_a_suit.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/awburgard/more_than_a_suit.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/awburgard/more_than_a_suit.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/awburgard/more_than_a_suit.svg?style=social)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
 
