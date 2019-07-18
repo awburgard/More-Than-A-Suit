@@ -7,6 +7,10 @@ More than a Suit is a form filling and scheduling app created for the non-profit
 The administration side of the app allows the administrator from Suit for Hire to edit resources, view scheduled fittings and to download appointment data in a csv file. All appointments past current date is automatically archived in the database while current schedules are displayed to ensure the most up to date schedule for the administer.
 
 To see the fully functional site, please visit: {PUT A LINK HERE}
+![MIT LICENSE](https://img.shields.io/github/license/awburgard/more_than_a_suit.svg?style=flat-square)
+![REPO SIZE](https://img.shields.io/github/repo-size/awburgard/more_than_a_suit.svg?style=flat-square)
+![TOP_LANGUAGE](https://img.shields.io/github/languages/top/awburgard/more_than_a_suit.svg?style=flat-square)
+![FORKS](https://img.shields.io/github/forks/awburgard/more_than_a_suit.svg?style=social)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
