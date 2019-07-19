@@ -10,7 +10,7 @@ More than a Suit is a form filling and scheduling app created for the non-profit
 
 The administration side of the app allows the administrator from SFH to edit resources, view scheduled fittings and to download appointment data in a csv file. All appointments past current date is automatically archived in the database while current schedules are displayed to ensure the most up to date schedule for the administer.
 
-To see the fully functional site, please visit: {PUT A LINK HERE}
+To see the fully functional site, please visit: [More Than A Suit](https://more-than-a-suit.herokuapp.com/#/)
 
 
 ## Installation
